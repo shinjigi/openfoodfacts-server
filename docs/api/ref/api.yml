@@ -203,7 +203,8 @@ paths:
                     type: string
                     example: front_fr
                     description: image field that was unselected
-
+      tags:
+        - Auxiliary Operations
   /cgi/product_jqm2.pl:
     post:
       summary: Add or Edit A Product
@@ -686,5 +687,7 @@ tags:
     description: Endpoints that allow reading or retrieving data from the Open Food Facts database.
   - name: Write Requests
     description: Endpoints that allow writing or modifying data in the Open Food Facts database.
+  - name: Auxiliary Operations
+    description: Non-idempotent requests that do not require authentication
   - name: Authentication
     description: Endpoints used to retrieve authentication info.
