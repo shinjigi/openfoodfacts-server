@@ -45,3 +45,5 @@ properties:
     type: integer
   version:
     type: string
+  warning:
+    type: string

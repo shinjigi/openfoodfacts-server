@@ -29,7 +29,11 @@ components:
           #  - type: "boolean"
           #  - type: "string"
           #    enum: ["true", "false"]
-          type: "null"
+          # type: "null" # it raises errors on generator
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"
@@ -54,13 +58,11 @@ components:
             full:
               $ref: "#/components/schemas/ImageSize"
         white_magic:
-          #TODO: should be replaced by something like this once full supported by generator
-          #oneOf:
-          #  - type: "null"
-          #  - type: "boolean"
-          #  - type: "string"
-          #    enum: ["true", "false"]
-          type: "null"
+          # type: 'null' # it raises errors on generator
+          type:
+            - "string"
+            - "boolean"
+            - "null"
           examples:
             - null
             - "false"

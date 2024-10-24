@@ -25,10 +25,16 @@ properties:
                   title: adjustments_origin_of_ingredient_aggregated
                   type: object
                   properties:
+                    epi_score:
+                      type: string
                     origin:
                       type: string
                     percent:
                       type: integer
+                    transportation_score:
+                      type: 
+                        - 'null'
+                        - 'integer'
               epi_score:
                 type: integer
               epi_value:
@@ -41,14 +47,15 @@ properties:
                 type: array
                 items:
                   type: string
+              transportation_score:
+                type: integer
               transportation_scores:
                 type: object
-                properties:
-                  world:
-                    type: integer
                 patternProperties:
                   (?<country_code>\w\w):
                     type: integer
+              transportation_value:
+                type: integer
               transportation_values:
                 type: object
                 properties:
@@ -58,6 +65,8 @@ properties:
                   (?<country_code>\w\w):
                     type: integer
 
+              value:
+                type: integer
               values:
                 type: object
                 properties:
@@ -98,7 +107,10 @@ properties:
             properties:
               labels:
                 type: array
-                example: "vegan, fat free, Kosher"
+                examples: 
+                  - - vegan
+                    - fat free
+                    - Kosher]
                 items:
                   type: string
               value:
@@ -121,6 +133,8 @@ properties:
         patternProperties:
           (?<country_code>\w\w):
             type: string
+      ecoscore_not_applicable_for_category:
+        type: string
       missing:
         type: object
         properties:

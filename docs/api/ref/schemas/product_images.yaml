@@ -1,5 +1,5 @@
 type: object
-title: Product-Images
+title: product_images
 description: |
   Information about Images of a product.
 
@@ -17,10 +17,13 @@ properties:
     type: object
     title: product_images_properties
     properties:
-      1:
-        $ref: ./image.yaml
       front:
         $ref: "./image_role.yaml#/components/schemas/ImageRole"
+    additionalProperties:
+      $ref: "./image.yaml#/components/schemas/Image"
+    propertyNames:
+      type: integer
+
     patternProperties:
       '(?<imgid>\d+)':
         description: |
