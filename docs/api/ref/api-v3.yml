@@ -37,7 +37,8 @@ paths:
           explode: false
           schema:
             type: string
-            example: "3017620422003"
+            examples:
+              - "3017620422003"
         - $ref: "#/components/parameters/cc"
         - $ref: "#/components/parameters/lc"
         - schema:
@@ -60,7 +61,8 @@ paths:
             Defaults to "all" for READ requests. The "all" value can also be combined with fields like "attribute_groups" and "knowledge_panels".'
         - schema:
             type: string
-            example: "health_card, environment_card"
+            examples:
+              - "health_card, environment_card"
           required: false
           in: query
           name: knowledge_panels_included
@@ -68,7 +70,8 @@ paths:
             When knowledge_panels are requested, you can specify which panels should be in the response. All the others will be excluded.
         - schema:
             type: string
-            example: "health_card, environment_card"
+            examples:
+              - "health_card, environment_card"
           required: false
           in: query
           name: knowledge_panels_excluded
@@ -286,19 +289,22 @@ paths:
         - $ref: "#/components/parameters/lc"
         - schema:
             type: string
-            example: pe
+            examples:
+              - pe
           in: query
           name: string
           description: "Optional string used to filter suggestions (useful for autocomplete).  If passed, suggestions starting with the string will be returned first, followed by suggestions matching the string at the beginning of a word, and suggestions matching the string inside a word."
         - schema:
             type: string
-            example: yougurts
+            examples:
+              - yougurts
           in: query
           name: categories
           description: 'Comma separated list of categories tags (e.g. "en:fats,en:unsalted-butters" or categories names in the language indicated by the "lc" field (e.g. "graisses, beurres salés" in French)'
         - schema:
             type: string
-            example: bottle
+            examples:
+              - bottle
           in: query
           name: shape
           description: 'Shape of packaging component (tag identified in the packaging_shapes taxonomy, or plain text tag name in the language indicated by the "lc" field)'
@@ -323,7 +329,8 @@ paths:
       - $ref: "#/components/parameters/lc"
       - schema:
           type: string
-          example: categories
+          examples:
+            - categories
         name: tagtype
         in: path
         required: true
@@ -417,7 +424,8 @@ components:
     cc:
       schema:
         type: string
-        example: "us"
+        examples:
+          - "us"
       in: query
       name: cc
       required: false
@@ -425,7 +433,8 @@ components:
     lc:
       schema:
         type: string
-        example: "fr"
+        examples:
+          - "fr"
       in: query
       name: lc
       required: false
@@ -433,7 +442,8 @@ components:
     code:
       schema:
         type: string
-        example: "4251105501381"
+        examples:
+          - "4251105501381"
       in: query
       name: code
       description: Barcode of the product

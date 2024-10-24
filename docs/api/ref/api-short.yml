@@ -40,7 +40,8 @@ paths:
           explode: false
           schema:
             type: string
-            example: '3017620422003'
+            examples:
+              - '3017620422003'
         - $ref: '#/components/parameters/fields'
       responses:
         '200':
