@@ -26,6 +26,13 @@ properties:
     description: |
       Legal name of the product as regulated
       by the European authorities.
+  _id:
+    type: string
+    description: id in database of the product, this normally is the barcode
+  _keywords:
+    type: array
+    items:
+      type: string
   id:
     description: |
       internal identifier for the product, usually set to the value of `code`,
@@ -72,14 +79,12 @@ properties:
     description: |
       The size in g or ml for the whole product.
       It's a normalized version of the quantity field.
-    examples:
-      - "500"
+    example: "500"
   product_quantity_unit:
     type: string
     description: |
       The unit (either g or ml) for the correponding product_quantity.
-    examples:
-      - "g"
+    example: "g"
   quantity:
     type: string
     description: |

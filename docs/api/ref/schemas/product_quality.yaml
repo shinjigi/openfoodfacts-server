@@ -30,6 +30,10 @@ properties:
     type: array
     items:
       type: string
+  debug_param_sorted_langs:
+    type: array
+    items:
+      type: string
   last_check_dates_tags:
     type: array
     items:

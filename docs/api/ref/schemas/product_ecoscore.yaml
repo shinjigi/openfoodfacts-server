@@ -83,6 +83,17 @@ properties:
             properties:
               non_recyclable_and_non_biodegradable_materials:
                 type: integer
+              # packagings:
+              #   type: array
+              #   items:
+              #     allOf:
+              #       - $ref: './packagings/packaging_component.yaml'
+              #       - type: object
+              #         properties:
+              #           ecoscore_material_score:
+              #             type: integer
+              #           ecoscore_shape_ratio:
+              #             type: integer
               packagings:
                 type: array
                 items:
@@ -97,6 +108,24 @@ properties:
                       type: string
                     shape:
                       type: string
+                    number_of_units:
+                      type: integer
+                      examples: [1]
+                    quantity_per_unit:
+                      type: string
+                      examples: ["33 cL"]
+                    quantity_per_unit_unit:
+                      type: string
+                      examples: ["cl"]
+                    quantity_per_unit_value: 
+                      type: number
+                      examples: [33]
+                    recycling: 
+                      type: string
+                      examples: ["en:recycle-in-sorting-bin"]
+                    weight_measured: 
+                      type: number
+                      examples: [12.08]
               score:
                 type: integer
               value:
