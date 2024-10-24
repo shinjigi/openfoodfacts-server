@@ -38,6 +38,14 @@ properties:
         type: array
         items:
           type: string
+      "en:maybe-vegan":
+        type: array
+        items:
+          type: string
+      "en:maybe-vegetarian":
+        type: array
+        items:
+          type: string
   ingredients_analysis_tags:
     type: array
     items:
@@ -85,6 +93,12 @@ properties:
       for the product main language (`lang`), `ingredients_lc=lang`, otherwise we look at
       `ingredients_text` fields for other languages and set `ingredients_lc` to the first
       non-empty `ingredient_text`.
+  ingredients_text_it:
+    type: string
+    description: "Ingredients text in Italian"
+  ingredients_text_en:
+    type: string
+    description: "Ingredients text in English"
   ingredients_text:
     type: string
     description: |

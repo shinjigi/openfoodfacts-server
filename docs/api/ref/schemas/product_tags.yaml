@@ -20,6 +20,8 @@ properties:
   categories_lc:
     type: string
     description: Categories language code
+  categories_old:
+    type: string
   categories_tags:
     type: array
     items:
@@ -45,6 +47,8 @@ properties:
     type: string
     description: |
       List of countries where the product is sold.
+  countries_beforescanbot:
+    type: string
   countries_hierarchy:
     type: array
     items:
@@ -97,8 +101,10 @@ properties:
     type: array
     items:
       type: string
-    example: ["2016-03-11", "2016-03", "2016"]
-
+    examples:
+      - - "2016-03-11"
+        - "2016-03"
+        - "2016"
   manufacturing_places:
     type: string
     description: |
