@@ -3,7 +3,9 @@ title: add_or_edit_a_product_response
 properties:
   status_verbose:
     type: string
-    example: fields saved
+    examples:
+      - fields saved
   status:
     type: integer
-    example: 1
+    examples:
+      - 1

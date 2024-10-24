@@ -9,40 +9,52 @@ properties:
       properties:
         url:
           type: string
-          example: /product/3017620422003/nutella-ferrero
+          examples:
+            - /product/3017620422003/nutella-ferrero
         filename:
           type: string
-          example: ""
+          examples:
+            - ""
         name:
           type: string
-          example: Nutella - Ferrero - 400g
+          examples:
+            - Nutella - Ferrero - 400g
         thumbnailUrl:
           type: string
-          example: /images/products/301/762/042/2003/123.100.jpg
+          examples:
+            - /images/products/301/762/042/2003/123.100.jpg
         code:
           type: string
-          example: "3017620422003"
+          examples:
+            - "3017620422003"
   image:
     type: object
     properties:
       thumb_url:
         type: string
-        example: 123.100.jpg
+        examples:
+          - 123.100.jpg
       imgid:
         type: integer
-        example: 123
+        examples:
+          - 123
       crop_url:
         type: string
-        example: 123.400.jpg
+        examples:
+          - 123.400.jpg
   imgid:
     type: integer
-    example: 123
+    examples:
+      - 123
   status:
     type: string
-    example: status ok
+    examples:
+      - status ok
   imagefield:
     type: string
-    example: front_en
+    examples:
+      - front_en
   code:
     type: string
-    example: "3017620422003"
+    examples:
+      - "3017620422003"

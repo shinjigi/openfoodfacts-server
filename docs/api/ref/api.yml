@@ -47,7 +47,8 @@ paths:
           explode: false
           schema:
             type: string
-            example: "3017620422003"
+            examples:
+              - "3017620422003"
         - name: fields
           in: query
           description: Specific fields to return. Use 'knowledge_panels' for Knowledge Panels only.
@@ -194,14 +195,17 @@ paths:
                   status:
                     type: string
                     description: status of the unselect operation
-                    example: status ok
+                    examples:
+                      - status ok
                   status_code:
                     type: number
                     description: status code of the operation
-                    example: 0
+                    examples:
+                      - 0
                   imagefield:
                     type: string
-                    example: front_fr
+                    examples:
+                      - front_fr
                     description: image field that was unselected
       tags:
         - Auxiliary Operations
@@ -541,14 +545,16 @@ components:
     id:
       schema:
         type: string
-        example: ingredients_en
+        examples:
+          - ingredients_en
       in: query
       name: id
       required: true
     cc:
       schema:
         type: string
-        example: "us"
+        examples:
+          - "us"
       in: query
       name: cc
       required: false
@@ -556,7 +562,8 @@ components:
     lc:
       schema:
         type: string
-        example: "fr"
+        examples:
+          - "fr"
       in: query
       name: lc
       required: false
@@ -568,7 +575,8 @@ components:
     code:
       schema:
         type: string
-        example: "4251105501381"
+        examples:
+          - "4251105501381"
       in: query
       name: code
       description: Barcode of the product
@@ -576,35 +584,40 @@ components:
     process_image:
       schema:
         type: string
-        example: "1"
+        examples:
+          - "1"
       in: query
       name: process_image
       required: true
     ocr_engine:
       schema:
         type: string
-        example: google_cloud_vision
+        examples:
+          - google_cloud_vision
       in: query
       name: ocr_engine
       required: true
     imgid:
       schema:
         type: string
-        example: "1"
+        examples:
+          - "1"
       in: query
       name: imgid
       required: true
     angle:
       schema:
         type: string
-        example: "90"
+        examples:
+          - "90"
       in: query
       name: angle
       required: true
     page:
       schema:
         type: integer
-        example: 24
+        examples:
+          - 24
       in: query
       name: page
       description: |
@@ -612,7 +625,8 @@ components:
     page_size:
       schema:
         type: integer
-        example: 24
+        examples:
+          - 24
       in: query
       name: page_size
       description: |
@@ -620,7 +634,8 @@ components:
     sort_by:
       schema:
         type: string
-        example: product_name
+        examples:
+          - product_name
         enum:
           - product_name
           - last_modified_t
@@ -646,7 +661,8 @@ components:
     fields:
       schema:
         type: string
-        example: "code,product_name"
+        examples:
+          - "code,product_name"
       in: query
       name: fields
       description: |
@@ -655,7 +671,8 @@ components:
     knowledge_panels_included:
       schema:
         type: string
-        example: "heatlh_card, environment_card"
+        examples:
+          - "heatlh_card, environment_card"
       in: query
       name: knowledge_panels_included
       description: |
@@ -663,7 +680,8 @@ components:
     knowledge_panels_excluded:
       schema:
         type: string
-        example: "heatlh_card, environment_card"
+        examples:
+          - "heatlh_card, environment_card"
       in: query
       name: knowledge_panels_excluded
       description: |
@@ -672,13 +690,15 @@ components:
     tagtype:
       schema:
         type: string
-        example: additives
+        examples:
+          - additives
       in: query
       name: tagtype
     term:
       schema:
         type: string
-        example: f
+        examples:
+          - f
       in: query
       name: term
 

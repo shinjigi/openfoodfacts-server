@@ -36,16 +36,20 @@ properties:
   source_url:
     type: string
     description: Link to the source
-    example: https://en.wikipedia.org/wiki/Sodium acetate
+    examples:
+      - https://en.wikipedia.org/wiki/Sodium acetate
   source_text:
     type: string
     description: name of the source
-    example: Wikipedia
+    examples:
+      - Wikipedia
   source_lc:
     type: string
     description: Source locale name
-    example: en
+    examples:
+      - en
   source_language:
     type: string
     description: Human readable source locale name
-    example: English
+    examples:
+      - English

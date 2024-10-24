@@ -53,7 +53,8 @@ properties:
       will be used to compute the Eco-Score.
       You can either request it (if it exists) or
       send it in a specific language.
-    example: packaging_text_en
+    examples:
+      - packaging_text_en
   packagings:
     $ref: ./packagings/packagings.yaml
   packagings_complete:
@@ -99,7 +100,8 @@ properties:
     type: string
     description: |
       The unit (either g or ml) for the correponding serving_quantity.
-    example: "g"
+    examples:
+      - "g"
   serving_size:
     type: string
     description: |

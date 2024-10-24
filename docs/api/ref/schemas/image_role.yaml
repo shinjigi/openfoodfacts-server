@@ -8,17 +8,21 @@ components:
       properties:
         angle:
           type: integer
-          example: 0
+          examples:
+            - 0
           description: The angle of the image rotation (if it was rotated).
         coordinates_image_size:
           type: string
-          example: full
+          examples:
+            - full
         geometry:
           type: string
-          example: "0x0--1--1"
+          examples:
+            - "0x0--1--1"
         imgid:
           type: string
-          example: "121"
+          examples:
+            - "121"
           description: "The id of the original/source image that was selected to edit(rotate, normalize etc) to produce this new image."
         normalize:
           #TODO: should be replaced by something like this once full supported by generator
@@ -39,7 +43,8 @@ components:
           description: Normalize colors.
         rev:
           type: string
-          example: "420"
+          examples:
+            - "420"
         sizes:
           type: object
           description: |
@@ -69,13 +74,17 @@ components:
             Photo on white background : Try to remove the background.
         x1:
           type: string
-          example: "-1"
+          examples:
+            - "-1"
         x2:
           type: string
-          example: "-1"
+          examples:
+            - "-1"
         y1:
           type: string
-          example: "-1"
+          examples:
+            - "-1"
         y2:
           type: string
-          example: "-1"
+          examples:
+            - "-1"

@@ -6,7 +6,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: e322
+      examples:
+        - e322
     in: query
     name: additives_tags
     description: |
@@ -20,7 +21,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: m
+      examples:
+        - m
     in: query
     name: allergens_tags
     description: |
@@ -34,7 +36,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: ferrero
+      examples:
+        - ferrero
     in: query
     name: brands_tags
     description: |
@@ -48,7 +51,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: chocolates
+      examples:
+        - chocolates
     in: query
     name: categories_tags
     description: |
@@ -62,7 +66,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: united-kingdom
+      examples:
+        - united-kingdom
     in: query
     name: countries_tags_en
     description: |
@@ -88,7 +93,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: organic
+      examples:
+        - organic
     in: query
     name: labels_tags
     description: |
@@ -115,7 +121,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: e
+      examples:
+        - e
     in: query
     name: nutrition_grades_tags
     description: |
@@ -141,7 +148,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: 1-jar-aus-klarglas
+      examples:
+        - 1-jar-aus-klarglas
     in: query
     name: packaging_tags_de
     description: |
@@ -167,7 +175,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: nutrition-facts-completed
+      examples:
+        - nutrition-facts-completed
     in: query
     name: states_tags
     description: |
@@ -181,7 +190,8 @@ properties:
     explode: false
     schema:
       type: string
-      example: aldi
+      examples:
+        - aldi
     in: query
     name: stores_tags
     description: |

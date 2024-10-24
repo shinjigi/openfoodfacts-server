@@ -4,7 +4,8 @@ properties:
     type: string
     description: |
       Barcode of the product
-    example: '3017620422003'
+    examples:
+      - '3017620422003'
   imagefield:
     type: string
     description: |
@@ -14,7 +15,8 @@ properties:
       letter language code. Use `other` if you don't want the image to be
       selected. Note that the first image of a product is always selected as front
       picture.
-    example: front_en
+    examples:
+      - front_en
   imgupload_front_en:
     type: string
     format: binary

@@ -12,11 +12,13 @@ properties:
   code:
     type: string
     description: Barcode of the product.
-    example: "04963406"
+    examples:
+      - "04963406"
   imgid:
     type: integer
     description: identifier of the image to select, it should be a number
-    example: 2
+    examples:
+      - 2
   id:
     type: string
     description: |
@@ -28,32 +30,39 @@ properties:
       `ingredients_it` if `it` is the main language), this image will be
       displayed on Product Opener for all languages (ex: on
       `https://fr.openfoodfacts.org`, unless `ingredients_fr` exists).
-    example: front_en
+    examples:
+      - front_en
   x1:
     type: integer
-    example: 0
+    examples:
+      - 0
     description: X origin coordinate of the crop, it must be lower than x2
   y1:
     type: integer
-    example: 0
+    examples:
+      - 0
     description: Y origin coordinate of the crop, it must be lower than y2
   x2:
     type: integer
-    example: 145
+    examples:
+      - 145
     description: X end coordinate of the crop, it must be higher than x1
   y2:
     type: integer
-    example: 145
+    examples:
+      - 145
     description: Y end coordinate of the crop, it must be higher than y1
   angle:
     type: integer
-    example: 0
+    examples:
+      - 0
     description: |
       angle of the rotation to apply on the selected image.
       passing `90` as value rotate the image 90 degrees counter-clockwise.
   normalize:
     type: string
-    example: "false"
+    examples:
+      - "false"
     description: whether the selected image should be normalized using ImageMagick
     enum:
       - "true"

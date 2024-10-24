@@ -15,7 +15,8 @@ properties:
       not specified on the product".
       By doing so, the no_nutrition_data field takes the value "on".
       This case is frequent (thousands of products).
-    example: "on"
+    examples:
+      - "on"
   nutrition_data_per:
     type: string
     enum:
@@ -304,7 +305,8 @@ properties:
           nutrition facts sheet of some products, mainly in the USA.
           This value is entered either by contributors, either by
           imports.
-        example: 12.5
+        examples:
+          - 12.5
     patternProperties:
       '(?<nutrient>[\w-]+)_unit':
         description: |

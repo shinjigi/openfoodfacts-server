@@ -5,19 +5,23 @@ properties:
   code:
     type: string
     description: The barcode of the product to be added or edited
-    example: "0074570036004"
+    examples:
+      - "0074570036004"
   user_id:
     type: string
     description: A valid username.
-    example: myusername
+    examples:
+      - myusername
   password:
     type: string
     description: A valid corresponding password (related to specific environment).
-    example: mypassword
+    examples:
+      - mypassword
   comment:
     type: string
     description: A comment for the change. It will be shown in product changes history.
-    example: new packaging from super-app
+    examples:
+      - new packaging from super-app
   brands:
     type: array
     items:
@@ -48,7 +52,8 @@ properties:
       Packaging type, format, material.
       The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
       has a more structured data for `packaging`.
-    example: Frozen
+    examples:
+      - Frozen
 required:
   - code
   - user_id

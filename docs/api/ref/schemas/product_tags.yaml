@@ -74,7 +74,8 @@ properties:
     type: string
     description: |
       Packager code. EMB is the French system of traceability codes for packager.
-    example: EMB 2013330
+    examples:
+      - EMB 2013330
   emb_codes_orig:
     type: string
   emb_codes_tags:

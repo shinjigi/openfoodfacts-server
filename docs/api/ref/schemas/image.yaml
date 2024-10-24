@@ -30,11 +30,13 @@ components:
           $ref: "#/components/schemas/Sizes"
         uploaded_t:
           type: string
-          example: "1457680652"
+          examples:
+            - "1457680652"
           description: |
             The time the image was uploaded (as unix timestamp).
         uploader:
           type: string
-          example: openfoodfacts-contributors
+          examples:
+            - openfoodfacts-contributors
           description: |
             The contributor that uploaded the image.

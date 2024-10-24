@@ -125,7 +125,8 @@ properties:
     type: string
     description: |
       Country, state, or city where the product can be purchased.
-    example: Paris
+    examples:
+      - Paris
   purchase_places_tags:
     type: array
     items:
@@ -134,7 +135,8 @@ properties:
     type: string
     description: |
       Distributor name.
-    example: Walmart
+    examples:
+      - Walmart
   stores_tags:
     type: array
     items:

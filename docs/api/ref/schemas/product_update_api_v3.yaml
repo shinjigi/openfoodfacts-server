@@ -13,7 +13,8 @@ properties:
     type: string
     minLength: 2
     maxLength: 2
-    example: fr
+    examples:
+      - fr
     description: 2 letter language code of the main language of the product (the most prominent on the packaging)
   quantity:
     type: string

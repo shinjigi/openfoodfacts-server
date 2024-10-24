@@ -23,7 +23,8 @@ properties:
           type: string
           description: |
             A descriptive sentence about the situation of the product concerning attribute
-          example: "Does not contain: Molluscs"
+          examples:
+            - "Does not contain: Molluscs"
         match:
           type: number
           format: float
