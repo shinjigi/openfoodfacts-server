@@ -74,6 +74,18 @@ properties:
         type: number
       carbohydrates:
         type: number
+      carbohydrates_100g:
+        type: number
+        format: float
+      carbohydrates_serving:
+        type: number
+        format: float
+      carbohydrates_unit:
+        type: string
+        enum: [g, mg, μg]
+      carbohydrates_value:
+        type: number
+        format: float
       energy:
         type: number
         description: |
@@ -89,6 +101,143 @@ properties:
         enum: ["kcal", "kJ"]
         description: |
           Equal to energy-kj_unit if we have it or to energy-kcal_unit otherwise
+      energy_kj_100g:
+        type: number
+        format: float
+      energy_kj_serving:
+        type: number
+        format: float
+      energy_kj_unit:
+        type: string
+        enum: [kJ]
+      energy_kj_value:
+        type: number
+        format: float
+      energy_kj_value_computed:
+        type: number
+        format: float
+
+
+      energy_100g:
+        type: number
+        format: float
+      energy_serving:
+        type: number
+        format: float
+
+
+      fat_100g:
+        type: number
+        format: float
+      fat_serving:
+        type: number
+        format: float
+      fat_unit:
+        type: string
+        # enum: [g]
+      "nova-group_100g":
+        type: integer
+        minimum: 1
+        maximum: 4
+      "nova-group_serving":
+        type: integer
+        minimum: 1
+        maximum: 4
+      "nutrition-score-fr_100g":
+        type: integer
+
+
+      proteins_100g:
+        type: number
+        format: float
+      proteins_serving:
+        type: number
+        format: float
+      proteins_unit:
+        type: string
+        # enum: [g]
+      proteins_value:
+        type: number
+        format: float
+
+
+      salt_100g:
+        type: number
+        format: float
+      salt_serving:
+        type: number
+        format: float
+      salt_unit:
+        type: string
+        # enum: [g]
+      salt_value:
+        type: number
+        format: float
+      "saturated-fat_100g":
+        type: number
+        format: float
+      "saturated-fat_serving":
+        type: number
+        format: float
+      "saturated-fat_unit":
+        type: string
+        # enum: [g]
+      "saturated-fat_value":
+        type: number
+        format: float
+
+
+      sodium_100g:
+        type: number
+        format: float
+      sodium_serving:
+        type: number
+        format: float
+      sodium_unit:
+        type: string
+        # enum: [g]
+      sodium_value:
+        type: number
+        format: float
+
+
+      sugars_100g:
+        type: number
+        format: float
+      sugars_serving:
+        type: number
+        format: float
+      sugars_unit:
+        type: string
+        # enum: [g]
+      sugars_value:
+        type: number
+        format: float
+
+      fiber_100g:
+        type: number
+        format: float
+      fiber_serving:
+        type: number
+        format: float
+      fiber_unit:
+        type: string
+        # enum: [g]
+      fiber_value:
+        type: number
+        format: float
+
+
+      energy-kcal_100g:
+        type: number
+      energy-kcal_serving:
+        type: number
+      energy-kcal_unit:
+        type: string
+      energy-kcal_value:
+        type: number
+      energy-kcal_value_computed:
+        type: number
       energy-kcal:
         type: number
         description: |
@@ -103,11 +252,21 @@ properties:
           (per 100g or per serving) in a standard unit (g or ml)
       fat:
         type: number
+      fat_value:
+        type: number
+      fruits-vegetables-legumes-estimate-from-ingredients_serving:
+        type: number
+      fruits-vegetables-legumes-estimate-from-ingredients_100g:
+        type: number
       fruits-vegetables-legumes-estimate-from-ingredients:
         type: number
         description: |
           An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
           This is an important information for Nutri-Score (2023 version) computation.
+      fruits-vegetables-nuts-estimate-from-ingredients_serving:
+        type: number
+      fruits-vegetables-nuts-estimate-from-ingredients_100g:
+        type: number
       fruits-vegetables-nuts-estimate-from-ingredients:
         type: number
         description: |
@@ -130,6 +289,8 @@ properties:
         type: number
       sugars:
         type: number
+      fiber:
+        type: integer
       carbon-footprint-from-known-ingredients_product:
         type: integer
       carbon-footprint-from-known-ingredients_serving:
