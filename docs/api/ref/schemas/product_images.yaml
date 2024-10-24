@@ -73,6 +73,12 @@ properties:
 
       This is very handy if you display the product to users.
     properties:
+      ingredients: 
+        $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
+      nutrition: 
+        $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
+      packaging: 
+        $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
       front:
         $ref: "./image_urls.yaml#/components/schemas/SelectedImage"
 

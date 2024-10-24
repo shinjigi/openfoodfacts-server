@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: Open Food Facts Open API
+  description: |
+    As a developer, the Open Food Facts API allows you to get information
+    and contribute to the products database. You can create great apps to
+    help people make better food choices and also provide data to enhance the database.
+  termsOfService: 'https://world.openfoodfacts.org/terms-of-use'
+  contact:
+    name: Open Food Facts
+    url: 'https://slack.openfoodfacts.org/'
+    email: contact@openfoodfacts.org
+  license:
+    name: 'data: ODbL'
+    url: 'https://opendatacommons.org/licenses/odbl/summary/index.html'
+    # can't use url and identifier - use x-identifier
+    x-identifier: "ODbL-1.0"
+  version: '2'
+externalDocs:
+  description: |
+    Please read the API introduction before using this API.
+  url: 'https://openfoodfacts.github.io/openfoodfacts-server/api/'
+servers:
+  - description: dev
+    url: 'https://world.openfoodfacts.net'
+  - description: prod
+    url: 'https://world.openfoodfacts.org'
+paths:
+  '/api/v2/product/{barcode}': #?fields=knowledge_panels':
+    get:
+      tags: [products]
+      summary: Get information for a specific product by barcode
+      parameters:
+        - name: barcode
+          in: path
+          description: |
+            The barcode of the product to be fetched
+          required: true
+          style: simple
+          explode: false
+          schema:
+            type: string
+            example: '3017620422003'
+        - $ref: '#/components/parameters/fields'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: ./responses/get_product_by_barcode.yaml
+                  - allOf:
+                    - $ref: ./responses/get_product_by_barcode_base.yaml
+                    - type: object
+                      properties:
+                        product:
+                          $ref: ./schemas/product_knowledge_panels.yaml
+              examples:
+                spread-example:
+                  $ref: ./examples/get_product_by_barcode_spread.yaml
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      description: |
+        A product can be fetched via its unique barcode.
+        It returns all the details of that product response.
+        You can add th Knowledge panels that gives high leve informations about a product,
+        ready to display.
+        This is used by open food facts website,
+        and by the official mobile application
+      operationId: get-product-by-barcode
+      security: []
+  /cgi/nutrients.pl:
+    get:
+      summary: Get a nested list of nutrients that can be displayed in the nutrition facts table for a specific country and language
+      tags: [nutrients]
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                # $ref: '#/components/schemas/Nutrients'
+                # $ref: ./responses/get_nutrients.yaml
+                $ref: '#/components/schemas/GetNutrients' 
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+      operationId: get-cgi-nutrients.pl
+      parameters:
+        - $ref: '#/components/parameters/cc'
+        - $ref: '#/components/parameters/lc'
+      description: |
+        Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
+      security: []
+components:
+  schemas:
+    Ingredients:
+      $ref: './schemas/ingredient.yaml#/components/schemas/Ingredients'
+    Nutrients:
+      $ref: './schemas/nutrients.yaml#/components/schemas/Nutrients'
+    GetNutrients:
+      $ref: ./responses/get_nutrients.yaml
+  responses:
+    TooManyRequests:
+      description: Too Many Requests
+      content:
+        text/plain:
+          schema:
+            type: string
+  parameters:
+    fields:
+      name: fields
+      schema:
+        type: string
+        enum: 
+          - knowledge_panels
+      in: query
+      description: TODO
+      required: false
+      #default: knowledge_panels
+    cc:
+      schema:
+        type: string
+      in: query
+      name: cc
+      required: false
+      description: '2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request.'
+    lc:
+      schema:
+        type: string
+      in: query
+      name: lc
+      required: false
+      description: |
+        2 letter code of the language of the user.
+        Used for localizing some fields in returned values (e.g. knowledge panels).
+        If not passed, the language may be inferred by the Accept-Language header of the request,
+        or from the domain name prefix.
+tags:
+  - name: products
+    description: Products requests
+  - name: nutrients
+    description: Nutrients requests
