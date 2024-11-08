@@ -35,21 +35,21 @@ properties:
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # => any | null (not STANDARD COMPLIANT)
+    type: string # {} # => any | null (not STANDARD COMPLIANT)
   material:
     # NOT yet supported by common generator
     # oneOf/anyOf alternative configuration with discriminator do not work
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # => any | null (not STANDARD COMPLIANT)
+    type: string # {} # => any | null (not STANDARD COMPLIANT)
   recycling:
     # NOT yet supported by common generator
     # oneOf/anyOf alternative configuration with discriminator do not work
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # => any | null (not STANDARD COMPLIANT)
+    type: string # {} # => any | null (not STANDARD COMPLIANT)
   quantity_per_unit:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
