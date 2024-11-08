@@ -9,13 +9,13 @@ type: object
 examples:
   - number_of_units: 6
     shape:
-      id: 'en:bottle'
+      id: "en:bottle"
       lc_name: bouteille
     material:
-      id: 'en:bottle'
+      id: "en:bottle"
       lc_name: bouteille
     recycling:
-      id: 'en:bottle'
+      id: "en:bottle"
       lc_name: bouteille
     quantity_per_unit: 25 cl
     quantity_per_unit_value: 25
@@ -31,25 +31,25 @@ properties:
     description: umber of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
   shape:
     # NOT yet supported by common generator
-    # oneOf/anyOf alternative configuration with discriminator does not work
+    # oneOf/anyOf alternative configuration (also with discriminator) do not work
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # any | null
+    type: {} # => any | null (not STANDARD COMPLIANT)
   material:
     # NOT yet supported by common generator
-    # oneOf/anyOf alternative configuration with discriminator does not work
+    # oneOf/anyOf alternative configuration with discriminator do not work
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # any | null
+    type: {} # => any | null (not STANDARD COMPLIANT)
   recycling:
     # NOT yet supported by common generator
-    # oneOf/anyOf alternative configuration with discriminator does not work
+    # oneOf/anyOf alternative configuration with discriminator do not work
     #oneOf:
     #  - $ref: ./taxonomy-entry.yaml
     #  - type: string
-    type: {} # any | null
+    type: {} # => any | null (not STANDARD COMPLIANT)
   quantity_per_unit:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
@@ -61,13 +61,13 @@ properties:
     description: Unit parsed and normalized from the quantity field.
   weight_specified:
     type: number
-    description: 'Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+    description: "Weight (as specified by the manufacturer) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component)."
   weight_measured:
     type: number
-    description: 'Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+    description: "Weight (as measured by one or more users) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component)."
   weight_estimated:
     type: number
-    description: 'Weight (as estimated from similar products) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component).'
+    description: "Weight (as estimated from similar products) of one unit of the empty packaging component (in grams). (e.g. for a 6 pack of 1.5l water bottles, it might be 30, the weight in grams of 1 empty water bottle without its cap which is a different packaging component)."
   weight:
     type: number
     description: Weight of one unit of the empty packaging component.
