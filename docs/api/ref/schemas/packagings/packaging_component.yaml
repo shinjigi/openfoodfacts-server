@@ -30,11 +30,26 @@ properties:
     type: integer
     description: umber of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
   shape:
-    $ref: ./shape.yaml
+    # NOT yet supported by common generator
+    # oneOf/anyOf alternative configuration with discriminator does not work
+    #oneOf:
+    #  - $ref: ./taxonomy-entry.yaml
+    #  - type: string
+    type: {} # any | null
   material:
-    $ref: ./material.yaml
+    # NOT yet supported by common generator
+    # oneOf/anyOf alternative configuration with discriminator does not work
+    #oneOf:
+    #  - $ref: ./taxonomy-entry.yaml
+    #  - type: string
+    type: {} # any | null
   recycling:
-    $ref: ./recycling.yaml
+    # NOT yet supported by common generator
+    # oneOf/anyOf alternative configuration with discriminator does not work
+    #oneOf:
+    #  - $ref: ./taxonomy-entry.yaml
+    #  - type: string
+    type: {} # any | null
   quantity_per_unit:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)

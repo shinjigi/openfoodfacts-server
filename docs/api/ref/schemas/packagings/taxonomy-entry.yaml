@@ -1,0 +1,22 @@
+type: object
+title: TaxonomyEntry
+description: |
+  A canonical entry from a taxonomy, representing a standardized term with its identifier 
+  and localized name. Used for various packaging properties like materials, recycling instructions, 
+  and shapes.
+examples:
+  - id: 'en:bottle'
+    lc_name: bouteille
+  - id: 'fr:boite'
+    lc_name: boîte
+  - id: 'es:botella'
+    lc_name: botella
+  - id: 'de:flasche'
+    lc_name: flasche
+properties:
+  id:
+    type: string
+    description: 'Canonical id of the entry in the taxonomy. If the value cannot be mapped to a taxonomy entry, the value will be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'
+  lc_name:
+    type: string
+    description: 'Name of the entry in the language requested in the tags_lc field of the request. This field is returned only of tags_lc is specified. If the translation is not available, or if the entry does not exist in the taxonomy, the value will be the name of the entry in its original language prefixed by the language 2 letter code and a colon.'
