@@ -1,6 +1,4 @@
 title: Packaging component (WRITE)
-x-stoplight:
-  id: iacgfu9zaek8v
 type: object
 description: |-
   Each packaging component has different properties to specify how many there are, its shape, material etc.
@@ -27,11 +25,11 @@ properties:
     type: integer
     description: Number of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
   shape:
-    $ref: ./shape-write.yaml
+    $ref: ./taxonomy-entry-write.yaml
   material:
-    $ref: ./material-write.yaml
+    $ref: ./taxonomy-entry-write.yaml
   recycling:
-    $ref: ./recycling-write.yaml
+    $ref: ./taxonomy-entry-write.yaml
   quantity_per_unit:
     type: string
     description: Quantity (weight or volume) of food product contained in the packaging component. (e.g. 75cl for a wine bottle)
