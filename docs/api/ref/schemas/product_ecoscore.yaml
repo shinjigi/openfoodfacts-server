@@ -27,15 +27,15 @@ properties:
                   type: object
                   properties:
                     epi_score:
-                      type: string
+                      type: string #TODO: should be integer
                     origin:
                       type: string
                     percent:
                       type: integer
                     transportation_score:
-                      type: 
-                        - 'null'
-                        - 'integer'
+                      type:
+                        - "null"
+                        - "integer"
               epi_score:
                 type: integer
               epi_value:
@@ -51,31 +51,15 @@ properties:
               transportation_score:
                 type: integer
               transportation_scores:
-                type: object
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
+                $ref: "./country-code.yaml#/components/schemas/CountryValues"
               transportation_value:
                 type: integer
               transportation_values:
-                type: object
-                properties:
-                  world:
-                    type: integer
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
-
+                $ref: "./country-code.yaml#/components/schemas/CountryValues"
               value:
                 type: integer
               values:
-                type: object
-                properties:
-                  world:
-                    type: integer
-                patternProperties:
-                  (?<country_code>\w\w):
-                    type: integer
+                $ref: "./country-code.yaml#/components/schemas/CountryValues"
               warning:
                 type: string
           packaging:
@@ -117,13 +101,13 @@ properties:
                     quantity_per_unit_unit:
                       type: string
                       examples: ["cl"]
-                    quantity_per_unit_value: 
+                    quantity_per_unit_value:
                       type: number
                       examples: [33]
-                    recycling: 
+                    recycling:
                       type: string
                       examples: ["en:recycle-in-sorting-bin"]
-                    weight_measured: 
+                    weight_measured:
                       type: number
                       examples: [12.08]
               score:
@@ -137,7 +121,7 @@ properties:
             properties:
               labels:
                 type: array
-                examples: 
+                examples:
                   - - vegan
                     - fat free
                     - Kosher]
