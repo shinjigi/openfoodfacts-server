@@ -20,8 +20,8 @@ properties:
   nutrition_data_per:
     type: string
     enum:
-    - serving
-    - 100g
+      - serving
+      - 100g
     description: |
       The nutrition data on the package can be per serving or per 100g.
 
@@ -37,8 +37,8 @@ properties:
   nutrition_data_prepared_per:
     type: string
     enum:
-    - serving
-    - 100g
+      - serving
+      - 100g
     description: |
       The nutrition data for prepared product on the package (if any) can be per serving or per 100g.
 
@@ -73,6 +73,7 @@ properties:
 
           (per 100g or per serving) in a standard unit (g or ml)
         type: number
+
       carbohydrates:
         type: number
       carbohydrates_100g:
@@ -87,21 +88,51 @@ properties:
       carbohydrates_value:
         type: number
         format: float
+
+      cocoa:
+        type: number
+      cocoa_100g:
+        type: number
+      cocoa_label:
+        type: string
+      cocoa_serving:
+        type: number
+        format: float
+      cocoa_unit:
+        type: string
+        enum: [g, mg, μg]
+      cocoa_value:
+        type: number
+        format: float
+
       energy:
         type: number
         description: |
           It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
 
           (per 100g or per serving) in kj
+      energy_100g:
+        type: number
+        format: float
       energy_value:
         type: number
         description: |
           energy_value will be equal to energy-kj_value if we have it or to energy-kcal_value otherwise
+      energy_serving:
+        type: number
+        format: float
       energy_unit:
         type: string
         enum: ["kcal", "kJ"]
         description: |
           Equal to energy-kj_unit if we have it or to energy-kcal_unit otherwise
+
+      energy_kj:
+        type: number
+        description: |
+          energy in kj, if it is specified
+
+          (per 100g or per serving) in a standard unit (g or ml)
       energy_kj_100g:
         type: number
         format: float
@@ -118,15 +149,10 @@ properties:
         type: number
         format: float
 
-
-      energy_100g:
+      fat:
         type: number
-        format: float
-      energy_serving:
+      fat_value:
         type: number
-        format: float
-
-
       fat_100g:
         type: number
         format: float
@@ -136,6 +162,7 @@ properties:
       fat_unit:
         type: string
         # enum: [g]
+
       "nova-group_100g":
         type: integer
         minimum: 1
@@ -144,9 +171,9 @@ properties:
         type: integer
         minimum: 1
         maximum: 4
+
       "nutrition-score-fr_100g":
         type: integer
-
 
       proteins_100g:
         type: number
@@ -161,7 +188,6 @@ properties:
         type: number
         format: float
 
-
       salt_100g:
         type: number
         format: float
@@ -174,6 +200,9 @@ properties:
       salt_value:
         type: number
         format: float
+
+      "saturated-fat":
+        type: number
       "saturated-fat_100g":
         type: number
         format: float
@@ -187,7 +216,6 @@ properties:
         type: number
         format: float
 
-
       sodium_100g:
         type: number
         format: float
@@ -200,7 +228,6 @@ properties:
       sodium_value:
         type: number
         format: float
-
 
       sugars_100g:
         type: number
@@ -228,7 +255,6 @@ properties:
         type: number
         format: float
 
-
       energy-kcal_100g:
         type: number
       energy-kcal_serving:
@@ -245,16 +271,7 @@ properties:
           energy in kcal, if it is specified
 
           (per 100g or per serving) in a standard unit (g or ml)
-      energy-kj:
-        type: number
-        description: |
-          energy in kj, if it is specified
 
-          (per 100g or per serving) in a standard unit (g or ml)
-      fat:
-        type: number
-      fat_value:
-        type: number
       fruits-vegetables-legumes-estimate-from-ingredients_serving:
         type: number
       fruits-vegetables-legumes-estimate-from-ingredients_100g:
@@ -264,6 +281,7 @@ properties:
         description: |
           An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
           This is an important information for Nutri-Score (2023 version) computation.
+
       fruits-vegetables-nuts-estimate-from-ingredients_serving:
         type: number
       fruits-vegetables-nuts-estimate-from-ingredients_100g:
@@ -273,6 +291,7 @@ properties:
         description: |
           An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
           This is an important information for Nutri-Score (2021 version) computation.
+
       nova-group:
         type: integer
       nutrition-score-fr:
@@ -280,22 +299,28 @@ properties:
           Experimental nutrition score derived from
           the UK FSA score and adapted for the French market
           (formula defined by the team of Professor Hercberg).
+
       proteins:
         type: number
+
       salt:
         type: number
-      saturated-fat:
-        type: number
+
       sodium:
         type: number
+
       sugars:
         type: number
+
       fiber:
         type: integer
+
       carbon-footprint-from-known-ingredients_product:
         type: integer
+
       carbon-footprint-from-known-ingredients_serving:
         type: number
+
       erythritol:
         type: number
         description: |
@@ -307,6 +332,7 @@ properties:
           imports.
         examples:
           - 12.5
+
     patternProperties:
       '(?<nutrient>[\w-]+)_unit':
         description: |
@@ -328,7 +354,52 @@ properties:
           [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
           [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
         type: string
-        enum: ['公斤', '公升', 'kg', 'кг', 'l', 'л', '毫克', 'mg', 'мг', 'mcg', 'µg', 'oz', 'fl oz', 'dl', 'дл', 'cl', 'кл', '斤', 'g', '', ' ', 'kJ', '克', '公克', 'г', 'мл', 'ml', 'mmol/l', '毫升', '% vol', 'ph', '%', '% dv', '% vol (alcohol)', 'iu', 'mol/l', 'mval/l', 'ppm', '�rh', '�fh', '�e', '�dh', 'gpg']
+        enum:
+          [
+            "公斤",
+            "公升",
+            "kg",
+            "кг",
+            "l",
+            "л",
+            "毫克",
+            "mg",
+            "мг",
+            "mcg",
+            "µg",
+            "oz",
+            "fl oz",
+            "dl",
+            "дл",
+            "cl",
+            "кл",
+            "斤",
+            "g",
+            "",
+            " ",
+            "kJ",
+            "克",
+            "公克",
+            "г",
+            "мл",
+            "ml",
+            "mmol/l",
+            "毫升",
+            "% vol",
+            "ph",
+            "%",
+            "% dv",
+            "% vol (alcohol)",
+            "iu",
+            "mol/l",
+            "mval/l",
+            "ppm",
+            "�rh",
+            "�fh",
+            "�e",
+            "�dh",
+            "gpg",
+          ]
       '(?<nutrient>[\w-]+)_100g':
         description: |
           The standardized value of a serving of 100g (or 100ml for liquids)
@@ -485,7 +556,7 @@ properties:
     type: integer
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
     type: integer
-  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value: 
+  nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients_value:
     type: integer
   nutrition_score_warning_no_fiber:
     type: integer

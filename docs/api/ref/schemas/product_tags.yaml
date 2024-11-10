@@ -81,7 +81,7 @@ properties:
   emb_codes_tags:
     type: array
     items:
-      type: object
+      type: string
 
   labels:
     type: string
