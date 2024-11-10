@@ -108,16 +108,18 @@ properties:
       It's a copy of ingredients_text in the main language of the product (see `lang` proprety).
 
     examples:
-      - Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%, 
+      - Farine de blé* 67,4%, sucre de canne*, huile de tournesol oléique*, graines de chia* 5,2%,
         son de blé*, oranges déshydratées * 0,9%, farine de riz*, poudres à lever
         (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_text_with_allergens:
     type: string
+  ingredients_text_with_allergens_it:
+    type: string
     description: |
       Same text as `ingredients_text` but where allergens have HTML elements around them to identify them
     examples:
-      - Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*, 
-        graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%, 
+      - Farine de <span class="allergen">blé*</span> 67,4%, sucre de canne*, huile de tournesol oléique*,
+        graines de chia* 5,2%, <span class="allergen">son de blé*</span>, oranges déshydratées * 0,9%,
         farine de riz*, poudres à lever (acide citrique, carbonates de sodium), arôme naturel d'orange.
   ingredients_that_may_be_from_palm_oil_n:
     type: integer

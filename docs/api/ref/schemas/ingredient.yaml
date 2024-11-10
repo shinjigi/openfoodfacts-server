@@ -10,6 +10,8 @@ components:
           type: string
         ecobalyse_code:
           type: string
+        from_palm_oil:
+          type: string
         id:
           type: string
         ingredients:

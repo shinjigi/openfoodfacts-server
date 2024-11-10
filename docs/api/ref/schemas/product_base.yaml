@@ -34,6 +34,8 @@ properties:
           "30xxxxxxxxxxx",
           "3xxxxxxxxxxxx",
         ]
+  generic_name_it:
+    type: string
   generic_name:
     type: string
     description: |
