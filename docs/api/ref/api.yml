@@ -527,7 +527,9 @@ components:
     "Product-Knowledge-Panels":
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
-      $ref: "./schemas/product_attribute_groups.yaml"
+      $ref: ./schemas/product_attribute_groups.yaml
+    "Product-States":
+      $ref: ./schemas/product_states.yaml
     Product:
       $ref: ./schemas/product.yaml
     Ingredient:

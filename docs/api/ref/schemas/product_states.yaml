@@ -1,0 +1,43 @@
+type: object
+title: product_state
+description: |
+  A detailed description of the various states a product can be in, including its current status and hierarchical order.
+properties:
+  states:
+    type: string
+    description: |
+      A comma-separated list of states that describe the current status of the product.
+      Each state is prefixed with a language code (e.g., "en" for English).
+    examples:
+      - "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-selected, en:ingredients-photo-selected, en:front-photo-selected, en:photos-uploaded"
+  states_hierarchy:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of states that describe the current status of the product in a hierarchical order.
+      Each state is prefixed with a language code (e.g., "en" for English).
+    examples:
+      - - "en:to-be-completed"
+        - "en:nutrition-facts-completed"
+        - "en:ingredients-to-be-completed"
+        - "en:expiration-date-to-be-completed"
+        - "en:packaging-code-to-be-completed"
+        - "en:characteristics-to-be-completed"
+        - "en:origins-to-be-completed"
+        - "en:categories-completed"
+        - "en:brands-completed"
+        - "en:packaging-to-be-completed"
+        - "en:quantity-completed"
+        - "en:product-name-completed"
+        - "en:photos-to-be-validated"
+        - "en:packaging-photo-to-be-selected"
+        - "en:nutrition-photo-selected"
+        - "en:ingredients-photo-selected"
+        - "en:front-photo-selected"
+        - "en:photos-uploaded"
+  states_tags:
+    type: array
+    items:
+      type: string
+    description: TODO seams equals to states_hierarchy
