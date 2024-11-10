@@ -8,6 +8,8 @@ components:
           type: string
         ciqual_proxy_food_code:
           type: string
+        ecobalyse_code:
+          type: string
         id:
           type: string
         ingredients:
