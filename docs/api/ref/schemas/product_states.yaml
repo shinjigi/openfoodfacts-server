@@ -41,3 +41,68 @@ properties:
     items:
       type: string
     description: TODO seams equals to states_hierarchy
+  data_quality_bugs_tags:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of tags indicating data quality bugs.
+    examples: []
+  data_quality_errors_tags:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of tags indicating data quality errors.
+    examples: []
+  data_quality_info_tags:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of tags providing information about data quality.
+    examples:
+      - "en:packaging-data-incomplete"
+      - "en:ingredients-percent-analysis-ok"
+      - "en:ecoscore-extended-data-computed"
+      - "en:ecoscore-extended-data-less-precise-than-agribalyse"
+      - "en:food-groups-1-known"
+      - "en:food-groups-2-known"
+      - "en:food-groups-3-unknown"
+  data_quality_tags:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of tags summarizing various data quality aspects.
+    examples:
+      - "en:packaging-data-incomplete"
+      - "en:ingredients-percent-analysis-ok"
+      - "en:ecoscore-extended-data-computed"
+      - "en:ecoscore-extended-data-less-precise-than-agribalyse"
+      - "en:food-groups-1-known"
+      - "en:food-groups-2-known"
+      - "en:food-groups-3-unknown"
+      - "en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+      - "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
+      - "en:ecoscore-packaging-unspecified-shape"
+      - "en:ecoscore-production-system-no-label"
+  data_quality_warnings_tags:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of tags indicating data quality warnings.
+    examples:
+      - "en:nutrition-data-per-serving-serving-quantity-is-not-recognized"
+      - "en:ecoscore-origins-of-ingredients-origins-are-100-percent-unknown"
+      - "en:ecoscore-packaging-unspecified-shape"
+      - "en:ecoscore-production-system-no-label"
+  debug_param_sorted_langs:
+    type: array
+    items:
+      type: string
+    description: |
+      An array of language codes used for debugging purposes.
+    examples:
+      - "it"
