@@ -49,10 +49,31 @@ properties:
       like things to be done, or to be completed.
       See [states taxonomy](https://static.openfoodfacts.net/data/taxonomies/states.json)
     type: string
+    examples:
+      - "en:to-be-completed, en:nutrition-facts-completed, en:ingredients-to-be-completed, en:expiration-date-to-be-completed, en:packaging-code-to-be-completed, en:characteristics-to-be-completed, en:origins-to-be-completed, en:categories-completed, en:brands-completed, en:packaging-to-be-completed, en:quantity-completed, en:product-name-completed, en:photos-to-be-validated, en:packaging-photo-to-be-selected, en:nutrition-photo-selected, en:ingredients-photo-selected, en:front-photo-selected, en:photos-uploaded"
   states_hierarchy:
     type: array
     items:
       type: string
+    examples:
+      - - "en:to-be-completed"
+        - "en:nutrition-facts-completed"
+        - "en:ingredients-to-be-completed"
+        - "en:expiration-date-to-be-completed"
+        - "en:packaging-code-to-be-completed"
+        - "en:characteristics-to-be-completed"
+        - "en:origins-to-be-completed"
+        - "en:categories-completed"
+        - "en:brands-completed"
+        - "en:packaging-to-be-completed"
+        - "en:quantity-completed"
+        - "en:product-name-completed"
+        - "en:photos-to-be-validated"
+        - "en:packaging-photo-to-be-selected"
+        - "en:nutrition-photo-selected"
+        - "en:ingredients-photo-selected"
+        - "en:front-photo-selected"
+        - "en:photos-uploaded"
   states_tags:
     type: array
     items:
