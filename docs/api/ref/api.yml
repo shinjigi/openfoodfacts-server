@@ -518,8 +518,6 @@ components:
       $ref: ./schemas/product_nutrition.yaml
     "Product-Quality":
       $ref: ./schemas/product_quality.yaml
-    "Product-Data-Quality":
-      $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Extended":
       $ref: ./schemas/product_extended.yaml
     "Product-Metadata":
@@ -528,8 +526,6 @@ components:
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
       $ref: ./schemas/product_attribute_groups.yaml
-    "Product-States":
-      $ref: ./schemas/product_states.yaml
     "Product-Nutriscore":
       $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     Product:
