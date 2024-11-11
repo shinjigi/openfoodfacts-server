@@ -17,7 +17,6 @@ description: |
   * [Product Metadata](#cmp--schemas-product-meta): Metadata of a product (author, editors, etc.)
   * [Product Knowledge Panels](#cmp--schemas-product-knowledge-panels): Knowledge panels for a product
   * [Product Attribute Groups](#cmp--schemas-product-attribute-groups): Attribute groups for personal product matching
-  * [Product States](#cmp--schemas-product-states): TODO States of a product
 
 allOf:
   - $ref: "../api.yml#/components/schemas/Product-Base"
