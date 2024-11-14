@@ -451,92 +451,24 @@ properties:
           for the nutrient for **prepared** product.
         type: number
         readOnly: true
+
+  #TODO: migrated on product_nutriscore.yaml (if *_ratio fields are not available anymore, remove this)
   nutriscore_data:
     description: |
       Detail of data the Nutri-Score was computed upon.
 
-      **Note**: this might not be stable, don't rely too much on this, or, at least, tell us !
+      **Note**: this might not be stable, don't rely too much on this, or, at least, tell us !
 
       **TODO** document each property
     type: object
     properties:
-      energy:
-        type: integer
-      energy_points:
-        type: integer
-      energy_value:
-        type: integer
-      fiber:
-        type: integer
-      fiber_points:
-        type: integer
-      fiber_value:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils_points:
-        type: integer
-      fruits_vegetables_nuts_colza_walnut_olive_oils_value:
-        type: integer
-      grade:
-        type: string
-      is_beverage:
-        type: integer
-      is_cheese:
-        type: integer
-      is_fat:
-        type: integer
-      is_water:
-        type: integer
-      negative_points:
-        type: integer
-      positive_points:
-        type: integer
-      proteins:
-        type: number
-      proteins_points:
-        type: integer
-      proteins_value:
-        type: number
-      saturated_fat:
-        type: number
-      saturated_fat_points:
-        type: integer
+      # **TODO** "*_ratio" are still available?
       saturated_fat_ratio:
         type: number
       saturated_fat_ratio_points:
         type: integer
       saturated_fat_ratio_value:
         type: number
-      saturated_fat_value:
-        type: number
-      score:
-        type: integer
-      sodium:
-        type: number
-      sodium_points:
-        type: integer
-      sodium_value:
-        type: number
-      sugars:
-        type: number
-      sugars_points:
-        type: integer
-      sugars_value:
-        type: number
-  nutriscore_grade:
-    description: |
-      Nutri-Score for the product as a letter.
-
-      See https://world.openfoodfacts.org/nutriscore.
-    type: string
-    enum: ["a", "b", "c", "d", "e"]
-  nutriscore_score:
-    description: |
-      Nutri-Score for the product as an integer (see also `nutriscore_grade`).
-    type: integer
-  nutriscore_score_opposite:
-    type: integer
   nutrition_grade_fr:
     type: string
     description: |
