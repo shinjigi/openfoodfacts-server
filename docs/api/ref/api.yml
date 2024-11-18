@@ -339,6 +339,59 @@ paths:
         - $ref: "#/components/parameters/page"
         - $ref: "#/components/parameters/page_size"
     parameters: []
+    
+  /cgi/search.pl:
+    get:
+      operationId: searchV1ProductsGet
+      summary: Search products with filters (GET)
+      description: Search products with filters (GET)
+      parameters:
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/search_terms'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page_size'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/json'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/fields'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/sort_by'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/states_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/brands_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/categories_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/labels_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/packaging_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/purchase_places_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/stores_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/countries_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/ingredients_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/trace_tags'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/search_for_products.yaml
+      tags:
+        - Auxiliary Operations
+    post:
+      operationId: searchV1ProductsPost
+      summary: Search products with filters (POST)
+      description: Search products with filters (POST)
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchPostSchema'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ./responses/search_for_products.yaml
+      tags:
+        - Auxiliary Operations
+          
+    
   /cgi/suggest.pl:
     get:
       summary: Get Suggestions to Aid Adding/Editing Products
