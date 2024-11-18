@@ -130,8 +130,6 @@ properties:
         type: number
       sugars:
         type: number
-<<<<<<< Updated upstream
-=======
 
       fiber:
         type: integer
@@ -139,16 +137,12 @@ properties:
       carbon-footprint-from-known-ingredients_100g:
         type: number
         format: float
->>>>>>> Stashed changes
       carbon-footprint-from-known-ingredients_product:
         type: integer
       carbon-footprint-from-known-ingredients_serving:
         type: number
-<<<<<<< Updated upstream
-=======
         format: float
 
->>>>>>> Stashed changes
       erythritol:
         type: number
         description: |
