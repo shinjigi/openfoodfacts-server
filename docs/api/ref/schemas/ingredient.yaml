@@ -24,6 +24,13 @@ components:
         percent_estimate:
           type: number
           description: Estimated percentage of the ingredient.
+        processing:
+          type: string
+          description: |
+            A textual description of the processing applied to the ingredient. 
+            This can include methods like roasting, frying, fermenting, or other techniques.
+          examples:
+            - "en:malted"
         percent_max:
           type:
             - "string"
