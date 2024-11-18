@@ -1,0 +1,265 @@
+parameters:
+  SearchGetParameters:
+
+    search_terms:
+      name: search_terms
+      in: query
+      schema:
+        type: string
+      description: Text search terms
+
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+
+    page_size:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        default: 24
+        maximum: 1000
+
+    json:
+      name: json
+      in: query
+      schema:
+        type: integer
+        enum: [1]
+
+    fields:
+      name: fields
+      in: query
+      schema:
+        type: string
+
+    sort_by:
+      name: sort_by
+      in: query
+      schema:
+        type: string
+        enum: [
+          popularity,
+          product_name,
+          created_t,
+          created_datetime,
+          completed_t,
+          last_modified_t,
+          last_modified_datetime,
+          unique_scans_n,
+          score
+        ]
+
+    states_tags:
+      name: states_tags
+      in: query
+      schema:
+        type: string
+
+    brands_tags:
+      name: brands_tags
+      in: query
+      schema:
+        type: string
+
+    categories_tags:
+      name: categories_tags
+      in: query
+      schema:
+        type: string
+
+    labels_tags:
+      name: labels_tags
+      in: query
+      schema:
+        type: string
+
+    packaging_tags:
+      name: packaging_tags
+      in: query
+      schema:
+        type: string
+
+    purchase_places_tags:
+      name: purchase_places_tags
+      in: query
+      schema:
+        type: string
+
+    stores_tags:
+      name: stores_tags
+      in: query
+      schema:
+        type: string
+
+    countries_tags:
+      name: countries_tags
+      in: query
+      schema:
+        type: string
+
+    ingredients_tags:
+      name: ingredients_tags
+      in: query
+      schema:
+        type: string
+
+    trace_tags:
+      name: trace_tags
+      in: query
+      schema:
+        type: string
+
+        
+  SearchPostSchema:
+    type: object
+    properties:
+      search_simple:
+        type: number
+        enum: [1]
+      search_terms2:
+        type: string
+        description: Search for words present in the product name, generic name, brands, categories, origins and labels
+      
+      # Criteria section
+      tagtype_0:
+        type: string
+        description: First criteria type
+        enum: 
+          - search  # displayed as "choose a criterion..."
+          - brands
+          - categories
+          - packaging
+          - labels
+          - origins  # displayed as "origins of ingredients"
+          - manufacturing_places  # displayed as "manufacturing or processing places"
+          - emb_codes  # displayed as "traceability codes"
+          - purchase_places
+          - stores
+          - countries
+          - ingredients
+          - additives
+          - allergens
+          - traces
+          - nutrition_grades
+          - nova_groups
+          - ecoscore
+          - languages
+          - creator  # displayed as "contributors"
+          - editors
+          - states
+      tag_contains_0:
+        type: string
+        description: First criteria condition
+        enum: [contains, does_not_contain]
+      tag_0:
+        type: string
+        description: First criteria value
+      
+      tagtype_1:
+        # same enum as tagtype_0
+        $ref: '#/parameters/SearchPostSchema/properties/tagtype_0'
+      tag_contains_1:
+        type: string
+        description: Second criteria condition
+        enum: [contains, does_not_contain]
+      tag_1:
+        type: string
+        description: Second criteria value
+      
+      # Ingredients section
+      additives:
+        type: string
+        description: Filter by presence of additives
+        enum: [without, with, indifferent]
+        default: indifferent
+      ingredients_from_palm_oil:
+        type: string
+        description: Filter by ingredients from palm oil
+        enum: [without, with, indifferent]
+        default: indifferent
+      ingredients_that_may_be_from_palm_oil:
+        type: string
+        description: Filter by ingredients that may be from palm oil
+        enum: [without, with, indifferent]
+        default: indifferent
+      ingredients_from_or_that_may_be_from_palm_oil:
+        type: string
+        description: Filter by ingredients from or that may be from palm oil
+        enum: [without, with, indifferent]
+        default: indifferent
+
+      # Nutriment filters
+      nutriment_0:
+        type: string
+      nutriment_compare_0:
+        type: string
+        enum: [lt, lte, gt, gte, eq]
+      nutriment_value_0:
+        type: string
+      nutriment_1:
+        type: string
+      nutriment_compare_1:
+        type: string
+        enum: [lt, lte, gt, gte, eq]
+      nutriment_value_1:
+        type: string
+
+      # Graph and map parameters
+      graph_title:
+        type: string
+      axis_x:
+        type: string
+      axis_y:
+        type: string
+      map_title:
+        type: string
+
+      # Control parameters  
+      action:
+        type: string
+        enum: [process]
+        default: process
+      sort_by:
+        type: string
+        enum: [
+          popularity,
+          product_name,
+          created_t,
+          created_datetime,
+          completed_t,
+          last_modified_t,
+          last_modified_datetime,
+          unique_scans_n
+        ]
+
+      page:
+        type: integer
+        default: 1
+      page_size:
+        type: integer
+        minimum: 1
+        maximum: 1000
+        default: 20
+
+      #format:
+      #  type: string
+      #  enum: [json, xml, xlsx]
+      #  default: json
+
+      json:
+        type: number
+        enum: [0,1]
+        default: 1
+
+      fields:
+        type: string
+
+    required:
+      - action
+      - sort_by
+      - page_size
+      - format
