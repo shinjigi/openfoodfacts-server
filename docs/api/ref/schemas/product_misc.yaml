@@ -89,6 +89,8 @@ properties:
     type: integer
   unique_scans_n:
     type: integer
+  sortkey:
+    type: integer
   serving_quantity:
     type: string
     description: |

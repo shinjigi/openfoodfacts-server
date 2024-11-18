@@ -26,6 +26,14 @@ properties:
   ingredients_analysis:
     type: object
     properties:
+      "en:non-vegan":
+        type: array
+        items:
+          type: string
+      "en:palm-oil-content-unknown":
+        type: array
+        items:
+          type: string
       "en:palm-oil":
         type: array
         items:

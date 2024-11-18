@@ -130,10 +130,25 @@ properties:
         type: number
       sugars:
         type: number
+<<<<<<< Updated upstream
+=======
+
+      fiber:
+        type: integer
+
+      carbon-footprint-from-known-ingredients_100g:
+        type: number
+        format: float
+>>>>>>> Stashed changes
       carbon-footprint-from-known-ingredients_product:
         type: integer
       carbon-footprint-from-known-ingredients_serving:
         type: number
+<<<<<<< Updated upstream
+=======
+        format: float
+
+>>>>>>> Stashed changes
       erythritol:
         type: number
         description: |
@@ -319,6 +334,10 @@ properties:
     items:
       type: string
   nutrition_score_beverage:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value:
     type: integer
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
     type: integer

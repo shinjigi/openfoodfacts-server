@@ -11,6 +11,41 @@ description: |
   * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
   * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
 properties:
+<<<<<<< Updated upstream
+=======
+  ### HELP patternProperties FOR GENERATORS
+  image_front_small_url:
+    type: string
+  image_front_thumb_url:
+    type: string
+  image_front_url:
+    type: string
+  image_ingredients_small_url:
+    type: string
+  image_ingredients_thumb_url:
+    type: string
+  image_ingredients_url:
+    type: string
+  image_packaging_small_url:
+    type: string
+  image_packaging_thumb_url:
+    type: string
+  image_packaging_url:
+    type: string
+  image_nutrition_small_url:
+    type: string
+  image_nutrition_thumb_url:
+    type: string
+  image_nutrition_url:
+    type: string
+  image_small_url:
+    type: string
+  image_thumb_url:
+    type: string
+  image_url:
+    type: string
+  ### END HELP patternProperties FOR GENERATORS
+>>>>>>> Stashed changes
   images:
     description: |
       This contains properties for all images contained on the product.

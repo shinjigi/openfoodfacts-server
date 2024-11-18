@@ -18,6 +18,10 @@ properties:
     type: array
     items:
       type: string
+  data_quality_warning_tags:
+    type: array
+    items:
+      type: string
   data_quality_warnings_tags:
     type: array
     items:

@@ -67,6 +67,10 @@ properties:
     type: integer
     description: |
       Date when the product page was last modified.
+  last_updated_t:
+    type: integer
+    description: |
+      Date when the product page was last updated.
   owner:
     description: |
       Id of the producer in case he provides his own data about a product (producer platform).
