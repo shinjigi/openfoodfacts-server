@@ -162,6 +162,9 @@ properties:
       missing_data_warning:
         type: integer
 
+      missing_key_data:
+        type: integer
+
       previous_data:
         type: object
         properties:

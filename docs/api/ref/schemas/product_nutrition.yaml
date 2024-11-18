@@ -315,11 +315,15 @@ properties:
       fiber:
         type: integer
 
+      carbon-footprint-from-known-ingredients_100g:
+        type: number
+        format: float
       carbon-footprint-from-known-ingredients_product:
         type: integer
 
       carbon-footprint-from-known-ingredients_serving:
         type: number
+        format: float
 
       erythritol:
         type: number
@@ -485,6 +489,10 @@ properties:
     items:
       type: string
   nutrition_score_beverage:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients:
+    type: integer
+  nutrition_score_warning_fruits_vegetables_legumes_estimate_from_ingredients_value:
     type: integer
   nutrition_score_warning_fruits_vegetables_nuts_estimate_from_ingredients:
     type: integer

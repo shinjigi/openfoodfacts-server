@@ -18,6 +18,18 @@ properties:
     type: string
   image_front_url:
     type: string
+  image_ingredients_small_url:
+    type: string
+  image_ingredients_thumb_url:
+    type: string
+  image_ingredients_url:
+    type: string
+  image_packaging_small_url:
+    type: string
+  image_packaging_thumb_url:
+    type: string
+  image_packaging_url:
+    type: string
   image_nutrition_small_url:
     type: string
   image_nutrition_thumb_url:
@@ -87,6 +99,7 @@ properties:
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
+        type: string
 
 patternProperties:
   "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
