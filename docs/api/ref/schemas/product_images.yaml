@@ -11,8 +11,6 @@ description: |
   * [Getting images](https://openfoodfacts.github.io/openfoodfacts-server/api/how-to-download-images/)
   * [Uploading images](https://openfoodfacts.github.io/openfoodfacts-server/api/tutorial-uploading-photo-to-a-product/)
 properties:
-<<<<<<< Updated upstream
-=======
   ### HELP patternProperties FOR GENERATORS
   image_front_small_url:
     type: string
@@ -45,7 +43,6 @@ properties:
   image_url:
     type: string
   ### END HELP patternProperties FOR GENERATORS
->>>>>>> Stashed changes
   images:
     description: |
       This contains properties for all images contained on the product.
@@ -97,13 +94,6 @@ properties:
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
         type: string
-
-  image_small_url:
-    type: string
-  image_thumb_url:
-    type: string
-  image_url:
-    type: string
 
 patternProperties:
   "image(_(?<image_type>front|packaging|ingredients|nutrition|other))?(_(?<image_size>small|thumb))?_url":
