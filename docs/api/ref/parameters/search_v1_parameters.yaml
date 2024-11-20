@@ -8,50 +8,20 @@ parameters:
         type: string
       description: Text search terms
 
-    page:
-      name: page
-      in: query
-      schema:
-        type: integer
-        default: 1
-
-    page_size:
-      name: page_size
-      in: query
-      schema:
-        type: integer
-        default: 24
-        maximum: 1000
-
-    json:
-      name: json
-      in: query
-      schema:
-        type: integer
-        enum: [1]
-
     fields:
       name: fields
+      description: Fields to return
       in: query
       schema:
         type: string
 
-    sort_by:
-      name: sort_by
+    # Criteria section
+    code:
+      name: code
       in: query
       schema:
         type: string
-        enum: [
-          popularity,
-          product_name,
-          created_t,
-          created_datetime,
-          completed_t,
-          last_modified_t,
-          last_modified_datetime,
-          unique_scans_n,
-          score
-        ]
+        description: Product code or list of codes comma separated
 
     states_tags:
       name: states_tags
@@ -113,13 +83,66 @@ parameters:
       schema:
         type: string
 
+    # Control parameters
+    page:
+      name: page
+      in: query
+      schema:
+        type: integer
+        default: 1
+
+    page_size:
+      name: page_size
+      in: query
+      schema:
+        type: integer
+        default: 24
+        maximum: 1000
+
+    action:
+      name: action
+      in: query
+      schema:
+        type: string
+        enum: [process]
+        default: process
+
+    sort_by:
+      name: sort_by
+      in: query
+      schema:
+        type: string
+        enum: [
+          popularity,
+          product_name,
+          created_t,
+          created_datetime,
+          completed_t,
+          last_modified_t,
+          last_modified_datetime,
+          unique_scans_n,
+          score
+        ]
+
+    json:
+      name: json
+      in: query
+      schema:
+        type: integer
+        default: 1
+        enum: [1]
+
+
         
   SearchPostSchema:
     type: object
     properties:
       search_simple:
         type: number
+        description: TODO used as hidden field in the main 'https://openfoodfacts.org/' search bar
         enum: [1]
+        default: 1
+
       search_terms2:
         type: string
         description: Search for words present in the product name, generic name, brands, categories, origins and labels
@@ -218,7 +241,7 @@ parameters:
       map_title:
         type: string
 
-      # Control parameters  
+      # Control parameters
       action:
         type: string
         enum: [process]
@@ -245,21 +268,26 @@ parameters:
         maximum: 1000
         default: 20
 
-      #format:
-      #  type: string
-      #  enum: [json, xml, xlsx]
-      #  default: json
-
+      # response format
       json:
         type: number
-        enum: [0,1]
-        default: 1
+        description: Return the result in JSON format
+        enum: [1]
+      xml:
+        type: number
+        description: Return the result in JSON format
+        enum: [1]
+      jqm:
+        type: number
+        description: Return the result in JSON format
+        enum: [1]
 
       fields:
         type: string
 
     required:
+      - search_terms2
       - action
       - sort_by
+      - page
       - page_size
-      - format
