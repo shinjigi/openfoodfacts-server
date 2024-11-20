@@ -346,11 +346,9 @@ paths:
       description: Search products with filters (GET)
       parameters:
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/search_terms'
-        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page'
-        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page_size'
-        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/json'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/fields'
-        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/sort_by'
+        #
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/code'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/states_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/brands_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/categories_tags'
@@ -361,6 +359,12 @@ paths:
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/countries_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/ingredients_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/trace_tags'
+        #
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page_size'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/action'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/sort_by'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/json'
       responses:
         '200':
           description: OK
