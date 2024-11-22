@@ -365,6 +365,7 @@ paths:
       summary: Search products with filters (GET)
       description: Search products with filters (GET)
       parameters:
+        - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/search_terms'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/fields'
         #
@@ -469,7 +470,7 @@ paths:
         note: /api/v2/attribute_groups_{lc} is also a valid route, but consider it deprecated
       tags:
         - Read Requests
-        - Personal search
+        # - Personal search # TODO-Fix: Generatores goes in error creating  multiple "GetAttributeGroupsRequest" class references
       operationId: get-attribute-groups
       responses:
         "200":
