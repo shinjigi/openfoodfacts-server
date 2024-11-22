@@ -2,6 +2,7 @@ parameters:
   SearchGetParameters:
     search_terms:
       name: search_terms
+      required: true
       in: query
       schema:
         type: string
