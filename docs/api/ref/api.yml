@@ -112,7 +112,6 @@ paths:
           userAgentAuth: []
 
   /cgi/ingredients.pl:
-    parameters: []
     get:
       summary: Performing OCR on a Product
       operationId: get-cgi-ingredients.pl
@@ -143,7 +142,16 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: {}
+                additionalProperties: true
+                properties:
+                  status:
+                    type: string
+                    description: status of the crop operation
+                    example: status ok
+                  imagefield:
+                    type: string
+                    example: front_fr
+                    description: image field that was cropped
       description: |
         Cropping is only relevant for editing existing products.
         You cannot crop an image the first time you upload it to the system.
@@ -345,7 +353,7 @@ paths:
         - $ref: "#/components/parameters/sort_by"
         - $ref: "#/components/parameters/page"
         - $ref: "#/components/parameters/page_size"
-    parameters: []
+
   /cgi/suggest.pl:
     get:
       summary: Get Suggestions to Aid Adding/Editing Products
@@ -369,7 +377,7 @@ paths:
         for a specific product field.
   /cgi/nutrients.pl:
     get:
-      summary: Get a nested list of nutrients that can be displayed in the nutrition facts table for a specific country and language
+      summary: Get a nested list of nutrients for a specific country and language
       tags:
         - Read Requests
       responses:
@@ -385,6 +393,7 @@ paths:
         - $ref: "#/components/parameters/lc"
       description: |
         Used to display the nutrition facts table of a product, or to display a form to input those nutrition facts.
+        This endpoint retrieves a nested list of nutrients that can be displayed in the nutrition facts table for a specific country and language.
   /api/v2/attribute_groups:
     get:
       summary: Get the list of attributes available for personal search.
@@ -407,20 +416,16 @@ paths:
           content:
             application/json:
               schema:
-                title: get_attribute_groups_response
-                $ref: ./responses/get_attribute_groups.yaml
+                $ref: "#/components/schemas/GetAttributeGroupsResponse"
       parameters:
         - $ref: "#/components/parameters/lc"
   /api/v2/preferences:
-    get:
-      summary: |
-        Get the weights corresponding to attributes preferences
-        to compute personal product
-      description: |
-        This endpoint retrieves the weights corresponding to attribute preferences
-        for computing personal product recommendations. The weights are used to
-        personalize the product recommendations based on user preferences.
-      tags:
+    summary: Get weights for attribute preferences
+    description: |
+      This endpoint retrieves the weights corresponding to attribute preferences
+      for computing personal product recommendations. The weights are used to
+      personalize the product recommendations based on user preferences.
+      These weights help in computing personal product recommendations. tags:
         - Read Requests
         - Personal search
       operationId: get-preferences
@@ -527,8 +532,6 @@ components:
       $ref: "./schemas/product_nutriscore.yaml#/components/schemas/NutriscoreAll"
     "Product-Quality":
       $ref: ./schemas/product_quality.yaml
-    "Product-Data-Quality":
-      $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Extended":
       $ref: ./schemas/product_extended.yaml
     "Product-Metadata":
@@ -545,6 +548,9 @@ components:
     Nutrient:
       # Added to fix some generator errors on recursive $ref
       $ref: "./schemas/nutrients.yaml#/components/schemas/Nutrient"
+    GetAttributeGroupsResponse:
+      $ref: ./responses/get_attribute_groups.yaml
+
   parameters:
     id:
       schema:
@@ -641,6 +647,7 @@ components:
           - nova_score
           - nothing
           - ecoscore_score
+        default: popularity_key
       in: query
       name: sort_by
       description: |
@@ -691,5 +698,7 @@ tags:
     description: Endpoints that allow reading or retrieving data from the Open Food Facts database.
   - name: Write Requests
     description: Endpoints that allow writing or modifying data in the Open Food Facts database.
+  - name: Personal search
+    description: Endpoints that allow users to personalize their search results.
   - name: Authentication
     description: Endpoints used to retrieve authentication info.

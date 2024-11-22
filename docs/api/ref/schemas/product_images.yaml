@@ -58,12 +58,12 @@ properties:
       type: integer
 
     patternProperties:
-      '(?<imgid>\d+)':
+      '^(?<imgid>\d+)$':
         description: |
           See property `1` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))
         type: string
-      '(?<image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)':
+      '^(?<image_type>front|nutrition|ingredients|packaging|other)_(?<language_code>\w\w)$':
         description: |
           See property `front` to get the real type of those objects
           (Put this way because of a [bug in rapidoc](https://github.com/rapi-doc/RapiDoc/issues/880))

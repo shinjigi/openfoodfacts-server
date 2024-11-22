@@ -134,7 +134,7 @@ properties:
       grades:
         type: object
         patternProperties:
-          (?<country_code>\w\w):
+          '^(?<country_code>\w\w)$':
             type: string
       missing:
         type: object
@@ -170,7 +170,7 @@ properties:
       scores:
         type: object
         patternProperties:
-          (?<country_code>\w\w):
+          '^(?<country_code>\w\w)$':
             type: integer
       status:
         type: string

@@ -10,7 +10,7 @@ components:
         full:
           $ref: ./image_size.yaml
       patternProperties:
-        "(?<image_size>100|400)":
+        "^(?<image_size>100|400)$":
           description: |
             properties of thumbnail of size `image_size`.
             **TODO** explain how to compute name
