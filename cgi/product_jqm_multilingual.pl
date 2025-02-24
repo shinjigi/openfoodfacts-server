@@ -3,7 +3,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2025 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ use ProductOpener::Index qw/:all/;
 use ProductOpener::Display qw/:all/;
 use ProductOpener::HTTP qw/write_cors_headers/;
 use ProductOpener::Tags qw/%language_fields %tags_fields add_tags_to_field compute_field_tags/;
+use ProductOpener::URL qw/format_subdomain/;
 use ProductOpener::Users qw/$Org_id $Owner_id $User_id %User/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::Lang qw/$lc %lang_lc/;
@@ -52,12 +53,13 @@ use ProductOpener::Food qw/assign_nutriments_values_from_request_parameters/;
 use ProductOpener::Ingredients qw/:all/;
 use ProductOpener::Images qw/:all/;
 use ProductOpener::DataQuality qw/:all/;
-use ProductOpener::Ecoscore qw/:all/;
+use ProductOpener::EnvironmentalScore qw/:all/;
 use ProductOpener::Packaging qw/:all/;
 use ProductOpener::ForestFootprint qw/:all/;
 use ProductOpener::Text qw/remove_tags_and_quote/;
 use ProductOpener::API qw/get_initialized_response check_user_permission/;
-use ProductOpener::APIProductWrite qw/skip_protected_field/;
+use ProductOpener::APIProductWrite
+	qw/process_change_product_type_request_if_we_have_one process_change_product_code_request_if_we_have_one skip_protected_field/;
 
 use Apache2::RequestRec ();
 use Apache2::Const ();
@@ -117,8 +119,12 @@ else {
 	else {
 		# There is an existing product
 		# If the product has a product_type and it is not the product_type of the server, redirect to the correct server
+		# unless we are on the pro platform
 
-		if ((defined $product_ref->{product_type}) and ($product_ref->{product_type} ne $options{product_type})) {
+		if (    (not $server_options{private_products})
+			and (defined $product_ref->{product_type})
+			and ($product_ref->{product_type} ne $options{product_type}))
+		{
 			redirect_to_url($request_ref, 307,
 				format_subdomain($subdomain, $product_ref->{product_type}) . '/cgi/product_jqm.pl?code=' . $code);
 		}
@@ -230,30 +236,14 @@ else {
 
 	# Change code or product type
 
-	if (defined single_param('new_code')) {
+	push @errors,
+		process_change_product_code_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("new_code"));
+	$code = $product_ref->{code};
 
-		if (check_user_permission($request_ref, $response_ref, "product_change_code")) {
-
-			push @errors, change_product_code($product_ref, single_param('new_code'));
-			$code = $product_ref->{code};
-		}
-		else {
-			push @errors, "No permission: product_change_code";
-		}
-	}
-
-	if (    (defined single_param("product_type"))
-		and ($product_ref->{product_type} ne single_param("product_type")))
-	{
-
-		if (check_user_permission($request_ref, $response_ref, "product_change_product_type")) {
-
-			push @errors, change_product_type($product_ref, single_param("product_type"));
-		}
-		else {
-			push @errors, "No permission: product_change_product_type";
-		}
-	}
+	push @errors,
+		process_change_product_type_request_if_we_have_one($request_ref, $response_ref, $product_ref,
+		single_param("product_type"));
 
 	# Display an error message and exit if we have a fatal error (no permission to change barcode or product type, or invalid barcode or product type)
 	if ($#errors >= 0) {
@@ -277,8 +267,8 @@ else {
 		push @app_fields, "creator";
 	}
 
-	if ($request_ref->{admin} or ($User_id eq "ecoscore-impact-estimator")) {
-		push @app_fields, ("ecoscore_extended_data", "ecoscore_extended_data_version");
+	if ($request_ref->{admin} or ($User_id eq "environmental-score-impact-estimator")) {
+		push @app_fields, ("environmental_score_extended_data", "environmental_score_extended_data_version");
 	}
 
 	# generate a list of potential languages for language specific fields
@@ -396,7 +386,7 @@ else {
 				}
 
 			}
-			elsif ($field eq "ecoscore_extended_data") {
+			elsif ($field eq "environmental_score_extended_data") {
 				# we expect a JSON value
 				if (defined single_param($field)) {
 					$product_ref->{$field} = decode_json(single_param($field));
