@@ -21,6 +21,8 @@ components:
           description: The percentage of the ingredient.
         is_in_taxonomy:
           type: integer
+        labels:
+          type: string
         percent_estimate:
           type: number
           description: Estimated percentage of the ingredient.

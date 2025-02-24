@@ -108,7 +108,9 @@ properties:
     type: string
     description: |
       Quantity and Unit.
-
+  product_type:
+    type: string
+    
 patternProperties:
   abbreviated_product_name_(?<language_code>\w\w):
     type: string

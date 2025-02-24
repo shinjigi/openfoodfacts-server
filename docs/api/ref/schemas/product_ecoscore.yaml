@@ -110,6 +110,12 @@ properties:
                     weight_measured:
                       type: number
                       examples: [12.08]
+                    environmental_score_material_score:
+                      type: number
+                    environmental_score_shape_ratio:
+                      type: number
+                    non_recyclable_and_non_biodegradable:
+                      type: string
               score:
                 type: integer
               value:

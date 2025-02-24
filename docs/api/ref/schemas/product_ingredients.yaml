@@ -94,6 +94,10 @@ properties:
     type: array
     items:
       type: string
+  ingredients_tags_it:
+    type: array
+    items:
+      type: string
   ingredients_lc:
     type: string
     description: |

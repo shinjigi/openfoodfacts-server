@@ -292,6 +292,17 @@ properties:
           An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
           This is an important information for Nutri-Score (2021 version) computation.
 
+      fruits-vegetables-nuts-estimate_100g:
+        type: number
+      fruits-vegetables-nuts-estimate_label:
+        type: string
+      fruits-vegetables-nuts-estimate_serving:
+        type: number
+      fruits-vegetables-nuts-estimate_unit:
+        type: string
+      fruits-vegetables-nuts-estimate_value:
+        type: number
+
       nova-group:
         type: integer
       nutrition-score-fr:
