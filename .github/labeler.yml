@@ -173,7 +173,7 @@ WikiData:
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5555
 📸 Open Products Facts:
 - changed-files:
-  - any-glob-to-any-file: 'taxonomies/products/**/*'
+  - any-glob-to-any-file: 'taxonomies/product/**/*'
   - any-glob-to-any-file: 'po/openproductsfacts/**/*'
   - any-glob-to-any-file: 'lib/ProductOpener/Config_opf.pm'
   - any-glob-to-any-file: 'conf/nginx/sites-available/opf'
@@ -505,21 +505,6 @@ Data import:
   - any-glob-to-any-file: 'cgi/generate_sample_import_file.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Ingredients.html
-🥗 Ingredients:
-- changed-files:
-  - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
-  - any-glob-to-any-file: 'taxonomies/food/ingredients.txt'
-  - any-glob-to-any-file: 'tests/unit/ingredients.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_analysis.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_clean.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_nesting.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_parsing.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_parsing_todo.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_percent.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
-  - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
-  - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
-
 # We want to improve the analysis of ingredient list to extract ingredients and their properties, across languages. 
 # This is helpful to determine if a product is vegan, vegetarian, contains palm oil, is kosher/halal, the exact Nutri-Score, how much environmental impact it has…
 # https://wiki.openfoodfacts.org/Ingredients_Extraction_and_Analysis
@@ -538,7 +523,23 @@ Data import:
   - any-glob-to-any-file: 'scripts/extract_individual_ingredients.pl'
   - any-glob-to-any-file: 'scripts/aggregate_ingredients.pl'
   - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
-
+  - any-glob-to-any-file: 'tests/unit/ingredients_parsing.t'
+  - any-glob-to-any-file: 'lib/ProductOpener/Ingredients.pm'
+  - any-glob-to-any-file: 'taxonomies/food/ingredients.txt'
+  - any-glob-to-any-file: 'tests/unit/ingredients.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_analysis.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_clean.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_nesting.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_parsing_todo.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_percent.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_processing.t'
+  - any-glob-to-any-file: 'tests/unit/ingredients_tags.t'
+  - any-glob-to-any-file: 'scripts/test_ingredient_parser.pl'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/en-category-types.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-infinite-loop-allergens.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-marmelade.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/fr-percents-origins-2.json'
+  - any-glob-to-any-file: 'tests/unit/expected_test_results/ingredients/ru-russian-oil.json'
 # Labels are all claims present on product packages.
 # https://wiki.openfoodfacts.org/Labels
 # Tracking issue: 
@@ -683,11 +684,12 @@ Numbers:
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutriscore.tt.html'
   - any-glob-to-any-file: 'templates/web/pages/product/includes/nutriscore_details.tt.html'
   - any-glob-to-any-file: 'templates/api/knowledge-panels/health/nutriscore/nutriscore.tt.json'
+  - any-glob-to-any-file: 'ttemplates/api/knowledge-panels/health/nutriscore/nutriscore_2023.tt.json'
   - any-glob-to-any-file: 'tests/unit/nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'tests/unit/ingredients_nutriscore.t'
   - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
-  - any-glob-to-any-file: 'docs/introduction/get-the-nutriscore.md'
+  - any-glob-to-any-file: 'docs/api/api-tutorials/get-the-nutriscore.md'
   - any-glob-to-any-file: 'docs/​api/​ref/​schemas/​product_nutriscore.yaml'
 
 Nutrients:
@@ -747,7 +749,7 @@ Portugal:
   - any-glob-to-any-file: 'scripts/packager-codes/portugal-geocode.sh'
   - any-glob-to-any-file: 'scripts/packager-codes/portugal-concatenate-csv-sections.py'
 
-:
+Estonia:
 - changed-files:
   - any-glob-to-any-file: 'scripts/packager-codes/toidukaitlejad-tsv.xsl'
 
@@ -1085,6 +1087,12 @@ Tags:
   - any-glob-to-any-file: 'lib/ProductOpener/APITagRead.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/TagsEntries.pm'
   - any-glob-to-any-file: 'lib/ProductOpener/KnowledgePanelsTags.pm'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/product_tags.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/input_taxonomy_tag_entry.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/tags-write.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/tagtype.yaml'
+  - any-glob-to-any-file: 'docs/api/ref/schemas/tags/taxonomy_tag_entry.yaml'
+  - any-glob-to-any-file: 'po/tags/**/*'
   
 Site layout:
 - changed-files:
@@ -1159,8 +1167,9 @@ OCR:
 Scanbot:
 - changed-files:
   - any-glob-to-any-file: 'scripts/scanbot.pl'
-
-
+  - any-glob-to-any-file: 'scripts/export_scans_to_query.pl'
+  - any-glob-to-any-file: 'scripts/add_nutriscore_to_scanbot_csv.pl'
+  
 # We used to have a nice missions system with badges you'd earn by doing certain contribution tasks. It was disabled when we made Open Food Facts multilingual, and we never got to refactor it.
 # Tracking issue: https://github.com/openfoodfacts/openfoodfacts-server/issues/5516
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Missions.html
@@ -1238,6 +1247,7 @@ Checkbot:
   - any-glob-to-any-file: 'scripts/checkbot.pl'
 
 # https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/APIProductRevert.html
+# Also points to https://nutripatrol.openfoodfacts.org/
 # Tracking issue: 
 👮 Moderation:
 - changed-files:
@@ -1251,7 +1261,7 @@ Checkbot:
   - any-glob-to-any-file: 'lib/ProductOpener/APIProductRevert.pm'
   - any-glob-to-any-file: 'scripts/make_user_moderator.pl'
   - any-glob-to-any-file: 'tests/integration/delete_user.t'
-
+  - any-glob-to-any-file: 'templates/api/knowledge-panels/report_problem/incomplete_or_incorrect_data.tt.json'
 
 # Enabling users to delete account while preserving accountability for edits
 # By default we don't delete products belonging to the user. It only happens for potential spam accounts.
