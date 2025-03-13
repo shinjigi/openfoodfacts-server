@@ -307,7 +307,7 @@ components:
         nutriscore_2023_tags:
           $ref: "#/components/schemas/NutriscoreGradeTags"
         nutriscore_data:
-          $ref: "#/components/schemas/Nutriscore2021Data"
+          $ref: "#/components/schemas/Nutriscore2023Data"
         nutriscore_grade:
           $ref: "#/components/schemas/NutriscoreGrade"
           examples: ["d"]
