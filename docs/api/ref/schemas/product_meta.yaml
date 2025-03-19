@@ -14,6 +14,8 @@ properties:
     type: string
     description: |
       The contributor who added the product first.
+  editors:
+    type: string
   editors_tags:
     description: |
       List of editors who edited the product.

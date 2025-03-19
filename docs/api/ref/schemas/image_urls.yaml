@@ -2,21 +2,23 @@ components:
   schemas:
     ImageUrls:
       type: object
-      patternProperties:
-        '^(?<language_code>\w\w)$':
-          type: string
-          description: url of the image for language `language_code`
+      #patternProperties:
+      #  '^(?<language_code>\w\w)$':
+      #    type: string
+      #    description: url of the image for language `language_code`
+      additionalProperties:
+        type: string
     SelectedImage:
       type: object
       description: URLs of thumbnails image of image of type `image_type`
       properties:
         display:
           description: |
-            Thumbnail urls of product image (front) adapted to display on product page
+            Urls of product image (front) adapted to display on product page
           $ref: "#/components/schemas/ImageUrls"
         small:
           description: |
-            Thumbnail urls of product image (front) adapted to display on product list page
+            Urls of product small image (front) adapted to display on product list page
           $ref: "#/components/schemas/ImageUrls"
         thumb:
           description: |

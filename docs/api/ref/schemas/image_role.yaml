@@ -61,11 +61,6 @@ components:
             full:
               $ref: ./image_size.yaml
         white_magic:
-          # type: 'null' # it raises errors on generator
-          type:
-            - "string"
-            - "boolean"
-            - "null"
           examples:
             - null
             - "false"

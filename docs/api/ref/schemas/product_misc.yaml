@@ -93,7 +93,6 @@ properties:
   sortkey:
     type: integer
   serving_quantity:
-    type: string
     description: |
       Normalized version of serving_size.
       Note that this is NOT the number of servings by product.

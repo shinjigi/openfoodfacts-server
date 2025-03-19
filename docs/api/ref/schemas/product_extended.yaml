@@ -78,11 +78,11 @@ properties:
   minerals_prev_tags:
     type: array
     items:
-      type: object
+      type: string
   minerals_tags:
     type: array
     items:
-      type: object
+      type: string
   owner_fields:
     type: object
     description: |
@@ -120,6 +120,8 @@ properties:
     items:
       type: object
   origin:
+    type: string
+  origin_it:
     type: string
   purchase_places:
     type: string

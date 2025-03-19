@@ -94,7 +94,6 @@ properties:
       be in many other languages like
       product_name_fr (for French).
   product_quantity:
-    type: string
     description: |
       The size in g or ml for the whole product.
       It's a normalized version of the quantity field.

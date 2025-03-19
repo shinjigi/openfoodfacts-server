@@ -20,12 +20,20 @@ properties:
     type: array
     items:
       type: string
+  allergens_tags_it:
+    type: array
+    items:
+      type: string
 
   ingredients:
     $ref: "./ingredient.yaml#/components/schemas/Ingredients"
   ingredients_analysis:
     type: object
     properties:
+      "en:may-contain-palm-oil":
+        type: array
+        items:
+          type: string
       "en:non-vegan":
         type: array
         items:
@@ -138,7 +146,7 @@ properties:
   ingredients_that_may_be_from_palm_oil_tags:
     type: array
     items:
-      type: object
+      type: string
   ingredients_with_specified_percent_n:
     type: integer
   ingredients_with_specified_percent_sum:
@@ -147,6 +155,10 @@ properties:
     type: integer
   ingredients_with_unspecified_percent_sum:
     type: integer
+  ingredients_without_ciqual_codes:
+    type: array
+    items:
+      type: string
   known_ingredients_n:
     type: integer
   origins:

@@ -27,7 +27,9 @@ properties:
                   type: object
                   properties:
                     epi_score:
-                      type: string #TODO: should be integer
+                      description: |
+                        The EPI score of the ingredient.
+                      # type: # sometimes is string sometimes is integer.. TODO Bug 
                     origin:
                       type: string
                     percent:
@@ -88,7 +90,11 @@ properties:
                       type: integer
                     ecoscore_shape_ratio:
                       type: integer
+                    food_contact:
+                      type: integer
                     material:
+                      type: string
+                    material_shape:
                       type: string
                     shape:
                       type: string
@@ -158,6 +164,8 @@ properties:
       missing:
         type: object
         properties:
+          agb_category:
+            type: integer
           labels:
             type: integer
           origins:

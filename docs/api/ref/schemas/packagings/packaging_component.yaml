@@ -26,9 +26,11 @@ examples:
     weight: 30
     weight_source_id: specified
 properties:
+  food_contact:
+    type: integer
   number_of_units:
     type: integer
-    description: umber of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
+    description: number of units of this packaging component contained in the product (e.g. 6 for a pack of 6 bottles)
   shape:
     # NOT yet supported by common generator
     # oneOf/anyOf alternative configuration (also with discriminator) do not work

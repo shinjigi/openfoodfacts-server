@@ -53,6 +53,8 @@ paths:
               - "3017620422003"
         - $ref: "./parameters/requested_product_type.yaml#/components/parameters/RequestedProductType"
         - $ref: "#/components/parameters/fields"
+        - $ref: "#/components/parameters/cc"
+        - $ref: "#/components/parameters/lc"
       responses:
         "200":
           description: OK

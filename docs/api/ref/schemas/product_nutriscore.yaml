@@ -7,7 +7,7 @@ components:
 
         See https://world.openfoodfacts.org/nutriscore.
       type: string
-      enum: ["a", "b", "c", "d", "e"]
+      enum: ["a", "b", "c", "d", "e", "unknown"]
 
     NutriscoreGradeTags:
       type: array
@@ -37,6 +37,18 @@ components:
           type: integer
           enum: [0, 1]
           examples: [0]
+        is_fat:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
+        is_fat_oil_nuts_seeds:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
+        is_red_meat_product:
+          type: integer
+          enum: [0, 1]
+          examples: [0]
         is_water:
           type: integer
           enum: [0, 1]
@@ -57,10 +69,6 @@ components:
       allOf:
         - $ref: "#/components/schemas/ProductType"
         - properties:
-            is_fat:
-              type: integer
-              enum: [0, 1]
-              examples: [0]
             # Energy
             energy:
               type: integer
@@ -151,18 +159,23 @@ components:
               type: integer
               examples: [4]
 
+    NutriscoreGradeScore:
+      title: NutriscoreGradeScore
+      type: object
+      properties:
+        grade:
+          $ref: "#/components/schemas/NutriscoreGrade"
+          examples: ["d"]
+        score:
+          type: integer
+          examples: [13]
+
+
     Nutriscore2021Data:
       title: Nutriscore2021Data
       allOf:
         - $ref: "#/components/schemas/Nutriscore2021InnerData"
-        - type: object
-          properties:
-            grade:
-              $ref: "#/components/schemas/NutriscoreGrade"
-              examples: ["d"]
-            score:
-              type: integer
-              examples: [13]
+        - $ref: "#/components/schemas/NutriscoreGradeScore"
 
     # Component Schema
     NutriscoreComponent:
@@ -201,15 +214,8 @@ components:
       title: Nutriscore2023Data
       allOf:
         - $ref: "#/components/schemas/ProductType"
+        - $ref: "#/components/schemas/NutriscoreGradeScore"
         - properties:
-            is_fat_oil_nuts_seeds:
-              type: integer
-              enum: [0, 1]
-              examples: [0]
-            is_red_meat_product:
-              type: integer
-              enum: [0, 1]
-              examples: [0]
             components:
               title: Nutriscore2023DataComponents
               type: object
@@ -248,7 +254,7 @@ components:
               examples: [["fiber", "fruits_vegetables_legumes"]]
 
     # Common Year Data
-    NutriscoreYearData:
+    NutriscoreCommonData:
       type: object
       properties:
         category_available:
@@ -281,7 +287,7 @@ components:
         "2021":
           title: Nutriscore2021
           allOf:
-            - $ref: "#/components/schemas/NutriscoreYearData"
+            - $ref: "#/components/schemas/NutriscoreCommonData"
             - type: object
               properties:
                 data:
@@ -289,7 +295,7 @@ components:
         "2023":
           title: Nutriscore2023
           allOf:
-            - $ref: "#/components/schemas/NutriscoreYearData"
+            - $ref: "#/components/schemas/NutriscoreCommonData"
             - type: object
               properties:
                 data:
@@ -307,7 +313,9 @@ components:
         nutriscore_2023_tags:
           $ref: "#/components/schemas/NutriscoreGradeTags"
         nutriscore_data:
-          $ref: "#/components/schemas/Nutriscore2023Data"
+          anyOf:
+            - $ref: "#/components/schemas/Nutriscore2021Data"
+            - $ref: "#/components/schemas/Nutriscore2023Data"
         nutriscore_grade:
           $ref: "#/components/schemas/NutriscoreGrade"
           examples: ["d"]
