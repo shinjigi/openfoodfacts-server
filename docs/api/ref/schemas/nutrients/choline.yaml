@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    choline:
+      type: object
+      title: choline
+      description: |
+        choline: all tech fields about the nutrient
+      properties:
+        choline:
+          type: number
+        choline_label:
+          type: string
+        choline_100g:
+          type: number
+          format: float
+        choline_serving:
+          type: number
+          format: float
+        choline_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        choline_value:
+          type: number
+          format: float
+        choline_value_computed:
+          type: number
+          format: float
+        choline_tags:
+          type: array
+          items:
+            type: string

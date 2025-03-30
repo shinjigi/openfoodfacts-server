@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "fruits-vegetables-legumes-estimate-from-ingredients":
+      type: object
+      title: fruits-vegetables-legumes-estimate-from-ingredients
+      description: |
+        fruits-vegetables-legumes-estimate-from-ingredients: all tech fields about the nutrient
+      properties:
+        "fruits-vegetables-legumes-estimate-from-ingredients":
+          type: number
+        "fruits-vegetables-legumes-estimate-from-ingredients_label":
+          type: string
+        "fruits-vegetables-legumes-estimate-from-ingredients_100g":
+          type: number
+          format: float
+        "fruits-vegetables-legumes-estimate-from-ingredients_serving":
+          type: number
+          format: float
+        "fruits-vegetables-legumes-estimate-from-ingredients_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        "fruits-vegetables-legumes-estimate-from-ingredients_value":
+          type: number
+          format: float
+        "fruits-vegetables-legumes-estimate-from-ingredients_value_computed":
+          type: number
+          format: float
+        "fruits-vegetables-legumes-estimate-from-ingredients_tags":
+          type: array
+          items:
+            type: string

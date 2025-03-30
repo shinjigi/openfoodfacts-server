@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    vitamin_c:
+      type: object
+      title: vitamin_c
+      description: |
+        vitamin_c: all tech fields about the nutrient
+      properties:
+        vitamin_c:
+          type: number
+        vitamin_c_label:
+          type: string
+        vitamin_c_100g:
+          type: number
+          format: float
+        vitamin_c_serving:
+          type: number
+          format: float
+        vitamin_c_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        vitamin_c_value:
+          type: number
+          format: float
+        vitamin_c_value_computed:
+          type: number
+          format: float
+        vitamin_c_tags:
+          type: array
+          items:
+            type: string

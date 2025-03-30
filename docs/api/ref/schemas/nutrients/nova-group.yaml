@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "nova-group":
+      type: object
+      title: nova-group
+      description: |
+        nova-group: all tech fields about the nutrient
+      properties:
+        "nova-group":
+          type: number
+        "nova-group_label":
+          type: string
+        "nova-group_100g":
+          type: number
+          format: float
+        "nova-group_serving":
+          type: number
+          format: float
+        "nova-group_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/all"
+        "nova-group_value":
+          type: number
+          format: float
+        "nova-group_value_computed":
+          type: number
+          format: float
+        "nova-group_tags":
+          type: array
+          items:
+            type: string

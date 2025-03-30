@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    energy:
+      type: object
+      title: energy
+      description: |
+        energy: all tech fields about the nutrient
+      properties:
+        energy:
+          type: number
+        energy_label:
+          type: string
+        energy_100g:
+          type: number
+          format: float
+        energy_serving:
+          type: number
+          format: float
+        energy_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/kj_kcal"
+        energy_value:
+          type: number
+          format: float
+        energy_value_computed:
+          type: number
+          format: float
+        energy_tags:
+          type: array
+          items:
+            type: string

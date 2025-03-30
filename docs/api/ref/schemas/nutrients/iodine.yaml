@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    iodine:
+      type: object
+      title: iodine
+      description: |
+        iodine: all tech fields about the nutrient
+      properties:
+        iodine:
+          type: number
+        iodine_label:
+          type: string
+        iodine_100g:
+          type: number
+          format: float
+        iodine_serving:
+          type: number
+          format: float
+        iodine_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        iodine_value:
+          type: number
+          format: float
+        iodine_value_computed:
+          type: number
+          format: float
+        iodine_tags:
+          type: array
+          items:
+            type: string

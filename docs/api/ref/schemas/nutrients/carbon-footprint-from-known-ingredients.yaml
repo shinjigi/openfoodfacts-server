@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "carbon-footprint-from-known-ingredients":
+      type: object
+      title: carbon-footprint-from-known-ingredients
+      description: |
+        carbon-footprint-from-known-ingredients: all tech fields about the nutrient
+      properties:
+        "carbon-footprint-from-known-ingredients":
+          type: number
+        "carbon-footprint-from-known-ingredients_label":
+          type: string
+        "carbon-footprint-from-known-ingredients_100g":
+          type: number
+          format: float
+        "carbon-footprint-from-known-ingredients_serving":
+          type: number
+          format: float
+        "carbon-footprint-from-known-ingredients_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        "carbon-footprint-from-known-ingredients_value":
+          type: number
+          format: float
+        "carbon-footprint-from-known-ingredients_value_computed":
+          type: number
+          format: float
+        "carbon-footprint-from-known-ingredients_tags":
+          type: array
+          items:
+            type: string

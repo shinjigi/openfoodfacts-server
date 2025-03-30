@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    polyunsaturated_fat:
+      type: object
+      title: polyunsaturated_fat
+      description: |
+        polyunsaturated_fat: all tech fields about the nutrient
+      properties:
+        polyunsaturated_fat:
+          type: number
+        polyunsaturated_fat_label:
+          type: string
+        polyunsaturated_fat_100g:
+          type: number
+          format: float
+        polyunsaturated_fat_serving:
+          type: number
+          format: float
+        polyunsaturated_fat_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        polyunsaturated_fat_value:
+          type: number
+          format: float
+        polyunsaturated_fat_value_computed:
+          type: number
+          format: float
+        polyunsaturated_fat_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    cocoa:
+      type: object
+      title: cocoa
+      description: |
+        cocoa: all tech fields about the nutrient
+      properties:
+        cocoa:
+          type: number
+        cocoa_label:
+          type: string
+        cocoa_100g:
+          type: number
+          format: float
+        cocoa_serving:
+          type: number
+          format: float
+        cocoa_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        cocoa_value:
+          type: number
+          format: float
+        cocoa_value_computed:
+          type: number
+          format: float
+        cocoa_tags:
+          type: array
+          items:
+            type: string

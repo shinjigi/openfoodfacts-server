@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    iron:
+      type: object
+      title: iron
+      description: |
+        iron: all tech fields about the nutrient
+      properties:
+        iron:
+          type: number
+        iron_label:
+          type: string
+        iron_100g:
+          type: number
+          format: float
+        iron_serving:
+          type: number
+          format: float
+        iron_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        iron_value:
+          type: number
+          format: float
+        iron_value_computed:
+          type: number
+          format: float
+        iron_tags:
+          type: array
+          items:
+            type: string

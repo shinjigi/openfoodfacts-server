@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    potassium:
+      type: object
+      title: potassium
+      description: |
+        potassium: all tech fields about the nutrient
+      properties:
+        potassium:
+          type: number
+        potassium_label:
+          type: string
+        potassium_100g:
+          type: number
+          format: float
+        potassium_serving:
+          type: number
+          format: float
+        potassium_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        potassium_value:
+          type: number
+          format: float
+        potassium_value_computed:
+          type: number
+          format: float
+        potassium_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    fruits_vegetables_nuts_colza_walnut_olive_oils:
+      type: object
+      title: fruits_vegetables_nuts_colza_walnut_olive_oils
+      description: |
+        fruits_vegetables_nuts_colza_walnut_olive_oils: all tech fields about the nutrient
+      properties:
+        fruits_vegetables_nuts_colza_walnut_olive_oils:
+          type: number
+        fruits_vegetables_nuts_colza_walnut_olive_oils_label:
+          type: string
+        fruits_vegetables_nuts_colza_walnut_olive_oils_100g:
+          type: number
+          format: float
+        fruits_vegetables_nuts_colza_walnut_olive_oils_serving:
+          type: number
+          format: float
+        fruits_vegetables_nuts_colza_walnut_olive_oils_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/all"
+        fruits_vegetables_nuts_colza_walnut_olive_oils_value:
+          type: number
+          format: float
+        fruits_vegetables_nuts_colza_walnut_olive_oils_value_computed:
+          type: number
+          format: float
+        fruits_vegetables_nuts_colza_walnut_olive_oils_tags:
+          type: array
+          items:
+            type: string

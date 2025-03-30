@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    proteins:
+      type: object
+      title: proteins
+      description: |
+        proteins: all tech fields about the nutrient
+      properties:
+        proteins:
+          type: number
+        proteins_label:
+          type: string
+        proteins_100g:
+          type: number
+          format: float
+        proteins_serving:
+          type: number
+          format: float
+        proteins_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        proteins_value:
+          type: number
+          format: float
+        proteins_value_computed:
+          type: number
+          format: float
+        proteins_tags:
+          type: array
+          items:
+            type: string

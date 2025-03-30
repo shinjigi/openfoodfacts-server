@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    carbohydrates:
+      type: object
+      title: carbohydrates
+      description: |
+        carbohydrates: all tech fields about the nutrient
+      properties:
+        carbohydrates:
+          type: number
+        carbohydrates_label:
+          type: string
+        carbohydrates_100g:
+          type: number
+          format: float
+        carbohydrates_serving:
+          type: number
+          format: float
+        carbohydrates_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        carbohydrates_value:
+          type: number
+          format: float
+        carbohydrates_value_computed:
+          type: number
+          format: float
+        carbohydrates_tags:
+          type: array
+          items:
+            type: string

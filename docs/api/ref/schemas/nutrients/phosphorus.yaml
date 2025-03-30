@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    phosphorus:
+      type: object
+      title: phosphorus
+      description: |
+        phosphorus: all tech fields about the nutrient
+      properties:
+        phosphorus:
+          type: number
+        phosphorus_label:
+          type: string
+        phosphorus_100g:
+          type: number
+          format: float
+        phosphorus_serving:
+          type: number
+          format: float
+        phosphorus_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        phosphorus_value:
+          type: number
+          format: float
+        phosphorus_value_computed:
+          type: number
+          format: float
+        phosphorus_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    magnesium:
+      type: object
+      title: magnesium
+      description: |
+        magnesium: all tech fields about the nutrient
+      properties:
+        magnesium:
+          type: number
+        magnesium_label:
+          type: string
+        magnesium_100g:
+          type: number
+          format: float
+        magnesium_serving:
+          type: number
+          format: float
+        magnesium_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        magnesium_value:
+          type: number
+          format: float
+        magnesium_value_computed:
+          type: number
+          format: float
+        magnesium_tags:
+          type: array
+          items:
+            type: string

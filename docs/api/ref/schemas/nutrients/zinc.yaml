@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    zinc:
+      type: object
+      title: zinc
+      description: |
+        zinc: all tech fields about the nutrient
+      properties:
+        zinc:
+          type: number
+        zinc_label:
+          type: string
+        zinc_100g:
+          type: number
+          format: float
+        zinc_serving:
+          type: number
+          format: float
+        zinc_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        zinc_value:
+          type: number
+          format: float
+        zinc_value_computed:
+          type: number
+          format: float
+        zinc_tags:
+          type: array
+          items:
+            type: string

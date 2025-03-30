@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "saturated-fat":
+      type: object
+      title: "saturated-fat"
+      description: |
+        "saturated-fat": all tech fields about the nutrient
+      properties:
+        "saturated-fat":
+          type: number
+        "saturated-fat_label":
+          type: string
+        "saturated-fat_100g":
+          type: number
+          format: float
+        "saturated-fat_serving":
+          type: number
+          format: float
+        "saturated-fat_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        "saturated-fat_value":
+          type: number
+          format: float
+        "saturated-fat_value_computed":
+          type: number
+          format: float
+        "saturated-fat_tags":
+          type: array
+          items:
+            type: string

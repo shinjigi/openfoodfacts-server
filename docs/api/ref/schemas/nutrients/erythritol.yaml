@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    erythritol:
+      type: object
+      title: erythritol
+      description: |
+        erythritol: all tech fields about the nutrient
+      properties:
+        erythritol:
+          type: number
+        erythritol_label:
+          type: string
+        erythritol_100g:
+          type: number
+          format: float
+        erythritol_serving:
+          type: number
+          format: float
+        erythritol_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        erythritol_value:
+          type: number
+          format: float
+        erythritol_value_computed:
+          type: number
+          format: float
+        erythritol_tags:
+          type: array
+          items:
+            type: string

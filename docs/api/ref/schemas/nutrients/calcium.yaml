@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    calcium:
+      type: object
+      title: calcium
+      description: |
+        calcium: all tech fields about the nutrient
+      properties:
+        calcium:
+          type: number
+        calcium_label:
+          type: string
+        calcium_100g:
+          type: number
+          format: float
+        calcium_serving:
+          type: number
+          format: float
+        calcium_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        calcium_value:
+          type: number
+          format: float
+        calcium_value_computed:
+          type: number
+          format: float
+        calcium_tags:
+          type: array
+          items:
+            type: string

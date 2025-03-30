@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    vitamin_b5:
+      type: object
+      title: vitamin_b5
+      description: |
+        vitamin_b5: all tech fields about the nutrient
+      properties:
+        vitamin_b5:
+          type: number
+        vitamin_b5_label:
+          type: string
+        vitamin_b5_100g:
+          type: number
+          format: float
+        vitamin_b5_serving:
+          type: number
+          format: float
+        vitamin_b5_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        vitamin_b5_value:
+          type: number
+          format: float
+        vitamin_b5_value_computed:
+          type: number
+          format: float
+        vitamin_b5_tags:
+          type: array
+          items:
+            type: string

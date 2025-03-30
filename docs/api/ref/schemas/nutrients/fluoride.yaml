@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    fluoride:
+      type: object
+      title: fluoride
+      description: |
+        fluoride: all tech fields about the nutrient
+      properties:
+        fluoride:
+          type: number
+        fluoride_label:
+          type: string
+        fluoride_100g:
+          type: number
+          format: float
+        fluoride_serving:
+          type: number
+          format: float
+        fluoride_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        fluoride_value:
+          type: number
+          format: float
+        fluoride_value_computed:
+          type: number
+          format: float
+        fluoride_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    copper:
+      type: object
+      title: copper
+      description: |
+        copper: all tech fields about the nutrient
+      properties:
+        copper:
+          type: number
+        copper_label:
+          type: string
+        copper_100g:
+          type: number
+          format: float
+        copper_serving:
+          type: number
+          format: float
+        copper_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        copper_value:
+          type: number
+          format: float
+        copper_value_computed:
+          type: number
+          format: float
+        copper_tags:
+          type: array
+          items:
+            type: string

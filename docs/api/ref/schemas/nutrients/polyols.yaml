@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    polyols:
+      type: object
+      title: polyols
+      description: |
+        polyols: all tech fields about the nutrient
+      properties:
+        polyols:
+          type: number
+        polyols_label:
+          type: string
+        polyols_100g:
+          type: number
+          format: float
+        polyols_serving:
+          type: number
+          format: float
+        polyols_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        polyols_value:
+          type: number
+          format: float
+        polyols_value_computed:
+          type: number
+          format: float
+        polyols_tags:
+          type: array
+          items:
+            type: string

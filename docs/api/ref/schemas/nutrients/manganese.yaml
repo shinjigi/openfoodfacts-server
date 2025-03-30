@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    manganese:
+      type: object
+      title: manganese
+      description: |
+        manganese: all tech fields about the nutrient
+      properties:
+        manganese:
+          type: number
+        manganese_label:
+          type: string
+        manganese_100g:
+          type: number
+          format: float
+        manganese_serving:
+          type: number
+          format: float
+        manganese_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        manganese_value:
+          type: number
+          format: float
+        manganese_value_computed:
+          type: number
+          format: float
+        manganese_tags:
+          type: array
+          items:
+            type: string

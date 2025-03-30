@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    sodium:
+      type: object
+      title: sodium
+      description: |
+        sodium: all tech fields about the nutrient
+      properties:
+        sodium:
+          type: number
+        sodium_label:
+          type: string
+        sodium_100g:
+          type: number
+          format: float
+        sodium_serving:
+          type: number
+          format: float
+        sodium_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        sodium_value:
+          type: number
+          format: float
+        sodium_value_computed:
+          type: number
+          format: float
+        sodium_tags:
+          type: array
+          items:
+            type: string

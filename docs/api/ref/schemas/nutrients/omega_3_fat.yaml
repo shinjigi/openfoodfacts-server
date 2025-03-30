@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    omega_3_fat:
+      type: object
+      title: omega_3_fat
+      description: |
+        omega_3_fat: all tech fields about the nutrient
+      properties:
+        omega_3_fat:
+          type: number
+        omega_3_fat_label:
+          type: string
+        omega_3_fat_100g:
+          type: number
+          format: float
+        omega_3_fat_serving:
+          type: number
+          format: float
+        omega_3_fat_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        omega_3_fat_value:
+          type: number
+          format: float
+        omega_3_fat_value_computed:
+          type: number
+          format: float
+        omega_3_fat_tags:
+          type: array
+          items:
+            type: string

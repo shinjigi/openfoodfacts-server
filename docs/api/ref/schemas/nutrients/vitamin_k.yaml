@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    vitamin_k:
+      type: object
+      title: vitamin_k
+      description: |
+        vitamin_k: all tech fields about the nutrient
+      properties:
+        vitamin_k:
+          type: number
+        vitamin_k_label:
+          type: string
+        vitamin_k_100g:
+          type: number
+          format: float
+        vitamin_k_serving:
+          type: number
+          format: float
+        vitamin_k_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        vitamin_k_value:
+          type: number
+          format: float
+        vitamin_k_value_computed:
+          type: number
+          format: float
+        vitamin_k_tags:
+          type: array
+          items:
+            type: string

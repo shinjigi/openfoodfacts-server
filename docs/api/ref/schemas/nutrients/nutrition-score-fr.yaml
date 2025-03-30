@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "nutrition-score-fr":
+      type: object
+      title: nutrition-score-fr
+      description: |
+        nutrition-score-fr: all tech fields about the nutrient
+      properties:
+        "nutrition-score-fr":
+          type: number
+        "nutrition-score-fr_label":
+          type: string
+        "nutrition-score-fr_100g":
+          type: number
+          format: float
+        "nutrition-score-fr_serving":
+          type: number
+          format: float
+        "nutrition-score-fr_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/all"
+        "nutrition-score-fr_value":
+          type: number
+          format: float
+        "nutrition-score-fr_value_computed":
+          type: number
+          format: float
+        "nutrition-score-fr_tags":
+          type: array
+          items:
+            type: string

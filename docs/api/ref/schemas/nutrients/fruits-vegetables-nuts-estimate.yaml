@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    "fruits-vegetables-nuts-estimate":
+      type: object
+      title: fruits-vegetables-nuts-estimate
+      description: |
+        fruits-vegetables-nuts-estimate: all tech fields about the nutrient
+      properties:
+        "fruits-vegetables-nuts-estimate":
+          type: number
+        "fruits-vegetables-nuts-estimate_label":
+          type: string
+        "fruits-vegetables-nuts-estimate_100g":
+          type: number
+          format: float
+        "fruits-vegetables-nuts-estimate_serving":
+          type: number
+          format: float
+        "fruits-vegetables-nuts-estimate_unit":
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        "fruits-vegetables-nuts-estimate_value":
+          type: number
+          format: float
+        "fruits-vegetables-nuts-estimate_value_computed":
+          type: number
+          format: float
+        "fruits-vegetables-nuts-estimate_tags":
+          type: array
+          items:
+            type: string

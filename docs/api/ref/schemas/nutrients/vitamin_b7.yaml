@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    vitamin_b7:
+      type: object
+      title: vitamin_b7
+      description: |
+        vitamin_b7: all tech fields about the nutrient
+      properties:
+        vitamin_b7:
+          type: number
+        vitamin_b7_label:
+          type: string
+        vitamin_b7_100g:
+          type: number
+          format: float
+        vitamin_b7_serving:
+          type: number
+          format: float
+        vitamin_b7_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        vitamin_b7_value:
+          type: number
+          format: float
+        vitamin_b7_value_computed:
+          type: number
+          format: float
+        vitamin_b7_tags:
+          type: array
+          items:
+            type: string

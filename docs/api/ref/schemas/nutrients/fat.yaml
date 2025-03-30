@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    fat:
+      type: object
+      title: fat
+      description: |
+        fat: all tech fields about the nutrient
+      properties:
+        fat:
+          type: number
+        fat_label:
+          type: string
+        fat_100g:
+          type: number
+          format: float
+        fat_serving:
+          type: number
+          format: float
+        fat_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        fat_value:
+          type: number
+          format: float
+        fat_value_computed:
+          type: number
+          format: float
+        fat_tags:
+          type: array
+          items:
+            type: string

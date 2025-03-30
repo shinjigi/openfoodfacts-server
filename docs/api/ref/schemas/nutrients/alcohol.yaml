@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    alcohol:
+      type: object
+      title: alcohol
+      description: |
+        alcohol: all tech fields about the nutrient
+      properties:
+        alcohol:
+          type: number
+        alcohol_label:
+          type: string
+        alcohol_100g:
+          type: number
+          format: float
+        alcohol_serving:
+          type: number
+          format: float
+        alcohol_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/vol"
+        alcohol_value:
+          type: number
+          format: float
+        alcohol_value_computed:
+          type: number
+          format: float
+        alcohol_tags:
+          type: array
+          items:
+            type: string

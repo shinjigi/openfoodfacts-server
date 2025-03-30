@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    beta_glucan:
+      type: object
+      title: beta_glucan
+      description: |
+        beta_glucan: all tech fields about the nutrient
+      properties:
+        beta_glucan:
+          type: number
+        beta_glucan_label:
+          type: string
+        beta_glucan_100g:
+          type: number
+          format: float
+        beta_glucan_serving:
+          type: number
+          format: float
+        beta_glucan_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        beta_glucan_value:
+          type: number
+          format: float
+        beta_glucan_value_computed:
+          type: number
+          format: float
+        beta_glucan_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    salt:
+      type: object
+      title: salt
+      description: |
+        salt: all tech fields about the nutrient
+      properties:
+        salt:
+          type: number
+        salt_label:
+          type: string
+        salt_100g:
+          type: number
+          format: float
+        salt_serving:
+          type: number
+          format: float
+        salt_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        salt_value:
+          type: number
+          format: float
+        salt_value_computed:
+          type: number
+          format: float
+        salt_tags:
+          type: array
+          items:
+            type: string

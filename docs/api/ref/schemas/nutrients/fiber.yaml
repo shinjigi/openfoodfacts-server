@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    fiber:
+      type: object
+      title: fiber
+      description: |
+        fiber: all tech fields about the nutrient
+      properties:
+        fiber:
+          type: number
+        fiber_label:
+          type: string
+        fiber_100g:
+          type: number
+          format: float
+        fiber_serving:
+          type: number
+          format: float
+        fiber_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        fiber_value:
+          type: number
+          format: float
+        fiber_value_computed:
+          type: number
+          format: float
+        fiber_tags:
+          type: array
+          items:
+            type: string

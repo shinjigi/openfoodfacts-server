@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    water:
+      type: object
+      title: water
+      description: |
+        water: all tech fields about the nutrient
+      properties:
+        water:
+          type: number
+        water_label:
+          type: string
+        water_100g:
+          type: number
+          format: float
+        water_serving:
+          type: number
+          format: float
+        water_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/l_dl_ml_ul"
+        water_value:
+          type: number
+          format: float
+        water_value_computed:
+          type: number
+          format: float
+        water_tags:
+          type: array
+          items:
+            type: string

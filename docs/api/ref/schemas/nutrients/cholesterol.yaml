@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    cholesterol:
+      type: object
+      title: cholesterol
+      description: |
+        cholesterol: all tech fields about the nutrient
+      properties:
+        cholesterol:
+          type: number
+        cholesterol_label:
+          type: string
+        cholesterol_100g:
+          type: number
+          format: float
+        cholesterol_serving:
+          type: number
+          format: float
+        cholesterol_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        cholesterol_value:
+          type: number
+          format: float
+        cholesterol_value_computed:
+          type: number
+          format: float
+        cholesterol_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    vitamin_pp:
+      type: object
+      title: vitamin_pp
+      description: |
+        vitamin_pp: all tech fields about the nutrient
+      properties:
+        vitamin_pp:
+          type: number
+        vitamin_pp_label:
+          type: string
+        vitamin_pp_100g:
+          type: number
+          format: float
+        vitamin_pp_serving:
+          type: number
+          format: float
+        vitamin_pp_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        vitamin_pp_value:
+          type: number
+          format: float
+        vitamin_pp_value_computed:
+          type: number
+          format: float
+        vitamin_pp_tags:
+          type: array
+          items:
+            type: string

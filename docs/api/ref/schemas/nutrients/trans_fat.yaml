@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    trans_fat:
+      type: object
+      title: trans_fat
+      description: |
+        trans_fat: all tech fields about the nutrient
+      properties:
+        trans_fat:
+          type: number
+        trans_fat_label:
+          type: string
+        trans_fat_100g:
+          type: number
+          format: float
+        trans_fat_serving:
+          type: number
+          format: float
+        trans_fat_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        trans_fat_value:
+          type: number
+          format: float
+        trans_fat_value_computed:
+          type: number
+          format: float
+        trans_fat_tags:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    selenium:
+      type: object
+      title: selenium
+      description: |
+        selenium: all tech fields about the nutrient
+      properties:
+        selenium:
+          type: number
+        selenium_label:
+          type: string
+        selenium_100g:
+          type: number
+          format: float
+        selenium_serving:
+          type: number
+          format: float
+        selenium_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        selenium_value:
+          type: number
+          format: float
+        selenium_value_computed:
+          type: number
+          format: float
+        selenium_tags:
+          type: array
+          items:
+            type: string
