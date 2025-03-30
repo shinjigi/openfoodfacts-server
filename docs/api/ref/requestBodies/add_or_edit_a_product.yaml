@@ -54,6 +54,26 @@ properties:
       has a more structured data for `packaging`.
     examples:
       - Frozen
+  product_name:
+    type: string
+  traces:
+    type: string
+  stores:
+    type: string
+  cc:
+    type: string
+    examples:
+      - "us"
+    description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
+  lc:
+    type: string
+    examples:
+      - "fr"
+    description: |
+      2 letter code of the language of the user.
+      Used for localizing some fields in returned values (e.g. knowledge panels).
+      If not passed, the language may be inferred by the Accept-Language header of the request,
+      or from the domain name prefix.
 required:
   - code
   - user_id
