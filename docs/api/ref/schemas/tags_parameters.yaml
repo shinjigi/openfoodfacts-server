@@ -69,9 +69,9 @@ properties:
       examples:
         - united-kingdom
     in: query
-    name: countries_tags_en
+    name: countries_tags
     description: |
-      The countries_tags_en of product(s) you are searching for.
+      The countries_tags of product(s) you are searching for.
       The [OFF App](https://world.openfoodfacts.org/countries) shows a list of possible values for `countries`.
 
       You can use multiple values by using a comma separated list.

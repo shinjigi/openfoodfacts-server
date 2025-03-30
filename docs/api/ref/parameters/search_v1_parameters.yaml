@@ -59,6 +59,12 @@ parameters:
       schema:
         type: string
 
+    origins_tags:
+      name: origins_tags
+      in: query
+      schema:
+        type: string
+
     packaging_tags:
       name: packaging_tags
       in: query
