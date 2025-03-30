@@ -1,33 +1,98 @@
-type: object
-properties:
-  code:
-    type: string
-    description: |
-      Barcode of the product
-    examples:
-      - '3017620422003'
-  imagefield:
-    type: string
-    description: |
-      Indicates the type of the image and the corresponding language. It should
-      be in the format `{IMAGE_TYPE}_{LANG}` format, where `IMAGE_TYPE` is one
-      of `front|ingredients|nutrition|packaging|other` and `LANG` is the 2
-      letter language code. Use `other` if you don't want the image to be
-      selected. Note that the first image of a product is always selected as front
-      picture.
-    examples:
-      - front_en
-  imgupload_front_en:
-    type: string
-    format: binary
-    description: |
-      This field must contain image binary content.
-      The format and extension must be one of gif|jpeg|jpg|png|heic.            
-      This field is dynamic and dependent on the value of imagefield in the
-      request body. It wil be imgupload_the value of the imagefield stated
-      earlier. For example, if `imagefield=front_en`, the name of this field
-      should be `imageupload_front_en`.
-required:
-  - code
-  - imagefield
-  - imgupload_front_en
+components:
+  schemas:
+    imgupload:
+      type: string
+      format: binary
+      description: |
+        This field must contain image binary content.
+        The format and extension must be one of gif|jpeg|jpg|png|heic.
+        Minimum image size required is 640 x 160 px.
+        Images must be under Creative Commons Attribution ShareAlike licence.
+        Only upload:
+        - photos that are your own work
+        - photos taken by your users (with their consent)
+        - photos already under this license or compatible license (cc-by, cc-0 or public domain)
+        
+        This field is dynamic and dependent on the value of imagefield.
+        It will be imgupload_ followed by the value of imagefield.
+        For example: if imagefield=ingredients_fr, use imgupload_ingredients_fr
+    add_photo_to_existing_product:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: A valid Open Food Facts user ID
+        password:
+          type: string
+          description: Password for the Open Food Facts user account
+        code:
+          type: string
+          description: |
+            Barcode of the product
+          examples:
+            - '3017620422003'
+        imagefield:
+          type: string
+          description: |
+            Indicates the type of the image and its language (optional).
+            Base types: front, ingredients, nutrition, packaging, other
+            For multilingual products, append _LANG (2-letter code), e.g. front_en
+            Note: Only the latest "selected" photo of each category will be displayed
+            by default on the website and mobile application.
+          enum:
+            - front
+            - front_en
+            - front_it
+            - ingredients
+            - ingredients_en
+            - ingredients_it
+            - nutrition
+            - nutrition_en
+            - nutrition_it
+            - packaging
+            - packaging_en
+            - packaging_it
+            - other
+            - other_en
+            - other_it
+          pattern: ^(front|ingredients|nutrition|packaging|other)(_[a-z]{2})?$
+          examples:
+            - 'ingredients_en'
+            - 'front'
+            - 'nutrition_fr'
+            - 'packaging'
+        imgupload_front:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_front_en:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_front_it:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_ingredients:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_ingredients_en:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_ingredients_it:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_nutrition:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_nutrition_en:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_nutrition_it:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_packaging:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_packaging_en:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_packaging_it:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_other:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_other_en:
+          $ref: "#/components/schemas/imgupload"
+        imgupload_other_it:
+          $ref: "#/components/schemas/imgupload"
+      required:
+        - user_id
+        - password
+        - code
+        - imagefield
