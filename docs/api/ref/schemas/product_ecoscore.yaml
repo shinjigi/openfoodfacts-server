@@ -156,9 +156,15 @@ properties:
         type: string
       grades:
         type: object
-        patternProperties:
-          '^(?<country_code>\w\w)$':
-            type: string
+        additionalProperties:
+          type: "AnyType"
+          default: 0
+        #patternProperties:
+        #  '^(?<country_code>\w\w)$':
+        #  type: 
+        #    - "null"
+        #    - "number"
+        #    - "string"
       ecoscore_not_applicable_for_category:
         type: string
       missing:
