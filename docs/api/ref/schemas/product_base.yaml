@@ -41,6 +41,8 @@ properties:
     description: |
       Legal name of the product as regulated
       by the European authorities.
+  grades:
+    type: object
   _id:
     type: string
     description: id in database of the product, this normally is the barcode

@@ -14,6 +14,10 @@ properties:
     type: string
     description: |
       The contributor who added the product first.
+  completed_t:
+    type: integer
+    description: |
+      Date when the product was completed (UNIX timestamp format).
   editors:
     type: string
   editors_tags:
@@ -69,11 +73,11 @@ properties:
   last_modified_t:
     type: integer
     description: |
-      Date when the product page was last modified.
+      Date when the product page was last modified (mainly manual way).
   last_updated_t:
     type: integer
     description: |
-      Date when the product page was last updated.
+      Date when the product page was last updated (mainly automatically).
   owner:
     description: |
       Id of the producer in case he provides his own data about a product (producer platform).

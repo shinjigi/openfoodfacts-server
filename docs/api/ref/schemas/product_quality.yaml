@@ -9,7 +9,7 @@ properties:
   data_quality_errors_tags:
     type: array
     items:
-      type: object
+      type: string
   data_quality_info_tags:
     type: array
     items:

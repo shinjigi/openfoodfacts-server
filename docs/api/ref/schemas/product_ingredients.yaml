@@ -73,7 +73,7 @@ properties:
   ingredients_from_palm_oil_tags:
     type: array
     items:
-      type: object
+      type: string
   ingredients_hierarchy:
     type: array
     items:
@@ -174,13 +174,13 @@ properties:
   origins_hierarchy:
     type: array
     items:
-      type: object
+      type: string
   origins_lc:
     type: string
   origins_tags:
     type: array
     items:
-      type: object
+      type: string
   traces:
     type: string
     description: |
