@@ -243,9 +243,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              allOf:
-                - $ref: ./requestBodies/add_or_edit_a_product.yaml
-                - $ref: ./requestBodies/change_ref_properties.yaml
+              $ref: "./requestBodies/add_or_edit_a_product.yaml#/components/schemas/add_or_edit_a_product"
       tags:
         - Write Requests
       description: |

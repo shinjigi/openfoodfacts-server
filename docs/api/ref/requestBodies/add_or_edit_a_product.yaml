@@ -1,80 +1,61 @@
-type: object
-description: |
-  You can provide most of the properties defined in the product schema.
-properties:
-  code:
-    type: string
-    description: The barcode of the product to be added or edited
-    examples:
-      - "0074570036004"
-  user_id:
-    type: string
-    description: A valid username.
-    examples:
-      - myusername
-  password:
-    type: string
-    description: A valid corresponding password (related to specific environment).
-    examples:
-      - mypassword
-  comment:
-    type: string
-    description: A comment for the change. It will be shown in product changes history.
-    examples:
-      - new packaging from super-app
-  brands:
-    type: array
-    items:
-      type: string
-    description: The brands of the product (comma separated list of values).
-    examples:
-      - - Häagen-Dazs
-          General-mills
-  labels:
-    type: array
-    items:
-      type: string
-    description: The labels of the product (comma separated list of values).
-    examples:
-      - - Kosher
-          Ferroro
-  categories:
-    type: array
-    items:
-      type: string
-    description: The categories of the product (comma separated list of values).
-    examples:
-      - - Desserts
-          Frozen foods
-  packaging:
-    type: string
-    description: |
-      Packaging type, format, material.
-      The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
-      has a more structured data for `packaging`.
-    examples:
-      - Frozen
-  product_name:
-    type: string
-  traces:
-    type: string
-  stores:
-    type: string
-  cc:
-    type: string
-    examples:
-      - "us"
-    description: "2 letter code of the country of the user. Used for localizing some fields in returned values (e.g. knowledge panels). If not passed, the country may be inferred by the IP address of the request."
-  lc:
-    type: string
-    examples:
-      - "fr"
-    description: |
-      2 letter code of the language of the user.
-      Used for localizing some fields in returned values (e.g. knowledge panels).
-      If not passed, the language may be inferred by the Accept-Language header of the request,
-      or from the domain name prefix.
-required:
-  - code
-  - user_id
-  - password
+components:
+  schemas:
+    add_or_edit_a_product:
+      allOf:
+        - $ref: "./user_id_password.yaml#/components/schemas/user_id__password"
+        - $ref: ./change_ref_properties.yaml
+        # Localization
+        - $ref: "./lc_cc.yaml#/components/schemas/lc__cc"
+        # Others
+        - type: object
+          description: |
+            You can provide most of the properties defined in the product schema.
+          properties:
+            packaging:
+              type: string
+              description: |
+                Packaging type, format, material.
+                The [v3 API documentation](https://openfoodfacts.github.io/openfoodfacts-server/api/ref-v3/#operation/post-api-v3-product-barcode)
+                has a more structured data for `packaging`.
+              examples:
+                - Frozen
+            # BASE
+            code:
+                $ref: "../schemas/product_base.yaml#/properties/code"
+            generic_name:
+                $ref: "../schemas/product_base.yaml#/properties/generic_name"
+            lang:
+                $ref: "../schemas/product_base.yaml#/properties/lang"
+            product_name:
+                $ref: "../schemas/product_base.yaml#/properties/product_name"
+            quantity:
+                $ref: "../schemas/product_base.yaml#/properties/quantity"
+            # TAGS
+            brands:
+                $ref: "../schemas/product_tags.yaml#/properties/brands"
+            categories:
+                $ref: "../schemas/product_tags.yaml#/properties/categories"
+            countries:
+                $ref: "../schemas/product_tags.yaml#/properties/countries"
+            emb_codes:
+                $ref: "../schemas/product_tags.yaml#/properties/emb_codes"
+            labels:
+                $ref: "../schemas/product_tags.yaml#/properties/labels"
+            manufacturing_places:
+                $ref: "../schemas/product_tags.yaml#/properties/manufacturing_places"
+            # ingredients
+            allergens:
+                $ref: "../schemas/product_ingredients.yaml#/properties/allergens"
+            ingredients_text:
+                $ref: "../schemas/product_ingredients.yaml#/properties/ingredients_text"
+            origins:
+                $ref: "../schemas/product_ingredients.yaml#/properties/origins"
+            traces:
+                $ref: "../schemas/product_ingredients.yaml#/properties/traces"
+            # Extended
+            link:
+                $ref: "../schemas/product_extended.yaml#/properties/link"
+            stores:
+                $ref: "../schemas/product_extended.yaml#/properties/stores"
+          required:
+            - code

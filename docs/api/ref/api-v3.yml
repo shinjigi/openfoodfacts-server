@@ -206,7 +206,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: ./requestBodies/lc_cc.yaml
+                - $ref: './requestBodies/lc_cc.yaml#/components/schemas/lc__cc'
                 - $ref: ./requestBodies/fields_tags_lc.yaml
                 - type: object
                   properties:

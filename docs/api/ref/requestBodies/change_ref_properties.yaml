@@ -23,6 +23,10 @@ properties:
       You can use this field to provide an identifier (eg: an sha1 of the username) that's privacy preserving. Make sure that your salt is strong, perfectly random and secret
 
       In case we have trouble with one of your user, it helps our moderators revert edits.
+  org_id:
+    type: string
+    description: |
+       Organization identifier if the user is part of an organization.
   User-Agent:
     type: string
     description: |
