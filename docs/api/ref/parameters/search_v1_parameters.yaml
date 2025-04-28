@@ -99,6 +99,12 @@ parameters:
       schema:
         type: string
 
+    ingredients_lc:
+      name: ingredients_lc
+      in: query
+      schema:
+        type: string
+
     trace_tags:
       name: trace_tags
       in: query

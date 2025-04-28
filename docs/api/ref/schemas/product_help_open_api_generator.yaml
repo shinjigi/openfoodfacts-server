@@ -1,0 +1,11 @@
+
+type: object
+title: product_help_open_api_generator
+description: | 
+  Properties that have problems durig openapi generator tasks and shold 
+  be addressed manually
+properties:
+  traces_tags_it:
+    type: array
+    items:
+      type: "string"

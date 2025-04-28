@@ -604,6 +604,8 @@ components:
       $ref: ./schemas/product_knowledge_panels.yaml
     "Product-Attribute-Groups":
       $ref: ./schemas/product_attribute_groups.yaml
+    "Product-Help-Open-API-Generator":
+      $ref: ./schemas/product_help_open_api_generator.yaml
     Product:
       $ref: ./schemas/product.yaml
     Ingredient:

@@ -32,3 +32,5 @@ allOf:
   - $ref: "../api.yml#/components/schemas/Product-Metadata"
   - $ref: "../api.yml#/components/schemas/Product-Knowledge-Panels"
   - $ref: "../api.yml#/components/schemas/Product-Attribute-Groups"
+  # HELP generators REF
+  - $ref: "../api.yml#/components/schemas/Product-Help-Open-API-Generator"

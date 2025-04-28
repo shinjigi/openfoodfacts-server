@@ -200,9 +200,7 @@ properties:
   traces_tags:
     type: array
     items:
-      oneOf:
-        - type: "object"
-        - type: "string"
+      type: "string"
   unknown_ingredients_n:
     type: integer
 
