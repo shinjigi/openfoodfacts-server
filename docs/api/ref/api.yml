@@ -469,7 +469,7 @@ paths:
         This API helps you list attributes and display them in your application,
         for the user to choose the importance of each criteria.
 
-        note: /api/v2/attribute_groups_{lc} is also a valid route, but consider it deprecated
+        note: `/api/v2/attribute_groups_{lc}` is also a valid route, but consider it deprecated
       tags:
         - Read Requests
         # - Personal search # TODO-Fix: Generatores goes in error creating  multiple "GetAttributeGroupsRequest" class references
@@ -484,13 +484,16 @@ paths:
       parameters:
         - $ref: "#/components/parameters/lc"
   /api/v2/preferences:
-    summary: Get weights for attribute preferences
-    description: |
-      This endpoint retrieves the weights corresponding to attribute preferences
-      for computing personal product recommendations. The weights are used to
-      personalize the product recommendations based on user preferences.
-      These weights help in computing personal product recommendations. tags:
-        - Read Requests
+    get:
+      summary: |
+        Get the weights corresponding to attributes preferences
+        to compute personal product
+      description: |
+        This endpoint retrieves the weights corresponding to attribute preferences
+        for computing personal product recommendations. The weights are used to
+        personalize the product recommendations based on user preferences.
+      tags:
+        # - Read Requests
         - Personal search
       operationId: get-preferences
       parameters:
