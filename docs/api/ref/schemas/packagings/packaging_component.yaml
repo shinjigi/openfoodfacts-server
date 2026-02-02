@@ -8,15 +8,9 @@ title: Packaging component (READ)
 type: object
 examples:
   - number_of_units: 6
-    shape:
-      id: "en:bottle"
-      lc_name: bouteille
-    material:
-      id: "en:bottle"
-      lc_name: bouteille
-    recycling:
-      id: "en:bottle"
-      lc_name: bouteille
+    shape: "en:bottle"
+    material: "en:clear-glass"
+    recycling: "en:bottle"
     quantity_per_unit: 25 cl
     quantity_per_unit_value: 25
     quantity_per_unit_unit: cl

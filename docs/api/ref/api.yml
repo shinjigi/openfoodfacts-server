@@ -381,6 +381,7 @@ paths:
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/stores_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/countries_tags'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/ingredients_tags'
+        - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/ingredients_lc'
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/trace_tags'
         #
         - $ref: './parameters/search_v1_parameters.yaml#/parameters/SearchGetParameters/page'
