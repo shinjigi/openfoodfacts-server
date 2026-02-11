@@ -39,7 +39,6 @@ paths:
       description: |
         Fetches product details by its unique barcode. 
         Can return all product details or specific fields like knowledge panels.
-
         Use the `blame` parameter to include information about who last modified each field of the product.
       operationId: get-product-by-code
       parameters:
@@ -248,7 +247,9 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: "./requestBodies/add_or_edit_a_product.yaml#/components/schemas/add_or_edit_a_product"
+              allOf:
+                - $ref: "./requestBodies/add_or_edit_a_product.yaml#/components/schemas/add_or_edit_a_product"
+                - $ref: "./requestBodies/change_ref_properties.yaml"
       tags:
         - Products
       description: |
