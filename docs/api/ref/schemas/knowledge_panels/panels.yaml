@@ -6,8 +6,10 @@ description: |-
 
   Apps typically display a number of root panels with known panel ids (e.g. health_card and environment_card). Panels can reference other panels and display them as sub-panels.
 examples:
-  - additionalProperties: string
-properties:
-  additionalProperties:
-    $ref: ./panel.yaml
+  - additionalProperties:
+      type: "Example panel"
+      expand_for: "Sample panel object"
+
+additionalProperties:
+  $ref: ./panel.yaml
 readOnly: true

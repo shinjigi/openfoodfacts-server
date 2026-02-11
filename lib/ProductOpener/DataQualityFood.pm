@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -43,6 +43,7 @@ BEGIN {
 	use vars qw(@ISA @EXPORT_OK %EXPORT_TAGS);
 	@EXPORT_OK = qw(
 		&check_quality_food
+		&is_european_product
 	);    # symbols to export on request
 	%EXPORT_TAGS = (all => [@EXPORT_OK]);
 }
@@ -51,7 +52,6 @@ use ProductOpener::Config qw(:all);
 use ProductOpener::Store qw(get_string_id_for_lang);
 use ProductOpener::Tags qw(:all);
 use ProductOpener::Food qw(%categories_nutriments_per_country);
-use ProductOpener::EnvironmentalScore qw(is_environmental_score_extended_data_more_precise_than_agribalyse);
 use ProductOpener::Units qw(extract_standard_unit);
 
 use Data::DeepAccess qw(deep_exists);
@@ -1214,9 +1214,9 @@ sub check_nutrition_data ($product_ref) {
 		}
 
 		if (    (defined $product_ref->{nutriments}{"energy_100g"})
-			and ($product_ref->{nutriments}{"energy_100g"} > 3800))
+			and ($product_ref->{nutriments}{"energy_100g"} > 3911))
 		{
-			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3800-energy";
+			push @{$product_ref->{data_quality_errors_tags}}, "en:nutrition-value-over-3911-energy";
 		}
 
 		# sugar + starch cannot be greater than carbohydrates
@@ -1960,6 +1960,45 @@ sub check_categories ($product_ref) {
 	return;
 }
 
+=head1 FUNCTIONS
+
+=head2 is_european_product ( $product_ref )
+
+Checks if a product is from an EU country based on its tags.
+
+=head3 Arguments
+
+=head4 $product_ref
+
+A hash reference to the product data.
+
+=head3 Return value
+
+1 if the product is from an EU country, 0 otherwise.
+
+=cut
+
+sub is_european_product {
+	my ($product_ref) = @_;
+
+	# In EU, compare label claim and nutrition
+	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	# Now using the 'regional_entity:en: european-union' property in the countries taxonomy
+	my $eu_countries_ref = get_all_tags_having_property($product_ref, 'countries', 'regional_entity:en');
+
+	foreach my $country (keys %{$eu_countries_ref}) {
+		# Handle comma-separated regional entities
+		my @regional_entities = split(/\s*,\s*/, $eu_countries_ref->{$country});
+		foreach my $entity (@regional_entities) {
+			if ($entity eq 'european-union') {
+				return 1;
+			}
+		}
+	}
+
+	return 0;
+}
+
 =head2 check_labels( PRODUCT_REF )
 
 Checks related to specific product labels.
@@ -2037,26 +2076,13 @@ sub check_labels ($product_ref) {
 		}
 	}
 
-	# In EU, compare label claim and nutrition
-	# https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
-	my @eu_countries = (
-		"en:austria", "en:belgium", "en:bulgaria", "en:croatia", "en:cyprus", "en:czech republic",
-		"en:denmark", "en:france", "en:estonia", "en:finland", "en:germany", "en:greece",
-		"en:hungary", "en:ireland", "en:italy", "en:latvia", "en:lithuania", "en:luxembourg",
-		"en:malta", "en:netherlands", "en:poland", "en:portugal", "en:romania", "en:slovakia",
-		"en:slovenia", "en:spain", "en:sweden"
-	);
-	my $european_product = 0;
-	foreach my $eu_country (@eu_countries) {
-		if (has_tag(($product_ref, "countries", $eu_country))) {
-			$european_product = 1;
-			last;
-		}
-	}
+	# # In EU, compare label claim and nutrition
+	# # https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A02006R1924-20141213
+	my $european_product = is_european_product($product_ref);
 
 	if (    (defined $product_ref->{nutriments})
 		and (defined $product_ref->{labels_tags})
-		and ($european_product == 1))
+		and $european_product)
 	{
 		# maximal values differs depending if the product is
 		# solid (higher maxmal values) or
@@ -2223,9 +2249,11 @@ sub check_labels ($product_ref) {
 						) < (20 * $product_ref->{nutriments}{"energy-kcal_value_computed"} / 100)
 					)
 					or (
-						(     $product_ref->{nutriments}{"unsaturated-fat_100g"}
-							* $energy_from_nutrients{europe}{"fat"}{"kj"})
-						< (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100))
+						(
+							  $product_ref->{nutriments}{"unsaturated-fat_100g"}
+							* $energy_from_nutrients{europe}{"fat"}{"kj"}
+						) < (20 * $product_ref->{nutriments}{"energy-kj_value_computed"} / 100)
+					)
 				)
 				)
 			{
@@ -2324,7 +2352,10 @@ sub check_labels ($product_ref) {
 		#    this value should not exceed 2 mg of sodium per 100 ml.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.12)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
 			)
 			and (has_tag($product_ref, "labels", "en:low-sodium") or has_tag($product_ref, "labels", "en:low-salt"))
@@ -2339,7 +2370,10 @@ sub check_labels ($product_ref) {
 		# This claim shall not be used for natural mineral waters and other waters.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.04))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.04)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.1))
 			)
 			and (  has_tag($product_ref, "labels", "en:very-low-sodium")
@@ -2355,8 +2389,10 @@ sub check_labels ($product_ref) {
 		# no more than 0,005 g of sodium, or the equivalent value for salt, per 100 g.
 		if (
 			(
-				(       (defined $product_ref->{nutriments}{sodium_100g})
-					and ($product_ref->{nutriments}{sodium_100g} > 0.005))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.005)
+				)
 				or (    (defined $product_ref->{nutriments}{salt_100g})
 					and ($product_ref->{nutriments}{salt_100g} > 0.0125))
 			)
@@ -2372,7 +2408,10 @@ sub check_labels ($product_ref) {
 		# the product contains no more than 0,12 g sodium, or the equivalent value for salt, per 100 g or 100 ml.
 		if (
 			(
-				((defined $product_ref->{nutriments}{sodium_100g}) and ($product_ref->{nutriments}{sodium_100g} > 0.12))
+				(
+						(defined $product_ref->{nutriments}{sodium_100g})
+					and ($product_ref->{nutriments}{sodium_100g} > 0.12)
+				)
 				or ((defined $product_ref->{nutriments}{salt_100g}) and ($product_ref->{nutriments}{salt_100g} > 0.3))
 				or (has_tag($product_ref, "ingredients", "en:salt"))
 			)
@@ -2795,24 +2834,6 @@ sub check_environmental_score_data ($product_ref) {
 		}
 	}
 
-	# Extended Environmental-Score data from impact estimator
-	if (defined $product_ref->{environmental_score_extended_data}) {
-
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-computed';
-
-		if (is_environmental_score_extended_data_more_precise_than_agribalyse($product_ref)) {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-more-precise-than-agribalyse';
-		}
-		else {
-			push @{$product_ref->{data_quality_info_tags}},
-				'en:environmental-score-extended-data-less-precise-than-agribalyse';
-		}
-	}
-	else {
-		push @{$product_ref->{data_quality_info_tags}}, 'en:environmental-score-extended-data-not-computed';
-	}
-
 	return;
 }
 
@@ -2843,8 +2864,8 @@ sub check_food_groups ($product_ref) {
 
 Checks if 2 incompatible tags are assigned to the product
 
-To include more tags to this check, 
-add the property "incompatible:en" 
+To include more tags to this check,
+add the property "incompatible:en"
 at the end of code block in the taxonomy
 
 Example:

@@ -4,6 +4,7 @@
    "product" : {
       "misc_tags" : [
          "en:environmental-score-not-computed",
+         "en:nutrients-not-estimated-from-ingredients-no-ingredients",
          "en:nutriscore-missing-category",
          "en:nutriscore-missing-nutrition-data",
          "en:nutriscore-missing-nutrition-data-energy",
@@ -70,7 +71,6 @@
             "weight_specified" : 2.01
          }
       ],
-      "schema_version" : 999,
       "weighers_tags" : [
          "openfoodfacts-contributors"
       ]

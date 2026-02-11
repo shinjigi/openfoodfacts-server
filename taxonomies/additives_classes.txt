@@ -9,7 +9,7 @@ stopwords:es: de, del, la, las, los, una
 en: Acid, Acidifier, Acidulant, tartness, provides tartness, Food acid
 bg: Киселина
 ca: Àcid, Acidulant
-cs: Kyselina
+cs: Kyselina, kyseliny
 # da: Syre, Syrer is also en:sorel
 de: Säuerungsmittel, Sauerungsmittel, Säure, säurungsmittel
 el: Μέσο οξίνισης
@@ -20,7 +20,7 @@ fr: Acidifiant, acide alimentaire, acide, acidulants, acide alimentaire
 ga: Aigéad
 he: חומצה
 hr: kiselina, kiseline, sredstva kiselosti, kiseli
-hu: Étkezési sav
+hu: Étkezési sav, etkezesi sav
 it: Acidificante, acidificanti
 ja: 酸味料
 lt: Rūgštis
@@ -76,7 +76,7 @@ hu: Savanyúságot szabályozó anyag, Savanyúságot szabályozó anyagok, Sava
 id: pengatur keasaman
 is: Sýrustillir, Sýrustillar
 it: correttore di acidità, correttori di acidità, regolatore di acidità, regolatori di acidità, correttore d'acidità
-ja: pH調整剤, ｐＨ調整剤
+ja: pH調整剤, ｐＨ調整剤, pH調整劑
 lt: Rūgštingumą reguliuojanti medžiaga
 lv: Skābuma regulētājs
 mt: Regolatur tal-Aċidità
@@ -88,7 +88,7 @@ pt: Regulador de acidez, regulador de ácidez, reguladores de acidez
 ro: Corector de aciditate, Regulator de aciditate, regulatori de aciditate
 ru: Регулятор кислотности, регуляторы кислотности
 sk: Regulátor kyslosti
-sl: Sredstvo za uravnavanje kislosti
+sl: Sredstvo za uravnavanje kislosti, sredstva za uravnavanje kislosti
 sr: regulator kiselosti
 sv: Surhetsreglerande medel, Surhetsreglerandemedel, Surhetsregulator
 description:en: Acidity regulators are substances which alter or control the acidity or alkalinity of a foodstuff.
@@ -116,9 +116,9 @@ wikidata:en: Q898753
 en: Anti-caking agent, anticaking agent, anti-stick agent, anti-sticking, drying agent, dusting agent, prevent caking, prevents caking, anti-clumping, anticaking blend, anticake
 bg: Антислепващ агент
 ca: Antiaglomerant
-cs: Protispékavá látka
+cs: Protispékavá látka, protispékavé látky
 da: Antiklumpningsmiddel
-de: Rieselhilfe, Antiagglomerationsmittel, Rieselhilfen, Trennmittel
+de: Rieselhilfe, Antiagglomerationsmittel, Rieselhilfen, Trennmittel, Antiklumpmittel
 el: Αντισυσσωματωτικό
 es: Antiaglomerante, antiaglutinante, agente antiadherente, agente antiaglutinante, angente de empolvo, agente de sacado
 et: Paakumisvastane aine
@@ -139,6 +139,7 @@ ro: Agent antiaglomerant, antiaglomerant
 sk: Protihrudkovacia látka
 sl: Sredstvo proti sprijemanju
 sv: Klumpförebyggande medel, Klumpförebyggandemedel
+th: สารป้องกันการจับเป็นก้อน
 description:en: Anti-caking agents are substances which reduce the tendency of individual particles of a foodstuff to adhere to one another.
 description:cs: Protispékavými látkami se rozumějí látky, které snižují sklon jednotlivých částic potraviny ulpívat vzájemně na sobě.
 description:da: Antiklumpningsmidler: stoffer, der reducerer en fødevares individuelle partiklers tendens til at klæbe sammen.
@@ -164,7 +165,7 @@ wikidata:en: Q726460
 en: Anti-foaming agent, de-foaming agent, antifoaming agent, defoaming agent, anti-foaming
 bg: Антипенител
 ca: Antiespumant
-cs: Odpěňovač
+cs: Odpěňovač, odpěňovače
 da: Skumdæmpningsmiddel
 de: Schaumverhüter
 el: Αντιαφριστικό
@@ -222,7 +223,7 @@ ga: Frithocsaídeoir
 hr: antioksidans, antioksidansi, antioksidant, antioksidat, antioksindans
 hu: Antioxidáns, antioxidánsok
 it: Antiossidante, antiossidanti, agente antiossidante, agenti antiossidanti
-ja: 酸化防止剤
+ja: 酸化防止剤, 酸化防止劑
 lt: Antioksidantas
 lv: Antioksidants
 mk: антиоксиданс
@@ -263,7 +264,7 @@ wikidata:en: Q133948
 en: natural antioxidant
 bg: естествен антиоксидант
 ca: antioxidant natural
-cs: přírodní antioxidant
+cs: přírodní antioxidant, přírodní antioxidanty
 da: naturlig antioxidant
 de: natürlicher Antioxidant
 el: φυσικό αντιοξειδωτικό
@@ -295,7 +296,7 @@ en: Bleaching agent
 ar: عامل تبييض
 bg: избелващ агент
 ca: agent de blanqueig
-cs: bělicí činidlo
+cs: bělicí činidlo, bělicí činidla
 da: blegemiddel
 de: Bleichmittel
 el: λευκαντικός παράγοντας
@@ -374,8 +375,8 @@ description:zh: 一种用于食品脱色的食品添加剂（非面粉用途）�
 en: Bulking agent, filler
 bg: Пълнител
 ca: Incrementador de volum
-cs: Plnidlo
-da: Fyldemiddel
+cs: Plnidlo, plnidla
+da: fyldemiddel, fyldemidler, fyldstof, fyldstoffer
 de: Füllstoff, Füllstoffe
 el: Διογκωτικό
 es: Agente de carga, Incrementador de volumen, agente de relleno, incrementadores del volumen
@@ -430,7 +431,7 @@ en: Carbonating agent, carbonation
 ar: عامل كربوني
 bg: Карбонизиращ агент
 ca: Agent de carbonatació
-cs: Karbonatační činidlo
+cs: Karbonatační činidlo, karbonatační činidla
 da: Carboneringsmiddel
 de: Karbonisierungsmittel, Karbonisiermittel
 el: Ανθρακικό μέσο
@@ -507,7 +508,7 @@ description:fr: Additif alimentaire utilisé pour dissoudre, diluer, disperser o
 en: Colour, color, colouring, coloring, decorative pigment, surface colorant, for color, artificial color, artificial colour, color added, colors added, artificial color added, colorant, colours, colors, coloring food, colouring food, synthetic colour, colouring agent, coloring agent, colored, coloured
 bg: Оцветител, оцветители
 ca: Color, colors, colorant, colorants, pigment decoratiu
-cs: Barvivo
+cs: Barvivo, barviva
 da: Farvestof, Farvestoffer, Farve, farver
 de: Farbstoff, Farbstoffe
 el: Χρωστική ουσία
@@ -517,7 +518,7 @@ fi: Väri, Väriä, Värit, Värejä, Väriaine, Väriainetta, Väriaineet, Vär
 fr: Colorant, colorant de surface, pigment décoratif, pigment colorant, colorants, colorant alimentaire, colorants alimentaires, aliments colorants
 ga: Dath
 he: צבע
-hr: boja, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje, hrana za bojanje
+hr: boja, boje, bojila, bojilo, bojenje, namirnice za bojanje, hrana za bojenje, hrana za bojanje
 hu: Színezék, mesterséges színezék, színezőanyag, színezékek, színezőanyagok, színező anyag
 is: Litarefni
 it: Colorante, coloranti, alimento colorante
@@ -678,7 +679,7 @@ description:fr: Additif alimentaire qui stabilise, retient ou intensifie la coul
 en: Emulsifier, clouding agent, crystallization inhibitor, density adjustment agent, dispersing agent, emulsifier blend, emulsifying agent, emulsifying, plasticizer, surface active agent, suspension agent
 bg: Емулгатор, емулгатори
 ca: Emulsionant, emulgent, emulgents, emulsiu, agent dispersant, agents dispersants
-cs: Emulgátor
+cs: Emulgátor, emulgátory
 da: Emulgator, Emulgatorer, Emulgeringsmiddel
 de: Emulgator, Emulgatoren
 el: Γαλακτωματοποιητής
@@ -731,7 +732,7 @@ en: natural emulsifier
 ar: مستحلب طبيعي
 bg: естествен емулгатор
 ca: emulsionant natural
-cs: přírodní emulgátor
+cs: přírodní emulgátor, přírodní emulgátory
 da: naturlig emulgator
 de: natürlicher Emulgator
 el: φυσικός γαλακτωματοποιητής
@@ -824,7 +825,7 @@ wikipedia:nl: https://nl.wikipedia.org/wiki/Smeltzout
 en: Firming agent
 bg: Втвърдител
 ca: Enfortidor, enduridor, agent enduridor, agent enfortidor
-cs: Zpevňující látka
+cs: Zpevňující látka, zpevňující látky
 da: Konsistensmiddel
 de: Festigungsmittel
 el: Σκληρυντικό
@@ -872,7 +873,7 @@ wikidata:en: Q1408496
 en: Natural firming agent
 bg: Естествен уплътнител
 ca: Agent de fermesa natural
-cs: Přírodní zpevňující látka
+cs: Přírodní zpevňující látka, přírodní zpevňující látky
 da: Naturligt konsistensmiddel
 de: Natürliches Festigungsmittel
 el: Φυσικό σκληρυντικό
@@ -969,7 +970,7 @@ et: Jahu parendaja
 fi: Jauhonparanne, Jauhoparannetta, Jauhonparanteet, Jauhonparanteita
 fr: Agent de traitement de la farine, agents de traitement de la farine, agent de traitement de farine, agent de blanchiment de la farine, agent de conditionnement des pâtes, agent de réhaussement des pâtes, améliorant de la farine
 ga: Oibreán plúrchóireála
-hr: tvar za tretiranje brašna, tvari za tretiranje brašna, tvar za rahljenje tijesta, sladilo za rahljenje
+hr: tvar za tretiranje brašna, tvari za tretiranje brašna, tvar za rahljenje tijesta, sladilo za rahljenje, sredstvo za tretiranje brašna
 hu: Lisztkezelő szer, lisztkezelőszer, lisztjavító szer, lisztjavítószer
 it: Agente di trattamento della farina, agenti di trattamento della farina, agente di trattamento delle farine
 lt: Miltų apdorojimo medžiaga
@@ -1019,7 +1020,7 @@ wikidata:en: Q469842
 en: Foaming agent, aerating agent, foaming agent, whipping agent
 bg: Пенители
 ca: Escumant, escumants, agent escumant, agents escumants
-cs: Pěnotvorná látka
+cs: Pěnotvorná látka, pěnotvorné látky
 da: Skumdannende middel
 de: Schaummittel
 el: Αφριστικοί παράγοντες
@@ -1065,7 +1066,7 @@ wikidata:en: Q759922
 en: Gelling agent, gelifier
 bg: Желиращ агент
 ca: Gelificant, gelificants, agent gelificant, agents gelificants
-cs: Želírující látka
+cs: Želírující látka, želírující látky
 da: Geleringsmiddel, Geleringsmidler
 de: Geliermittel
 el: Πηκτωματογόνο
@@ -1083,7 +1084,7 @@ lv: Recinātājs
 mt: Aġent li jgħaqqad f’ġel
 nl: Geleermiddel, Geleermiddelen
 pl: Substancja żelująca, Substancje żelujące
-pt: Gelificante
+pt: Gelificante, gelificantes
 ro: Agent gelatinizant
 ru: загустители, агент желирующий, желирующий агент
 sk: Želírujúca látka
@@ -1120,7 +1121,7 @@ wikidata:en: Q27862636
 en: Glazing agent, coating agent, film forming agent, polishing agent, sealing agent, surface-finishing agent
 bg: Глазиращ агент
 ca: Agent de recobriment
-cs: Lešticí látka
+cs: Lešticí látka, lešticí látky
 da: Overfladebehandlingsmiddel, Overfladebehandlingsmidler
 de: Überzugsmittel
 el: Υλικό για γλασάρισμα
@@ -1169,7 +1170,7 @@ wikidata:en: Q334582
 en: Humectant, moisture retention agent, water retention agent, wetting agent, moisture retention
 bg: Влагозадържащ агент
 ca: Humectant
-cs: Zvlhčující látka
+cs: Zvlhčující látka, zvlhčující látky
 da: Fugtighedsbevarende middel
 de: Feuchthaltemittel
 el: Υγροσκοπικό μέσο
@@ -1307,7 +1308,7 @@ pl: substancja konserwująca, substancje konserwujące, środek konserwujący, k
 pt: Conservante, conservantes
 ro: Conservant, conservanți
 ru: Консервант, консерванты
-sk: Konzervačná látka
+sk: Konzervačná látka, konzervačne latky
 sl: Konzervans
 sv: Konserveringsmedel, Konservering
 description:en: Preservatives are substances which prolong the shelf-life of foods by protecting them against deterioration caused by micro-organisms and/or which protect against growth of pathogenic micro-organisms.
@@ -1381,7 +1382,7 @@ en: natural preservative
 ar: مادة حافظة طبيعية
 bg: естествен консервант
 ca: conservant natural
-cs: přírodní konzervant
+cs: přírodní konzervant, přírodní konzervanty
 da: naturligt konserveringsmiddel
 de: natürliches Konservierungsmittel
 el: φυσικό συντηρητικό
@@ -1463,7 +1464,7 @@ wikipedia:de: https://de.wikipedia.org/wiki/Treibgas
 
 en: Raising agent, leavening
 bg: набухвател, набухватели
-cs: Kypřicí látka, kypřidlo
+cs: Kypřicí látka, kypřicí látky, kypřidlo
 da: Hævemiddel, Hævemidler
 de: Backtriebmittel
 el: Διογκωτικό αρτοποιίας
@@ -1476,7 +1477,7 @@ hr: sredstvo za rahljenje, tvar za rahljenje, tvari za rahljenje, tvar za rahlje
 hu: Térfogatnövelő szer, térfogatnövelő szerek
 is: Lyftiefni
 it: Agente lievitante, agenti lievitanti, lievitante, lievitanti
-ja: 膨脹剤
+ja: 膨脹剤, 発酵種
 lt: Tešlos kildymo medžiaga
 lv: Irdinātājs
 mt: Aġent li jgħolli l-ikel
@@ -1484,7 +1485,7 @@ nb: Hevemiddel, Hevemidler
 nl: Rijsmiddel
 pl: Substancja spulchniająca, Substancje spulchniające, środki spulchniające
 pt: Levedante
-ro: Agent de afânare
+ro: Agent de afânare, agenti de afânare
 ru: Разрыхлитель, Разрыхлители
 sk: Kypriaca látka
 sl: Potisni plin
@@ -1567,7 +1568,7 @@ wikidata:en: Q905648
 en: Stabiliser, stabilizer, binder, colloidal stabilizer, emulsion stabilizer, foam stabilizer, stabilizer synergist, stabilizers, stabilizing agent, binding mixes
 bg: Стабилизатор, стабилизатори
 ca: Estabilitzador, estabilitzadors, estabilizants, estabilitzant, estabilitzants, estabilitzat
-cs: Stabilizátor, stábilizátor
+cs: Stabilizátor, stabilizátory
 da: Stabilisator, Stabilisatorer
 de: Stabilisator, Stabilisatoren, Bindemittel
 el: Σταθεροποιητής
@@ -1592,7 +1593,7 @@ pt: Estabilizador, Estabilizadores, estabilizante
 ro: Stabilizator, stabilizatori
 ru: Стабилизатор, стабилизаторы
 sk: Stabilizátor
-sl: Vezivo
+sl: Stabilizator, Vezivo
 sv: Stabiliseringsmedel, Stabiliseringsämne, Stabilisator, Stabilisatorer, Stabilisering, Konsistensgivare, bindningsämnen
 #latest wikidata merge 2020-08-18 @aleene
 # ingredient/fr:liant has 52 products in 5 languages @2019-02-05
@@ -1633,7 +1634,7 @@ sv: färgstabilisator
 en: Sweetener, bulk sweetener, intense sweetener, natural sweetener
 bg: Подсладител, подсладители
 ca: Edulcorant, esdulcorants
-cs: Sladidlo
+cs: Sladidlo, sladidla
 da: Sødestof, Sødestoffer, Kunstigt sødemiddel, sødemiddel
 de: süßungsmittel, süssungsmittel, sußungsmittel, Süßstoffe
 el: Γλυκαντικό
@@ -1656,8 +1657,8 @@ pl: Substancja słodząca, Substancje słodzące, słodzik, słodziki, substancj
 pt: Edulcorante
 ro: Îndulcitor
 ru: подсластитель, подсластители, заменитель сахара
-sk: Sladidlo
-sl: Stabilizator
+sk: Sladidlo, sladidlá
+sl: sladila, sladilo, sladidlá
 sv: Sötningsmedel
 zh: 甜味劑
 #wikidata:en:Q4368298
@@ -1687,7 +1688,7 @@ wikidata:en: Q626292
 en: Thickener, bodying agent, texturizing agent, thickener synergist, thickening agent, provides body, provides thickness
 bg: Сгъстител, сгъстители
 ca: Espessidor, espessidors, agent espessidor, agents espessidors, espessant, espessants
-cs: Zahušťovadlo
+cs: Zahušťovadlo, zahušťovadla
 da: Fortykningsmiddel, Fortykningsmidler
 de: Verdickungsmittel
 el: Πυκνωτικό μέσο
@@ -1712,7 +1713,7 @@ pt: Espessante, espessantes
 ro: Agent de îngroșare, agenți de îngroșare
 ru: Загуститель
 sk: Zahusťovadlo
-sl: Sladilo, zgoščevalec
+sl: zgoščevalec
 sr: zgušnjavači
 sv: Förtjockningsmedel, naturlig förtjockningsmedel
 description:en: Thickeners are substances which increase the viscosity of a foodstuff.
@@ -1770,32 +1771,6 @@ sv: naturligt förtjockningsmedel
 en: enriching substances, enriching additives, enriching substance
 pl: substancje wzbogacające, substancja wzbogacająca
 
-en: Vitamins
-bg: Витамини
-cs: Vitaminy
-de: Vitamine
-el: Βιταμίνες
-es: Vitaminas
-et: Vitamiinid
-fi: Vitamiinit, Vitamiineja
-fr: Vitamines
-hr: vitamini, vitamins, vitamin complex, kompleks vitamina
-hu: Vitaminok
-it: Vitamine
-ja: ビタミン
-lt: Vitaminai
-lv: Vitamīni
-mt: Vitamini
-nl: Vitaminen
-pl: Witaminy, kompleks witamin, premiks witaminowy, kompleks witaminowy
-pt: Vitaminas
-ro: Vitamine
-ru: витамины
-sk: Vitamíny
-sl: Vitamini
-sv: Vitaminer
-#wikidata:en:
-
 en: Minerals
 bg: Минерали
 cs: Minerální látky
@@ -1824,12 +1799,6 @@ sl: Minerali
 sv: Mineraler
 #wikidata:en:
 
-< en:Minerals
-< en:Vitamins
-en: vitamin and mineral blend, vitamin and mineral mix
-it: vitamine e minerali misti
-ru: витаминно минеральный премикс, витаминный премикс
-
 en: Amino acids, amino acid
 bg: Аминокиселини
 cs: Aminokyseliny
@@ -1853,85 +1822,6 @@ sk: Aminokyseliny
 sl: Aminokisline
 sv: Aminosyror
 #wikidata:en:
-
-# description:en:L-tryptophan—pyruvate aminotransferase is an enzyme with systematic name L-tryptophan:pyruvate aminotransferase.
-
-< en:Amino acids
-en: L-tryptophan
-af: Triptofaan
-ar: تريبتوفان
-be: Трыптафан
-bg: Триптофан
-bn: ট্রিপ্টোফ্যান
-ca: triptòfan
-cs: L-tryptofan, tryptofan
-da: Tryptofan
-de: L-Tryptophan, Tryptophan
-el: Τρυπτοφάνη
-eo: triptofano
-es: L-Triptófano, Triptófano
-et: Trüptofaan
-eu: Triptofano
-fa: تریپتوفان
-fi: tryptofaani, l-tryptofaani
-fr: l-tryptophane, tryptophane
-gl: Triptófano
-he: טריפטופן
-hr: Triptofan
-hu: Triptofán
-hy: Տրիպտոֆան
-id: Triptofan
-it: L-triptofano, triptofano
-ja: トリプトファン
-jv: Triptofan
-ko: 트립토판
-ku: Trîptofan
-lb: Tryptophan
-lt: Triptofanas
-lv: triptofāns
-mk: Триптофан
-ms: Triptofan
-nb: Tryptofan
-nl: L-Tryptofaan, tryptofaan
-nn: L-tryptofan
-oc: Triptofan
-pl: L-tryptofan, tryptofan
-pt: Triptófano
-ro: Triptofan
-ru: триптофан
-sh: Triptofan
-sk: Tryptofán
-sl: Triptofan
-sr: триптофан
-sv: Tryptofan
-ta: டிரிப்டோபான்
-th: ทริปโตเฟน
-tr: Triptofan
-uk: Триптофан
-vi: Tryptophan
-zh: 色氨酸
-# azb:تریپتوفان
-# be-tarask:Трыптафан
-# de-ch:Tryptophan
-# en-ca:Tryptophan# en-gb:Tryptophan
-# ku-arab:تریپتۆفان
-# ku-latn:Trîptofan
-# nan:Tryptophan
-# pt-br:Triptófano
-# sco:tryptophan
-# sr-ec:триптофан
-# sr-el:Triptofan
-# yue:色氨酸
-# zh-cn:色氨酸
-# zh-hans:色氨酸
-# zh-hant:色氨酸
-# zh-hk:色胺酸
-# zh-sg:色氨酸
-# zh-tw:色胺酸
-wikidata:en: Q181003
-wikipedia:en: https://en.wikipedia.org/wiki/L-tryptophan—pyruvate_aminotransferase
-# amino-acid/l-tryptophan has 79 products @2019-03-16
-# ingredient/fr:l-tryptophane has 61 products in 4 languages @2019-03-16
 
 en: Nucleotides
 bg: Нуклеотиди
@@ -2032,7 +1922,10 @@ zh: 盐替代品
 
 # also in ingredients.txt
 # <en:compound
-fr: agent crémeux
+en: creaming agent
+es: agente cremoso
+fr: agent de crémage, agent crémeux
+it: agente cremoso
 # ingredient/fr:agent-cremeux has 16 products in french @2018-02-17
 
 # also in ingredients.txt
@@ -2058,6 +1951,7 @@ nl: verbeteraar
 en: bread improver
 bg: подобрител за хляб
 de: Backmittel
+fr: améliorant de la panification
 it: miglioranti per panificazione
 ru: улучшитель хлебопекарный
 

@@ -29,3 +29,5 @@ components:
           type: array
           items:
             type: string
+        "carbon-footprint-from-known-ingredients_product":
+          type: integer

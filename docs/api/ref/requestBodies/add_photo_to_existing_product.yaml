@@ -49,6 +49,7 @@ components:
             - nutrition
             - nutrition_en
             - nutrition_it
+            - nutrition_fr
             - packaging
             - packaging_en
             - packaging_it

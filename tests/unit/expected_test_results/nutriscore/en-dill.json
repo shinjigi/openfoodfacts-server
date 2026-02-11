@@ -14,6 +14,7 @@
       "en:plant-based-foods",
       "en:condiments",
       "en:culinary-plants",
+      "en:herbs-and-spices",
       "en:aromatic-plants",
       "en:herbs",
       "en:dill"
@@ -39,6 +40,7 @@
       "en:plant-based-foods",
       "en:condiments",
       "en:culinary-plants",
+      "en:herbs-and-spices",
       "en:aromatic-plants",
       "en:herbs",
       "en:dill"
@@ -94,6 +96,7 @@
    "lc" : "en",
    "minerals_tags" : [],
    "misc_tags" : [
+      "en:nutrients-estimated-from-ingredients",
       "en:nutrition-not-enough-data-to-compute-nutrition-score",
       "en:nutriscore-missing-nutrition-data",
       "en:nutriscore-missing-nutrition-data-energy",

@@ -53,11 +53,14 @@ properties:
       Note that each nutrients are declined with a variety of suffixes like `_100g`, `_serving`,
       see patternProperties below.
 
-      A specific `_unit` is the unit used to measure the nutrient.
+      A specific `_unit` is the unit of the value that was entered by the contributor (a user or the manufacturer).
+      It is not necessarily the unit that is printed on the product, as some apps may force specific units when writing nutrient values.
 
       Beware that some properties are to be interpreted based upon `nutrition_data_per` value.
 
-      Also for products that have a nutrition table for prepared product
+      For most use cases, you should use the `<nutrient>_100g` or `<nutrient>_serving` fields, as they are always in the same standard unit, for a specific quantity (100g or 1 serving).
+
+      For products that have a nutrition table for prepared product
       (eg. the nutrition facts for a bowl of milk with cocoa powder),
       a `_prepared` suffix is added (before other suffixes).
 
@@ -71,13 +74,12 @@ properties:
       - $ref: "./nutrients/calcium.yaml#/components/schemas/calcium"
       - $ref: "./nutrients/carbohydrates.yaml#/components/schemas/carbohydrates"
       - $ref: "./nutrients/carbon-footprint-from-known-ingredients.yaml#/components/schemas/carbon-footprint-from-known-ingredients"
-      - $ref: "./nutrients/carbon-footprint-from-known-ingredients-product.yaml#/components/schemas/carbon-footprint-from-known-ingredients-product"
       - $ref: "./nutrients/choline.yaml#/components/schemas/choline"
       - $ref: "./nutrients/cholesterol.yaml#/components/schemas/cholesterol"
       - $ref: "./nutrients/cocoa.yaml#/components/schemas/cocoa"
       - $ref: "./nutrients/copper.yaml#/components/schemas/copper"
       - $ref: "./nutrients/energy.yaml#/components/schemas/energy"
-      - $ref: "./nutrients/energy_kj.yaml#/components/schemas/energy_kj"
+      - $ref: "./nutrients/energy-kj.yaml#/components/schemas/energy-kj"
       - $ref: "./nutrients/energy-kcal.yaml#/components/schemas/energy-kcal"
       - $ref: "./nutrients/erythritol.yaml#/components/schemas/erythritol"
       - $ref: "./nutrients/fat.yaml#/components/schemas/fat"
@@ -129,41 +131,87 @@ properties:
       - $ref: "./nutrients/zinc.yaml#/components/schemas/zinc"
       - type: object
         properties:
-          aux_100g:
+          carbohydrates-total:
+            description: This follows the US / Canada definition of carbohydrates which includes fiber, also known as gross carbohydrates
             type: number
-          aux_label:
-            type: string
-          aux_serving:
+          energy:
             type: number
-          aux_unit:
-            type: string
-          aux_value:
-            type: number
-            examples:
-              - 12.5
-        #additionalProperties:
-        #  type: string
+            description: |
+              It is the same as `energy-kj` if we have it, or computed from `energy-kcal` otherwise
 
+              (per 100g or per serving) in kj
+          energy_value:
+            type: number
+            description: |
+              energy_value will be equal to energy-kj_value if we have it or to energy-kcal_value otherwise
+          energy_unit:
+            type: string
+            enum: ["kcal", "kJ"]
+            description: |
+              Equal to energy-kj_unit if we have it or to energy-kcal_unit otherwise
+          fat:
+            type: number
+          fruits-vegetables-legumes-estimate-from-ingredients:
+            type: number
+            description: |
+              An estimate, from the ingredients list of the percentage of fruits, vegetable and legumes.
+              This is an important information for Nutri-Score (2023 version) computation.
+          fruits-vegetables-nuts-estimate-from-ingredients:
+            type: number
+            description: |
+              An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
+              This is an important information for Nutri-Score (2021 version) computation.
+          nova-group:
+            type: integer
+          nutrition-score-fr:
+            description: |
+              Experimental nutrition score derived from
+              the UK FSA score and adapted for the French market
+              (formula defined by the team of Professor Hercberg).
+          proteins:
+            type: number
+          salt:
+            type: number
+          saturated-fat:
+            type: number
+          sodium:
+            type: number
+          sugars:
+            type: number
+          erythritol:
+            type: number
+            description: |
+              erythritol is a polyol which is not providing any energy.
+              As such, it needs not be taken into account when computing
+              the energy of a product. Eryhtritol is now displayed on
+              nutrition facts sheet of some products, mainly in the USA.
+              This value is entered either by contributors, either by
+              imports.
+            example: 12.5
         patternProperties:
           '(?<nutrient>[\w-]+)_unit':
             description: |
-              The unit in which the nutrient for 100g or per serving is measured.
+              The unit of the value entered by the contributor (a user or the manufacturer), for the product as sold (not prepared).
+              In most cases, this unit is the unit displayed on the product for the nutrient, but it is not guaranteed, as some apps may force specific units when writing nutrient values.          
 
-              The possible values depends on the nutrient.
+                  The possible values depends on the nutrient.
 
-              * `g` for grams
-              * `mg` for milligrams
-              * `μg` for micrograms
-              * `cl` for centiliters
-              * `ml` for mililiters
-              * `dv` for recommended daily intakes (aka [Dietary Reference Intake](https://en.wikipedia.org/wiki/Dietary_Reference_Intake))
-              * `% vol` for alcohol vol per 100 ml
+                  * `g` for grams
+                  * `mg` for milligrams
+                  * `μg` for micrograms
+                  * `cl` for centiliters
+                  * `ml` for mililiters
+                  * `dv` for recommended daily intakes (aka [Dietary Reference Intake](https://en.wikipedia.org/wiki/Dietary_Reference_Intake))
+                  * `% vol` for alcohol vol per 100 ml
 
-              🤓 code: see the [Units module][units-module],
-              and [Food:default_unit_for_nid function][default-unit]
+                  🤓 code: see the [Units module][units-module],
+                  and [Food:default_unit_for_nid function][default-unit]
 
               [units-module]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Units.html
               [default-unit]: https://openfoodfacts.github.io/openfoodfacts-server/dev/ref-perl-pod/ProductOpener/Food.html#default_unit_for_nid_(_%24nid)
+
+              **Note**: For most use cases, you should not use this unit, as it can change depending on how the value was entered.
+              Instead use the `<nutrient>_100g` or `<nutrient>_serving` fields, and convert them to the unit you need.
             type: string
             enum:
               [
@@ -213,57 +261,64 @@ properties:
               ]
           '(?<nutrient>[\w-]+)_100g':
             description: |
-              The standardized value of a serving of 100g (or 100ml for liquids)
-              for the nutrient.
+              The normalized value of the nutrient for 100g (or 100ml for liquids), in a standard unit, for the product as sold (not prepared):
+              * g for all nutrients that are measured by weight (e.g. fat, proteins, carbohydrates, sodium, vitamins, minerals etc.)
+              * % vol for nutrients that are percentages by volume (e.g. alcohol)
+              * kJ for energy and energy-kj
+              * kcal for energy-kcal
+              * no unit for pH
 
               This is computed from the `nutrient` property,
-              the serving size (if needed), and the `nutrient`_unit field.
+              the serving size (if `nutrient` is per serving), and the `nutrient`_unit field.
 
               **Note**:
-              If you want to characterize products in a uniform way, this is the value you should use.
+              For most use cases, this is the only value you should use, as it is always in the same unit, and always per 100g or 100ml.
             type: number
             readOnly: true
           '(?<nutrient>[\w-]+)_serving':
             description: |
-              The standardized value of a serving for this product.
+              The normalized value of the nutrient for one serving, in a standard unit:
+              - g for most nutrients
+              - % for nutrients that are percentages (e.g. alcohol)
+              - kJ for energy and energy-kj
+              - kcal for energy-kcal
+
+              This is computed from the `nutrient` property,
+              the serving size (if `nutrient` is per 100g), and the `nutrient`_unit field.
             type: number
             readOnly: true
           '(?<nutrient>[\w-]+)_value':
             description: |
-              The value input by the user / displayed on the product for the nutrient.
+              The value entered by the contributor (a user or the manufacturer).
+              In most cases, the unit of the value is the unit displayed on the product for the nutrient, but it is not guaranteed, as some apps may force specific units when writing nutrient values.          
 
-              * per 100g or serving, depending on `nutrition_data_per`
-              * in the unit of corresponding <nutrient>_unit field.
+              * per 100g or serving, depending on `nutrition_data_per` field.
+              * in the unit of the corresponding <nutrient>_unit field.
+
+              **Note**: For most use cases, you should not use this value, as it can be in different units, and can be per 100g or per serving.
             type: number
             readOnly: true
-          '(?<nutrient>[\w-]+)_label':
-            description: |
-              The label for nutrient.
-            type: string
           '(?<nutrient>[\w-]+)_prepared':
             description: |
-              The value for nutrient for **prepared** product.
+              Same as '(?<nutrient>[\w-]+)', for the prepared product (not as sold).
             type: number
           '(?<nutrient>[\w-]+)_prepared_unit':
             description: |
-              The unit in which the nutrient of **prepared** product is measured.
+              Same as '(?<nutrient>[\w-]+)_unit', for the prepared product (not as sold).
             type: string
           '(?<nutrient>[\w-]+)_prepared_100g':
             description: |
-              The standardized value of a serving of 100g (or 100ml for liquids)
-              for the nutrient, for **prepared** product.
+              Same as '(?<nutrient>[\w-]+)_100g', for the prepared product (not as sold).
             type: number
             readOnly: true
           '(?<nutrient>[\w-]+)_prepared_serving':
             description: |
-              The standardized value of a serving for the **prepared** product.
+              Same as '(?<nutrient>[\w-]+)_serving', for the prepared product (not as sold).
             type: number
             readOnly: true
           '(?<nutrient>[\w-]+)_prepared_value':
             description: |
-              The standardized value for a serving or 100g (or 100ml for liquids),
-              depending on `nutrition_data_prepared_per`
-              for the nutrient for **prepared** product.
+              Same as '(?<nutrient>[\w-]+)_value', for the prepared product (not as sold).
             type: number
             readOnly: true
 

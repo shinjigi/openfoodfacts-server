@@ -1,9 +1,6 @@
+title: Packaging component shape
 type: object
-title: TaxonomyEntry
-description: |
-  A canonical entry from a taxonomy, representing a standardized term with its identifier 
-  and localized name. Used for various packaging properties like materials, recycling instructions, 
-  and shapes.
+description: The shape property is canonicalized using the packaging_shapes taxonomy. Taxonomized values are available using the partial taxonomy API, the autosuggest API or the full packaging_shapes taxonomy JSON export.
 examples:
   - id: 'en:bottle'
     lc_name: bouteille

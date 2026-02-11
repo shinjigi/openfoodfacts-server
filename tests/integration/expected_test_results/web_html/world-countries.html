@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
 
@@ -83,6 +90,22 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+	
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
@@ -91,7 +114,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -176,7 +199,7 @@
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost%2Ffacets%2Fcountries%2F1" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Sign in
 								</a>
@@ -314,7 +337,10 @@
 
 								
 
+
+
 <section id="donation-banner-top" class="donation-banner row">
+
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
       <p>Help us inform millions of consumers around the world about what they eat</p>
@@ -328,9 +354,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <div style="padding:1rem;">
         <p>Your donations fund the day-to-day operations of our non-profit association:</p>
@@ -357,7 +383,7 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
           
         </p>
       </div>
@@ -368,6 +394,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -385,7 +413,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -395,18 +423,18 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -441,8 +469,16 @@
 </div>
 
 <!-- end templates/web/pages/tag/tag.tt.html -->
-  <div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+<!-- start templates/web/pages/countries_map/map_of_countries.tt.html -->
 
+<div id="world-map" style="min-width: 250px; max-width: 600px; min-height: 250px; max-height: 400px;"></div>
+
+<script type="module">
+  import { displayWorldMap } from '//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js';
+  displayWorldMap('#world-map', {"data":{"AR":1,"BE":1,"CA":1,"CH":1,"DE":5,"ES":4,"FR":7,"GB":5,"GR":1,"IN":1,"IT":4,"JP":2,"MX":1,"PT":1,"US":2},"links":{"AR":"/facets/countries/argentina","BE":"/facets/countries/belgium","CA":"/facets/countries/canada","CH":"/facets/countries/switzerland","DE":"/facets/countries/germany","ES":"/facets/countries/spain","FR":"/facets/countries/france","GB":"/facets/countries/united-kingdom","GR":"/facets/countries/greece","IN":"/facets/countries/india","IT":"/facets/countries/italy","JP":"/facets/countries/japan","MX":"/facets/countries/mexico","PT":"/facets/countries/portugal","US":"/facets/countries/united-states"},"names":{"AR":"Argentina","BE":"Belgium","CA":"Canada","CH":"Switzerland","DE":"Germany","ES":"Spain","FR":"France","GB":"United Kingdom","GR":"Greece","IN":"India","IT":"Italy","JP":"Japan","MX":"Mexico","PT":"Portugal","US":"United States"}});
+</script>
+
+<!-- end templates/web/pages/countries_map/map_of_countries.tt.html -->
 <p>15 countries:</p><div style="max-width:600px;"><table id="tagstable">
 <thead><tr><th>Country</th><th>Products</th><th>*</th></tr></thead>
 <tbody>
@@ -544,9 +580,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <p>Your donations fund the day-to-day operations of our non-profit association:</p>
       <ul>
@@ -662,7 +698,6 @@
 
 <script>
 $(function() {
-var countries_map_data=JSON.parse("{\"AR\":1,\"BE\":1,\"CA\":1,\"CH\":1,\"DE\":5,\"ES\":4,\"FR\":7,\"GB\":5,\"GR\":1,\"IN\":1,\"IT\":4,\"JP\":2,\"MX\":1,\"PT\":1,\"US\":2}");var countries_map_links=JSON.parse("{\"AR\":\"/facets/countries/argentina\",\"BE\":\"/facets/countries/belgium\",\"CA\":\"/facets/countries/canada\",\"CH\":\"/facets/countries/switzerland\",\"DE\":\"/facets/countries/germany\",\"ES\":\"/facets/countries/spain\",\"FR\":\"/facets/countries/france\",\"GB\":\"/facets/countries/united-kingdom\",\"GR\":\"/facets/countries/greece\",\"IN\":\"/facets/countries/india\",\"IT\":\"/facets/countries/italy\",\"JP\":\"/facets/countries/japan\",\"MX\":\"/facets/countries/mexico\",\"PT\":\"/facets/countries/portugal\",\"US\":\"/facets/countries/united-states\"}");var countries_map_names=JSON.parse("{\"AR\":\"Argentina\",\"BE\":\"Belgium\",\"CA\":\"Canada\",\"CH\":\"Switzerland\",\"DE\":\"Germany\",\"ES\":\"Spain\",\"FR\":\"France\",\"GB\":\"United Kingdom\",\"GR\":\"Greece\",\"IN\":\"India\",\"IT\":\"Italy\",\"JP\":\"Japan\",\"MX\":\"Mexico\",\"PT\":\"Portugal\",\"US\":\"United States\"}");displayWorldMap('#world-map', { 'data': countries_map_data, 'links': countries_map_links, 'names': countries_map_names });
 let oTable = $('#tagstable').DataTable({
 	language: {
 		search: "Search:",
@@ -686,9 +721,6 @@ let oTable = $('#tagstable').DataTable({
 <script src="//static.openfoodfacts.localhost/js/dist/foundation.js" data-base-layout="true"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/jquery.cookie.js"></script>
 <script src="//static.openfoodfacts.localhost/js/dist/select2.min.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/jsvectormap.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/world-merc.js"></script>
-<script src="//static.openfoodfacts.localhost/js/dist/display-list-of-tags.js"></script>
 <script src="//static.openfoodfacts.localhost/js/datatables.min.js"></script>
 
 <script>
@@ -739,8 +771,7 @@ $(document).foundation({
 platform: public
 can_use_cache: 1
 cache_miss
-no_off_query: 
-off_query: 
+off_query: 1
 platform: public
 query_url: //query:5510
 can_use_off_query: 1

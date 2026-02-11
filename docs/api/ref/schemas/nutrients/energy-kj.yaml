@@ -1,0 +1,35 @@
+
+components:
+  schemas:
+    energy-kj:
+      type: object
+      title: energy-kj
+      description: |
+        energy-kj: all tech fields about the nutrient
+      properties:
+        energy-kj:
+          type: number
+          description: |
+            energy in kj, if it is specified
+
+            (per 100g or per serving) in a standard unit (g or ml)
+        energy-kj_label:
+          type: string
+        energy-kj_100g:
+          type: number
+          format: float
+        energy-kj_serving:
+          type: number
+          format: float
+        energy-kj_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/kj"
+        energy-kj_value:
+          type: number
+          format: float
+        energy-kj_value_computed:
+          type: number
+          format: float
+        energy-kj_tags:
+          type: array
+          items:
+            type: string

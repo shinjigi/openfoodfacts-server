@@ -30,6 +30,13 @@
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/jqueryui/themes/base/jquery-ui.css" data-base-layout="true">
     <link rel="stylesheet" href="//static.openfoodfacts.localhost/css/dist/select2.min.css">
     <link rel="search" href="//world.openfoodfacts.localhost/cgi/opensearch.pl" type="application/opensearchdescription+xml" title="Open Food Facts">
+    <script type="importmap">
+    {
+        "imports": {
+            "jsvectormap": "//static.openfoodfacts.localhost/js/dist/jsvectormap.esm.js"
+        }
+    }
+    </script>
     <script type="module" src="//static.openfoodfacts.localhost/js/dist/off-webcomponents.bundled.js"></script>
 	<link rel="stylesheet" href="//static.openfoodfacts.localhost/js/datatables.min.css">
 
@@ -83,6 +90,22 @@
 
 
 
+	<off-webcomponents-configuration
+  language-code="en"
+  country-code="world"
+  robotoff-configuration='{
+    "apiUrl": "//backend:8881//api/v1",
+    "imgUrl": "//images.openfoodfacts.localhost/images/products"
+  }'
+  
+  folksonomy-configuration='{
+  "apiUrl": "//api.folksonomy.openfoodfacts.localhost"
+  }'
+  
+  openfoodfacts-api-url="//world.openfoodfacts.localhost"
+  assets-images-path="//static.openfoodfacts.localhost/css/dist/images"
+  ></off-webcomponents-configuration>
+	
 	
 	<div class="skip"><a href="#content" tabindex="0">Skip to Content</a></div>
 	
@@ -91,7 +114,7 @@
   <div class="modal-backdrop"></div>
   <div class="modal-content">
     <div class="modal-header">
-      <span><h2>Scan a product<h2></span>
+      <h2><span>Scan a product</span></h2>
       <button class="modal-close-button">&times;</button>
     </div>
     <div>
@@ -176,7 +199,7 @@
 					<ul class="right">
 						
 							<li class="h-space-tiny has-form">
-								<a href="/cgi/session.pl" class="round button secondary">
+								<a href="/cgi/oidc_signin.pl?return_url=http%3A%2F%2Fworld.openfoodfacts.localhost%2Ffacets%2Fingredients%2Fen%3Asomeunknowningredient%2Flabels%2F1" class="round button secondary">
 									<span class="material-icons material-symbols-button">account_circle</span>
 									Sign in
 								</a>
@@ -314,7 +337,10 @@
 
 								
 
+
+
 <section id="donation-banner-top" class="donation-banner row">
+
   <div class="donation-banner__left-aside">
     <div class="donation-banner__hook-section">
       <p>Help us inform millions of consumers around the world about what they eat</p>
@@ -328,9 +354,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner__main-title">Please give to our 2025 Fundraiser</h3>
+        <h3 class="donation-banner__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <div style="padding:1rem;">
         <p>Your donations fund the day-to-day operations of our non-profit association:</p>
@@ -357,7 +383,7 @@
       <div class="donation-banner__actions-section__financial">
         <p>
           
-          Each donation counts! We appreciate your support in bringing further food transparency in the world.  
+          Each donation counts! We appreciate your support in bringing further food transparency in the world.
           
         </p>
       </div>
@@ -368,6 +394,8 @@
       </div>
     </div>
   </div>
+
+
   <div class="donation-banner__close">
     <button id="hide-donate-banner" class="material-icons modest" onclick="DonationButton();" onkeypress="DonationButton();">close</button>
   </div>
@@ -385,7 +413,7 @@
     let domain = 'domain=.' + getDomain.slice(1).join('.');
     document.cookie = bcname + '=' + bcval + ';' + expires + ';' + domain + ';SameSite=None;Secure;path=/';
   }
-  
+
   function getBannerCookie(bcname) {
     const name = bcname + '=';
     const decodedCookies = decodeURIComponent(document.cookie);
@@ -395,18 +423,18 @@
       while (c.charAt(0) == ' ') { c = c.substring(1); }
       if (c.indexOf(name) == 0) { return c.substring(name.length, c.length); }
     }
-    
+
     return '';
   }
 
   function DonationButton() {
-    setBannerCookie('off_donation_banner_2024_a', 1, 180);
+    setBannerCookie('off_days_2025', 1, 180);
     bannerID.style.display = 'none';
   }
 
-  if (getBannerCookie('off_donation_banner_2024_a') !== '') {
+  if (getBannerCookie('off_days_2025') !== '') {
     bannerID.style.display = 'none';
-  } else { 
+  } else {
     bannerID.style.display = 'flex';
   }
 </script>
@@ -561,9 +589,9 @@
           width="50"
           height="50"
           src="//world.openfoodfacts.org/images/logos/logo-variants/CMJN-ICON_WHITE_BG_OFF.svg"
-          alt="open food facts logo"
+          alt="Open Food Facts logo"
         />
-        <h3 class="donation-banner-footer__main-title">Please give to our 2024 Fundraiser</h3>
+        <h3 class="donation-banner-footer__main-title">Please give to our 2026 Fundraiser</h3>
       </div>
       <p>Your donations fund the day-to-day operations of our non-profit association:</p>
       <ul>
@@ -752,8 +780,7 @@ $(document).foundation({
 no_cache: 1
 platform: public
 can_use_cache: 
-no_off_query: 
-off_query: 
+off_query: 1
 platform: public
 query_url: //query:5510
 can_use_off_query: 1

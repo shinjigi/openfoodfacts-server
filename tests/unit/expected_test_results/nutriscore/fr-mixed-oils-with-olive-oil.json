@@ -117,21 +117,16 @@
          "percent_estimate" : 0,
          "percent_max" : 0,
          "percent_min" : 0,
-         "text" : "vitamine D"
+         "text" : "vitamine D",
+         "vegan" : "yes",
+         "vegetarian" : "yes"
       }
    ],
-   "ingredients_analysis" : {
-      "en:vegan-status-unknown" : [
-         "en:vitamin-d"
-      ],
-      "en:vegetarian-status-unknown" : [
-         "en:vitamin-d"
-      ]
-   },
+   "ingredients_analysis" : {},
    "ingredients_analysis_tags" : [
       "en:palm-oil-free",
-      "en:vegan-status-unknown",
-      "en:vegetarian-status-unknown"
+      "en:vegan",
+      "en:vegetarian"
    ],
    "ingredients_lc" : "fr",
    "ingredients_n" : 5,
@@ -160,7 +155,8 @@
       "en:olive-oil",
       "en:virgin-olive-oil",
       "en:linseed-oil",
-      "en:vitamin-d"
+      "en:vitamin-d",
+      "en:vitamins"
    ],
    "ingredients_text" : "Huile de colza 45%, huile de tournesol 30%, huile d'olive vierge extra 20%, huile de lin 5%, vitamine D",
    "ingredients_with_specified_percent_n" : 4,
@@ -180,6 +176,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
       "en:nutrition-all-nutriscore-values-known",
@@ -499,6 +496,7 @@
       "c"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "c",

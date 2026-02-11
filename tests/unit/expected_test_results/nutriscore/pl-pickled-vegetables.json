@@ -17,6 +17,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
@@ -39,6 +40,7 @@
       "en:plant-based-foods-and-beverages",
       "en:plant-based-foods",
       "en:fruits-and-vegetables-based-foods",
+      "en:vegetable-based-foods-and-beverages",
       "en:canned-foods",
       "en:vegetables-based-foods",
       "en:canned-plant-based-foods",
@@ -180,6 +182,7 @@
    "minerals_tags" : [],
    "misc_tags" : [
       "en:some-ingredients-with-specified-percent",
+      "en:nutrients-estimated-from-ingredients",
       "en:nutrition-no-fiber",
       "en:nutriscore-computed",
       "en:nutrition-fruits-vegetables-nuts-estimate-from-ingredients",
@@ -480,6 +483,7 @@
       "d"
    ],
    "nutriscore_version" : "2023",
+   "nutrition_data" : "on",
    "nutrition_data_per" : "100g",
    "nutrition_data_prepared_per" : "100g",
    "nutrition_grade_fr" : "d",

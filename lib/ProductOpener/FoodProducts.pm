@@ -1,7 +1,7 @@
 # This file is part of Product Opener.
 #
 # Product Opener
-# Copyright (C) 2011-2023 Association Open Food Facts
+# Copyright (C) 2011-2026 Association Open Food Facts
 # Contact: contact@openfoodfacts.org
 # Address: 21 rue des Iles, 94100 Saint-Maur des Fossés, France
 #
@@ -50,7 +50,7 @@ BEGIN {
 use vars @EXPORT_OK;
 
 use ProductOpener::Ingredients
-	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text/;
+	qw/select_ingredients_lc clean_ingredients_text extract_ingredients_from_text extract_additives_from_text detect_allergens_from_text detect_rare_crops/;
 use ProductOpener::NutritionEstimation qw/estimate_nutrients_from_ingredients/;
 use ProductOpener::Food
 	qw/fix_salt_equivalent compute_nutrition_data_per_100g_and_per_serving assign_categories_properties_to_product compute_estimated_nutrients compute_unknown_nutrients compute_nova_group compute_nutriscore compute_nutrient_levels/;
@@ -84,6 +84,9 @@ sub specific_processes_for_food_product ($product_ref) {
 	extract_ingredients_from_text($product_ref);
 	extract_additives_from_text($product_ref);
 	detect_allergens_from_text($product_ref);
+
+	# Rare crops / Neglected and Underutilized Crops (NUCs) (DIVINFOOD project)
+	detect_rare_crops($product_ref);
 
 	# Category analysis
 	# Food category rules for sweetened/sugared beverages

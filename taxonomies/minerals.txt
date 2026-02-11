@@ -1350,7 +1350,7 @@ hi: मैग्नेशियम तत्त्व
 hr: magnezij
 ht: Manyezyòm
 hu: Magnézium
-hy:մագնեզիումia:magnesium
+hy: մագնեզիումia:magnesium
 id: magnesium
 io: magnezo
 is: magnesín
@@ -1689,6 +1689,13 @@ ro: lactat de magneziu
 sk: mliečnan horečnatý
 sl: magnezijev laktat
 sv: magnesiumlaktat
+
+< en:Magnesium
+en: magnesium malate
+de: Magnesiummalat
+sv: magnesiummalat
+wikidata:en: Q5927277
+wikipedia:en: https://en.wikipedia.org/wiki/Magnesium_malate
 
 < en:Magnesium
 en: magnesium hydroxide
@@ -4641,7 +4648,7 @@ cs: Jod
 cv: Иод
 cy: Ïodin
 da: jod
-de: Jod
+de: Jod, Iodid
 dv: އަޔޮޑިން
 el: Ιώδιο
 eo: jodo
@@ -4922,7 +4929,7 @@ nl: calciumjodaat
 pl: Jodan wapnia
 pt: iodato de cálcio
 ru: Иодат кальция
-sh:Kalcijum jodatsr:Kalcijum jodat
+sh: Kalcijum jodatsr:Kalcijum jodat
 ta: கால்சியம் அயோடேட்டு
 tr: Kalsiyum iyodat
 vi: Canxi iodat
@@ -5128,7 +5135,7 @@ pt: bicarbonato de sódio
 ro: bicarbonat de sodiu
 sk: hydrouhličitan sodný
 sl: natrijev bikarbonat
-sv: natriumbikarbonat
+sv: natriumbikarbonat, bikarbonat
 
 < en:Sodium
 en: sodium carbonate
