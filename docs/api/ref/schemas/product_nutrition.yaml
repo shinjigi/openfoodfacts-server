@@ -69,8 +69,10 @@ properties:
 
       **FIXME** add more nutrients with description.
     allOf:
+      - $ref: "./nutrients/added_sugars.yaml#/components/schemas/added_sugars"
       - $ref: "./nutrients/alcohol.yaml#/components/schemas/alcohol"
       - $ref: "./nutrients/beta_glucan.yaml#/components/schemas/beta_glucan"
+      - $ref: "./nutrients/caffeine.yaml#/components/schemas/caffeine"
       - $ref: "./nutrients/calcium.yaml#/components/schemas/calcium"
       - $ref: "./nutrients/carbohydrates.yaml#/components/schemas/carbohydrates"
       - $ref: "./nutrients/carbon-footprint-from-known-ingredients.yaml#/components/schemas/carbon-footprint-from-known-ingredients"
@@ -107,6 +109,7 @@ properties:
       - $ref: "./nutrients/salt.yaml#/components/schemas/salt"
       - $ref: "./nutrients/saturated-fat.yaml#/components/schemas/saturated-fat"
       - $ref: "./nutrients/sodium.yaml#/components/schemas/sodium"
+      - $ref: "./nutrients/starch.yaml#/components/schemas/starch"
       - $ref: "./nutrients/sugars.yaml#/components/schemas/sugars"
       - $ref: "./nutrients/trans_fat.yaml#/components/schemas/trans_fat"
       - $ref: "./nutrients/vitamin_a.yaml#/components/schemas/vitamin_a"
@@ -161,8 +164,6 @@ properties:
             description: |
               An estimate, from the ingredients list of the percentage of fruits, vegetable and nuts.
               This is an important information for Nutri-Score (2021 version) computation.
-          nova-group:
-            type: integer
           nutrition-score-fr:
             description: |
               Experimental nutrition score derived from

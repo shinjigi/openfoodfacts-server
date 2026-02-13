@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    starch:
+      type: object
+      title: starch
+      description: |
+        starch: all tech fields about the nutrient
+      properties:
+        starch:
+          type: number
+        starch_label:
+          type: string
+        starch_100g:
+          type: number
+          format: float
+        starch_serving:
+          type: number
+          format: float
+        starch_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        starch_value:
+          type: number
+          format: float
+        starch_value_computed:
+          type: number
+          format: float
+        starch_tags:
+          type: array
+          items:
+            type: string

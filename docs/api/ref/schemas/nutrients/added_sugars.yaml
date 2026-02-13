@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    added_sugars:
+      type: object
+      title: added_sugars
+      description: |
+        added_sugars: all tech fields about the nutrient
+      properties:
+        added_sugars:
+          type: number
+        added_sugars_label:
+          type: string
+        added_sugars_100g:
+          type: number
+          format: float
+        added_sugars_serving:
+          type: number
+          format: float
+        added_sugars_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        added_sugars_value:
+          type: number
+          format: float
+        added_sugars_value_computed:
+          type: number
+          format: float
+        added_sugars_tags:
+          type: array
+          items:
+            type: string

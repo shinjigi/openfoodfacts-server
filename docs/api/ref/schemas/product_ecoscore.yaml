@@ -178,6 +178,8 @@ properties:
       missing:
         type: object
         properties:
+          categories:
+            type: integer
           agb_category:
             type: integer
           labels:

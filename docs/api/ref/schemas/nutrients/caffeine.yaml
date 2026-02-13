@@ -1,0 +1,31 @@
+
+components:
+  schemas:
+    caffeine:
+      type: object
+      title: caffeine
+      description: |
+        caffeine: all tech fields about the nutrient
+      properties:
+        caffeine:
+          type: number
+        caffeine_label:
+          type: string
+        caffeine_100g:
+          type: number
+          format: float
+        caffeine_serving:
+          type: number
+          format: float
+        caffeine_unit:
+          $ref: "./all_units_enum.yaml#/components/schemas/g_mg_ug"
+        caffeine_value:
+          type: number
+          format: float
+        caffeine_value_computed:
+          type: number
+          format: float
+        caffeine_tags:
+          type: array
+          items:
+            type: string
